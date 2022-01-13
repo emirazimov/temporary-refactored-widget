@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@material-ui/core"
+import { useMediaQuery } from '@material-ui/core'
 // import Box from "@material-ui/core/Box"
 // import Button from "@material-ui/core/Button"
 // import Grid from "@material-ui/core/Grid"
@@ -7,19 +7,20 @@ import { useMediaQuery } from "@material-ui/core"
 // import { makeStyles } from "@material-ui/core/styles"
 // import TextField from "@material-ui/core/TextField"
 // import Typography from "@material-ui/core/Typography"
-import React from "react"
-import { AspectRatio } from "react-aspect-ratio"
-import Carousel from "react-material-ui-carousel"
+import React, { useContext } from 'react'
+import { AspectRatio } from 'react-aspect-ratio'
+import Carousel from 'react-material-ui-carousel'
 // import { connect } from "react-redux"
-import { BackArrowIcon, ForwardArrowIcon } from "../../../../assets/icons"
+import { BackArrowIcon, ForwardArrowIcon } from '../../../../assets/icons'
 // import { toggleIsFetching } from "../../../../Redux/car-reducer"
 // import { setNoteRedux, setOrderSum } from "../../../../Redux/form-reducer"
-import Directions from "../../../GoogleMap/Directions/Directions"
+import Directions from '../../../GoogleMap/Directions/Directions'
 // import Dialog from "@material-ui/core/Dialog"
 // import DialogActions from "@material-ui/core/DialogActions"
 // import { useStyles } from "./PreviewStyles"
-import styles from "./Preview.module.scss"
-import { Modal } from "../../../Helpers/Modal/Modal"
+import styles from './Preview.module.scss'
+import { Modal } from '../../../Helpers/Modal/Modal'
+import ThemeContext from '../../../../context'
 
 const PreviewUIComponent = ({
   carId,
@@ -53,14 +54,28 @@ const PreviewUIComponent = ({
   setShow,
 }) => {
   // const classes = useStyles()
-  const isMobile = useMediaQuery("(max-width:500px)")
+  const isMobile = useMediaQuery('(max-width:500px)')
   console.log(formData.orderStartDateTime)
+
+  const {
+    ThemeProviderAppBackgroundColor,
+    fontColor,
+    borderRadiuses,
+    carsTypeColor,
+    hoverColor,
+    iconsColor,
+    backAndNextButtonsColor,
+    innerTextOnHover,
+    inputsFontColor,
+  } = useContext(ThemeContext)
+
   return (
     <div
       // container
       // spacing={1}
       // className={classes.contentContainer}
       className={styles.previewWrapper}
+      style={{ background: ThemeProviderAppBackgroundColor }}
     >
       <div
         // item
@@ -76,6 +91,7 @@ const PreviewUIComponent = ({
           //   lineHeight: "36px",
           // }}
           className={styles.previewTitleSelf}
+          style={{ color: fontColor }}
         >
           Preview
         </span>
@@ -127,40 +143,40 @@ const PreviewUIComponent = ({
           >
             <Carousel
               autoPlay={false}
-              animation="slide"
+              animation='slide'
               navButtonsProps={{
                 style: {
-                  width: "10px",
-                  height: "10px",
-                  marginTop: "8px",
+                  width: '10px',
+                  height: '10px',
+                  marginTop: '8px',
                 },
               }}
               indicatorIconButtonProps={{
                 style: {
-                  "&:hover": {
-                    "&$button": {
-                      backgroundColor: "#10B7EC",
-                      filter: "brightness(120%)",
-                      opacity: "0.4",
+                  '&:hover': {
+                    '&$button': {
+                      backgroundColor: '#10B7EC',
+                      filter: 'brightness(120%)',
+                      opacity: '0.4',
                     },
                   },
                   //
-                  width: "5px",
-                  height: "5px",
+                  width: '5px',
+                  height: '5px',
                   // height: "0px",
                   // marginBottom: "-30px",
-                  color: "grey",
+                  color: 'grey',
                 },
               }}
               activeIndicatorIconButtonProps={{
                 style: {
-                  color: "white",
-                  width: "5px",
-                  height: "5px",
+                  color: 'white',
+                  width: '5px',
+                  height: '5px',
                 },
               }}
               indicatorContainerProps={{
-                style: { bottom: "10px", position: "absolute" },
+                style: { bottom: '10px', position: 'absolute' },
               }}
             >
               {selectedCar.imageUrls.length !== 0 ? (
@@ -183,17 +199,21 @@ const PreviewUIComponent = ({
                       //   paddingTop: "2px",
                       // }}
                       className={styles.orSimiliar}
+                      style={{
+                        background: backAndNextButtonsColor,
+                        color: fontColor,
+                      }}
                     >
                       or similar
                     </div>
                     <AspectRatio
                       // ratio="560/315"
                       style={{
-                        display: "block",
-                        width: !isMobile ? "100%" : "100%",
-                        height: !isMobile ? "112px" : "116px",
+                        display: 'block',
+                        width: !isMobile ? '100%' : '100%',
+                        height: !isMobile ? '112px' : '116px',
 
-                        cursor: "zoom-in",
+                        cursor: 'zoom-in',
                       }}
                     >
                       <img
@@ -204,7 +224,7 @@ const PreviewUIComponent = ({
                         //   borderRadius: "9px",
                         //   cursor: "zoom-in",
                         // }}
-                        alt="car"
+                        alt='car'
                         onClick={() => handleClickOpen()}
                         className={styles.carImageSelf}
                       />
@@ -226,27 +246,31 @@ const PreviewUIComponent = ({
                     //   paddingTop: "2px",
                     // }}
                     className={styles.orSimiliar}
+                    style={{
+                      background: backAndNextButtonsColor,
+                      color: fontColor,
+                    }}
                   >
                     or similar
                   </span>
                   <AspectRatio
                     // ratio="560/315"
                     style={{
-                      display: "block",
-                      width: !isMobile ? "100%" : "100%",
-                      height: !isMobile ? "112px" : "116px",
+                      display: 'block',
+                      width: !isMobile ? '100%' : '100%',
+                      height: !isMobile ? '112px' : '116px',
 
-                      cursor: "zoom-in",
+                      cursor: 'zoom-in',
                     }}
                   >
                     <img
-                      src={"https://fl-1.cdn.flockler.com/embed/not-found.png"}
+                      src={'https://fl-1.cdn.flockler.com/embed/not-found.png'}
                       // style={{
                       //   width: !isMobile ? "100%" : "100%",
                       //   height: !isMobile ? "118px" : "116px",
                       //   borderRadius: "9px",
                       // }}
-                      alt="car"
+                      alt='car'
                       className={styles.carImageSelf}
                     />
                   </AspectRatio>
@@ -256,29 +280,29 @@ const PreviewUIComponent = ({
             <Modal onClose={() => handleClickClose()} show={show}>
               <Carousel
                 autoPlay={false}
-                animation="slide"
+                animation='slide'
                 swipe={true}
                 navButtonsAlwaysVisible={true}
                 navButtonsProps={{
                   style: {
-                    width: "1em",
-                    height: "1em",
+                    width: '1em',
+                    height: '1em',
                   },
                 }}
                 indicatorIconButtonProps={{
                   style: {
-                    "&:hover": {
-                      "& $button": {
-                        backgroundColor: "#10B7EC",
-                        filter: "brightness(120%)",
-                        opacity: "0.4",
+                    '&:hover': {
+                      '& $button': {
+                        backgroundColor: '#10B7EC',
+                        filter: 'brightness(120%)',
+                        opacity: '0.4',
                       },
                     },
                   },
                 }}
                 activeIndicatorIconButtonProps={{
                   style: {
-                    color: "#10B7EC",
+                    color: '#10B7EC',
                   },
                 }}
                 indicatorContainerProps={{
@@ -287,14 +311,14 @@ const PreviewUIComponent = ({
               >
                 {selectedCar.imageUrls.map((url) => (
                   <AspectRatio
-                    ratio="4/3"
+                    ratio='4/3'
                     style={{
-                      width: !isMobile ? "550px" : "257px",
-                      height: !isMobile ? "400px" : "170px",
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      width: !isMobile ? '550px' : '257px',
+                      height: !isMobile ? '400px' : '170px',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
                       // display: "block",
                       // width: !isMobile ? "170px" : "100%",
                       // height: !isMobile ? "107px" : "116px",
@@ -314,11 +338,11 @@ const PreviewUIComponent = ({
                     <img
                       src={url.path}
                       style={{
-                        borderRadius: "8px",
+                        borderRadius: '8px',
                         // width: "100%",
                         // height: "100%",
                       }}
-                      alt="car"
+                      alt='car'
                       key={`${url.id}${url.path}`}
                     />
                   </AspectRatio>
@@ -343,6 +367,9 @@ const PreviewUIComponent = ({
                 // variant="body2"
                 // style={{ fontSize: "18px" }}
                 className={styles.carModel}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {selectedCar.make} {selectedCar.model}
               </span>
@@ -411,6 +438,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Type
                   </span>
@@ -429,6 +459,9 @@ const PreviewUIComponent = ({
                     //   borderBottom: `2px dotted ${carTextColor}`,
                     // }}
                     className={styles.detailedDescriptionPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -442,6 +475,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {selectedCar.type}
                   </span>
@@ -466,6 +502,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Capacity
                   </span>
@@ -484,6 +523,9 @@ const PreviewUIComponent = ({
                     //   borderBottom: `2px dotted ${carTextColor}`,
                     // }}
                     className={styles.detailedDescriptionPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -497,6 +539,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {selectedCar.capacity}
                   </span>
@@ -521,6 +566,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Color
                   </span>
@@ -539,6 +587,9 @@ const PreviewUIComponent = ({
                     //   borderBottom: `2px dotted ${carTextColor}`,
                     // }}
                     className={styles.detailedDescriptionPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -552,6 +603,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {selectedCar.color}
                   </span>
@@ -576,6 +630,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Amount
                   </span>
@@ -594,6 +651,9 @@ const PreviewUIComponent = ({
                     //   borderBottom: `2px dotted ${carTextColor}`,
                     // }}
                     className={styles.detailedDescriptionPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -607,6 +667,9 @@ const PreviewUIComponent = ({
                     //   fontWeight: "400",
                     // }}
                     className={styles.detailedDescriptionValueAmountSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {gateMeeting
                       ? `$${round(
@@ -773,6 +836,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Date
               </span>
@@ -792,6 +858,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -805,6 +874,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {formData.orderStartDateTime.match(
                   /(\d{1,4}([.\-/])\d{1,2}([.\-/])\d{1,4})/g
@@ -833,6 +905,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Time
               </span>
@@ -852,6 +927,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -865,12 +943,15 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {new Date(formData.orderStartDateTime).toLocaleTimeString(
-                  "en-US",
+                  'en-US',
                   {
-                    hour: "numeric",
-                    minute: "numeric",
+                    hour: 'numeric',
+                    minute: 'numeric',
                   }
                 )}
               </span>
@@ -940,6 +1021,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 From
               </span>
@@ -959,6 +1043,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -972,6 +1059,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {formData.orderAddressDetails[0].rideCheckPoint}
               </span>
@@ -1051,6 +1141,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 To
               </span>
@@ -1070,6 +1163,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -1083,6 +1179,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {
                   formData.orderAddressDetails[
@@ -1170,6 +1269,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Vehicle
               </span>
@@ -1189,6 +1291,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -1202,6 +1307,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {selectedCar.type}
               </span>
@@ -1265,6 +1373,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Total distance
               </span>
@@ -1284,6 +1395,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -1297,6 +1411,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {distance} miles
               </span>
@@ -1360,6 +1477,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Number of Passengers
               </span>
@@ -1379,6 +1499,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -1392,6 +1515,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {formData.passengersQuantity}
               </span>
@@ -1456,6 +1582,9 @@ const PreviewUIComponent = ({
                   // className={classes.textColor}
                   // style={{ fontSize: "16px" }}
                   className={styles.reservationDetailsItemTitleSelf}
+                  style={{
+                    color: fontColor,
+                  }}
                 >
                   Hours
                 </span>
@@ -1475,6 +1604,9 @@ const PreviewUIComponent = ({
                   //   marginRight: "3px",
                   // }}
                   className={styles.reservationDetailsItemPointedLineSelf}
+                  style={{
+                    color: fontColor,
+                  }}
                 />
               </div>
               <div
@@ -1488,6 +1620,9 @@ const PreviewUIComponent = ({
                   //   marginRight: "-3px",
                   // }}
                   className={styles.reservationDetailsItemValueSelf}
+                  style={{
+                    color: fontColor,
+                  }}
                 >
                   {formData.hours}
                 </span>
@@ -1616,6 +1751,9 @@ const PreviewUIComponent = ({
                     // className={classes.textColor}
                     // style={{ fontSize: "16px" }}
                     className={styles.reservationDetailsItemTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Youth Booster Seat
                   </span>
@@ -1635,6 +1773,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "3px",
                     // }}
                     className={styles.reservationDetailsItemPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -1648,6 +1789,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "-3px",
                     // }}
                     className={styles.reservationDetailsItemValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {selectedCar.boosterSeatPrice !== 0 &&
                     selectedCar.boosterSeatPrice !== undefined
@@ -1723,8 +1867,11 @@ const PreviewUIComponent = ({
                     // className={classes.textColor}
                     // style={{ fontSize: "16px" }}
                     className={styles.reservationDetailsItemTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
-                    {"Infant & Child Safety Seat"}
+                    {'Infant & Child Safety Seat'}
                   </span>
                 </div>
                 <div
@@ -1742,6 +1889,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "3px",
                     // }}
                     className={styles.reservationDetailsItemPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -1755,6 +1905,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "-3px",
                     // }}
                     className={styles.reservationDetailsItemValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {/* {`$${0}`} */}
                     {selectedCar.safetySeatPrice !== 0 &&
@@ -1789,8 +1942,11 @@ const PreviewUIComponent = ({
                     // className={classes.textColor}
                     // style={{ fontSize: "16px" }}
                     className={styles.reservationDetailsItemTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
-                    {"Meet & Greet/Luggage Assist"}
+                    {'Meet & Greet/Luggage Assist'}
                   </span>
                 </div>
                 <div
@@ -1808,6 +1964,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "3px",
                     // }}
                     className={styles.reservationDetailsItemPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -1821,6 +1980,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "-3px",
                     // }}
                     className={styles.reservationDetailsItemValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {/* {`$${0}`} */}
                     {`$${selectedCar.greetAndMeetPrice}`}
@@ -1888,6 +2050,9 @@ const PreviewUIComponent = ({
                     // className={classes.textColor}
                     // style={{ fontSize: "16px" }}
                     className={styles.reservationDetailsItemTitleSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     Luggage count
                   </span>
@@ -1907,6 +2072,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "3px",
                     // }}
                     className={styles.reservationDetailsItemPointedLineSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   />
                 </div>
                 <div
@@ -1920,6 +2088,9 @@ const PreviewUIComponent = ({
                     //   marginRight: "-3px",
                     // }}
                     className={styles.reservationDetailsItemValueSelf}
+                    style={{
+                      color: fontColor,
+                    }}
                   >
                     {/* {`$${0}`} */}
                     {formData.luggageCount}
@@ -1991,6 +2162,9 @@ const PreviewUIComponent = ({
                 // className={classes.textColor}
                 // style={{ fontSize: "16px" }}
                 className={styles.reservationDetailsItemTitleSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 Total
               </span>
@@ -2010,6 +2184,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "3px",
                 // }}
                 className={styles.reservationDetailsItemPointedLineSelf}
+                style={{
+                  color: fontColor,
+                }}
               />
             </div>
             <div
@@ -2023,6 +2200,9 @@ const PreviewUIComponent = ({
                 //   marginRight: "-3px",
                 // }}
                 className={styles.reservationDetailsItemValueSelf}
+                style={{
+                  color: fontColor,
+                }}
               >
                 {/* {`$${0}`} */}
                 {`$${round(selectedCar.price, 2)}`}
@@ -2036,9 +2216,9 @@ const PreviewUIComponent = ({
           className={styles.notesTextFieldContainer}
         >
           <textarea
-            id="outlined-multiline-flexible"
+            id='outlined-multiline-flexible'
             // label="Notes / Itinerary"
-            placeholder="Notes / Itinerary"
+            placeholder='Notes / Itinerary'
             // multiline
             // fullWidth
             // rows={3}
@@ -2074,30 +2254,38 @@ const PreviewUIComponent = ({
                 className={styles.back}
               > */}
             <button
-              variant="contained"
-              color="primary"
+              variant='contained'
+              color='primary'
               fullWidth
               onClick={back}
               startIcon={<BackArrowIcon />}
               // className={classes.backButtonSelf}
               className={styles.buttonBackSelf}
+              style={{
+                background: backAndNextButtonsColor,
+                color: fontColor,
+              }}
             >
               Back
             </button>
             {/* </Grid> */}
             {/* <Grid item xs={6}> */}
             <button
-              variant="contained"
+              variant='contained'
               fullWidth
               onClick={() => {
                 next()
                 sendNote(note)
                 setOrderSum(selectedCar.price)
               }}
-              color="primary"
+              color='primary'
               endIcon={<ForwardArrowIcon />}
               // className={classes.nextButtonSelf}
               className={styles.buttonNextSelf}
+              style={{
+                background: backAndNextButtonsColor,
+                color: fontColor,
+              }}
             >
               Next
             </button>

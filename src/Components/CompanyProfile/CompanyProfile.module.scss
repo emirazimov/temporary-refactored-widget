@@ -1,8 +1,8 @@
-@use "../MAINCSSFORWHOLECOMPONENTS/AppBackgroundColor.module" as *;
-@use "../MAINCSSFORWHOLECOMPONENTS/SidePaddings.module" as *;
-@use "../MAINCSSFORWHOLECOMPONENTS/FontColor.module" as *;
-@use "../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss" as *;
-@use "../MAINCSSFORWHOLECOMPONENTS/_BorderRadiuses.module.scss" as *;
+@use '../MAINCSSFORWHOLECOMPONENTS/AppBackgroundColor.module' as *;
+@use '../MAINCSSFORWHOLECOMPONENTS/SidePaddings.module' as *;
+@use '../MAINCSSFORWHOLECOMPONENTS/FontColor.module' as *;
+@use '../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss' as *;
+@use '../MAINCSSFORWHOLECOMPONENTS/_BorderRadiuses.module.scss' as *;
 
 .companyProfileWrapper {
   display: flex;
@@ -45,53 +45,55 @@
   // &:hover {
 
   // }
+
   width: 23px;
   height: 23px;
   position: relative;
   transition: 0.1s;
   border-radius: $inner-elements-border-radius;
+
   &:hover {
     background: $hover-color;
     transition: 0.1s;
-    .companyProfileCloseIconSelfCustomCreation {
-      &::before {
-        background: $inner-text-on-hover;
-        transition: 0.1s;
-      }
-      &::after {
-        background: $inner-text-on-hover;
-        transition: 0.1s;
-      }
-    }
+    // .companyProfileCloseIconSelfCustomCreation {
+    //   &::before {
+    //     background: $inner-text-on-hover;
+    //     transition: 0.1s;
+    //   }
+    //   &::after {
+    //     background: $inner-text-on-hover;
+    //     transition: 0.1s;
+    //   }
+    // }
   }
 }
-.companyProfileCloseIconSelfCustomCreation {
-  &::before {
-    content: "";
-    width: 17px;
-    height: 2px;
-    background: $font-color;
-    transform: rotate(225deg);
-    position: absolute;
-    bottom: 46%;
-    left: 11%;
-    transition: 0.1s;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-  }
-  &::after {
-    content: "";
-    width: 17px;
-    height: 2px;
-    background: $font-color;
-    transform: rotate(135deg);
-    position: absolute;
-    bottom: 46%;
-    left: 11%;
-    transition: 0.1s;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-  }
-}
+// .companyProfileCloseIconSelfCustomCreation {
+//   &::before {
+//     content: "";
+//     width: 17px;
+//     height: 2px;
+//     background: $font-color;
+//     transform: rotate(225deg);
+//     position: absolute;
+//     bottom: 46%;
+//     left: 11%;
+//     transition: 0.1s;
+//     // position: absolute;
+//     // top: 50%;
+//     // left: 50%;
+//   }
+//   &::after {
+//     content: "";
+//     width: 17px;
+//     height: 2px;
+//     background: $font-color;
+//     transform: rotate(135deg);
+//     position: absolute;
+//     bottom: 46%;
+//     left: 11%;
+//     transition: 0.1s;
+//     // position: absolute;
+//     // top: 50%;
+//     // left: 50%;
+//   }
+// }

@@ -1,25 +1,25 @@
-import { makeStyles, useMediaQuery } from "@material-ui/core"
+import { makeStyles, useMediaQuery } from '@material-ui/core'
 // import Grid from "@material-ui/core/Grid"
 // import Typography from "@material-ui/core/Typography"
-import React, { useContext } from "react"
-import { useFormContext } from "react-hook-form"
-import { NumberOfPassengersIcon } from "../../../../../assets/icons"
-import ThemeContext from "../../../../../context"
+import React, { useContext } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { NumberOfPassengersIcon } from '../../../../../assets/icons'
+import ThemeContext from '../../../../../context'
 // import {
 //   MinusIcon,
 //   // NumberOfPassengers,
 //   NumberOfPassengersIcon,
 //   PlusIcon,
 // } from "../../../../../assets/icons"
-import "../../index.css"
-import styles from "./PassengerQuantity.module.scss"
+import '../../index.css'
+import styles from './PassengerQuantity.module.scss'
 
 const useStyles = makeStyles((theme) => ({
   mainPlusMinusContainer: {
-    height: "34px",
-    borderBottom: "2px solid #AC8159",
-    transition: "200ms",
-    "&:hover": { borderBottom: "2px solid white", transition: "200ms" },
+    height: '34px',
+    borderBottom: '2px solid #AC8159',
+    transition: '200ms',
+    '&:hover': { borderBottom: '2px solid white', transition: '200ms' },
   },
 }))
 
@@ -55,7 +55,7 @@ export default React.memo(function PassengerQuantity({
   //   React.useEffect(() => {
   //     setPassengers(parseInt(passengersqState))
   //   }, [passengersqState])
-  const isMobile = useMediaQuery("(max-width:340px)")
+  const isMobile = useMediaQuery('(max-width:340px)')
 
   const {
     ThemeProviderAppBackgroundColor,
@@ -135,6 +135,7 @@ export default React.memo(function PassengerQuantity({
             //     // marginRight: "5px",
             //   }
             // }
+            type='reset'
             className={styles.passengerQuantityMinusSelf}
             style={{ background: ThemeProviderAppBackgroundColor }}
           >
@@ -151,14 +152,14 @@ export default React.memo(function PassengerQuantity({
         >
           <input
             ref={register}
-            name="passengersQuantity"
+            name='passengersQuantity'
             onChange={(e) => {
               setPassengers(e.target.value)
               setPassengersQuantityForBackStep(e.target.value)
             }}
-            className="passenger"
+            className='passenger'
             value={passengersQuantityForBackStep}
-            size="1"
+            size='1'
             // style={{
             //   // pointerEvents: "none",
             //   minWidth: "34px",
@@ -177,7 +178,7 @@ export default React.memo(function PassengerQuantity({
             //   // height: "100%",
             //   // borderBottom: "2px solid #AC8159",
             // }}
-            type="number"
+            type='number'
             className={styles.passengerQuantityInputSelf}
             style={{ background: ThemeProviderAppBackgroundColor }}
           />
@@ -191,6 +192,7 @@ export default React.memo(function PassengerQuantity({
             // style={{ marginLeft: "4px" }}
             className={styles.passengerQuantityPlusSelf}
             style={{ background: ThemeProviderAppBackgroundColor }}
+            type='reset'
           ></button>
         </div>
         {/* </div> */}
