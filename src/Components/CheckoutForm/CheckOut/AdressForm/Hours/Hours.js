@@ -57,6 +57,10 @@ const Hours = ({
     iconsColor,
     backAndNextButtonsColor,
     innerTextOnHover,
+    borderRadiusesForInnerElements,
+    borderRadiusesForWholeApp,
+    borderColorForInnerElements,
+    borderColorForOuterApp,
   } = useContext(ThemeContext)
 
   return (
@@ -102,7 +106,7 @@ const Hours = ({
           <button
             onClick={onDecrease}
             className={styles.hoursCounterMinus}
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{ background: backAndNextButtonsColor }}
             // style={{ marginRight: "5px" }}
           ></button>
         </div>
@@ -144,7 +148,10 @@ const Hours = ({
             //   fontSize: "14px",
             //   height: "100%",
             // }}
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{
+              background: backAndNextButtonsColor,
+              border: `1px solid ${borderColorForInnerElements}`,
+            }}
             type="number"
             className={styles.hoursCounterInput}
           />
@@ -153,7 +160,7 @@ const Hours = ({
           <button
             className={styles.hoursCounterPlus}
             onClick={onIncrease}
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{ background: backAndNextButtonsColor }}
             // style={{ marginLeft: "4px" }}
           ></button>
           {/* </div> */}

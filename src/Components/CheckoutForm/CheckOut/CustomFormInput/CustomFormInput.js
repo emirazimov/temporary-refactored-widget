@@ -1,20 +1,20 @@
 // import { makeStyles } from "@material-ui/core"
 // import TextField from "@material-ui/core/TextField"
-// // import Autocomplete from "@material-ui/lab/Autocomplete"
+// import Autocomplete from "@material-ui/lab/Autocomplete"
 // import {
 //   DatePicker,
 //   // DateTimePicker,
 //   // TimePicker,
 //   // KeyboardTimePicker,
 // } from "@material-ui/pickers"
-// import "date-fns"
-// import React from "react"
-// import { Controller, useFormContext } from "react-hook-form"
-// import ReactInputMask from "react-input-mask"
+import "date-fns"
+import React from "react"
+import { Controller, useFormContext } from "react-hook-form"
+import ReactInputMask from "react-input-mask"
 // import { PlacesAutocomplete } from "react-places-autocomplete"
-// // import { TimePicker } from "antd"
-// // import "antd/dist/antd.css"
-// import "../index.css"
+// import { TimePicker } from "antd"
+// import "antd/dist/antd.css"
+import "../index.css"
 
 // const useStyles = makeStyles((theme) => ({
 //   inputRoot: {
@@ -150,28 +150,28 @@
 //   )
 // }
 
-// export const CustomMaskInput = ({
-//   defaultValue,
-//   name,
-//   required,
-//   mask,
-//   ...props
-// }) => {
-//   const { control } = useFormContext()
-//   const classes = useStyles()
+export const CustomMaskInput = ({
+  defaultValue,
+  name,
+  required,
+  mask,
+  ...props
+}) => {
+  const { control } = useFormContext()
+  //   const classes = useStyles()
 
-//   return (
-//     <Controller
-//       as={ReactInputMask}
-//       control={control}
-//       name={name}
-//       required={required}
-//       mask={mask}
-//       defaultValue={defaultValue}
-//       {...props}
-//     />
-//   )
-// }
+  return (
+    <Controller
+      as={ReactInputMask}
+      control={control}
+      name={name}
+      required={required}
+      mask={mask}
+      defaultValue={defaultValue}
+      {...props}
+    />
+  )
+}
 
 // export const CustomAutocomplete = ({
 //   defaultValue,

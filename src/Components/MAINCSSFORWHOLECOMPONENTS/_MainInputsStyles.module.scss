@@ -15,21 +15,21 @@ $background-position-x-for-date-time-picker: 4%;
   border: $inputs-border;
   border-radius: $inputs-border-radius;
   color: $inputs-color;
-  &::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $inputs-color;
-    opacity: 1; /* Firefox */
-  }
+  // &::placeholder {
+  //   /* Chrome, Firefox, Opera, Safari 10.1+ */
+  //   color: $inputs-color;
+  //   opacity: 1; /* Firefox */
+  // }
 
-  &:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: $inputs-color;
-  }
+  // &:-ms-input-placeholder {
+  //   /* Internet Explorer 10-11 */
+  //   color: $inputs-color;
+  // }
 
-  &::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: $inputs-color;
-  }
+  // &::-ms-input-placeholder {
+  //   /* Microsoft Edge */
+  //   color: $inputs-color;
+  // }
   &:focus {
     outline: none;
   }

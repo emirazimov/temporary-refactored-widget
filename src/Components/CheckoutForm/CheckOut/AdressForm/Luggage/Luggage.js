@@ -49,6 +49,10 @@ const Luggage = ({ luggage, setLuggage }) => {
     iconsColor,
     backAndNextButtonsColor,
     innerTextOnHover,
+    borderRadiusesForInnerElements,
+    borderRadiusesForWholeApp,
+    borderColorForInnerElements,
+    borderColorForOuterApp,
   } = useContext(ThemeContext)
 
   //   React.useEffect(() => {
@@ -219,7 +223,7 @@ const Luggage = ({ luggage, setLuggage }) => {
             //     // marginRight: "5px",
             //   }
             // }
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{ background: backAndNextButtonsColor }}
             className={styles.luggageQuantityMinusSelf}
           ></button>
         </div>
@@ -257,7 +261,10 @@ const Luggage = ({ luggage, setLuggage }) => {
             //   fontSize: "14px",
             //   height: "100%",
             // }}
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{
+              background: backAndNextButtonsColor,
+              border: `1px solid ${borderColorForInnerElements}`,
+            }}
             type="number"
             className={styles.luggageQuantityInputSelf}
           />
@@ -269,7 +276,7 @@ const Luggage = ({ luggage, setLuggage }) => {
           <button
             onClick={onIncrease}
             // style={{ marginLeft: "4px" }}
-            style={{ background: ThemeProviderAppBackgroundColor }}
+            style={{ background: backAndNextButtonsColor }}
             className={styles.luggageQuantityPlusSelf}
           ></button>
         </div>

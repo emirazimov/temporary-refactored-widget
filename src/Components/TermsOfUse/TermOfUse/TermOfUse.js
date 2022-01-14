@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 // import Button from "@material-ui/core/Button"
 // import Dialog from "@material-ui/core/Dialog"
 // import DialogActions from "@material-ui/core/DialogActions"
@@ -9,6 +9,7 @@ import React from "react"
 // import { p } from "@material-ui/core"
 import styles from "./TermOfUse.module.scss"
 import { Modal } from "../../Helpers/Modal/Modal"
+import ThemeContext from "../../../context"
 
 export default function TermsOfUse() {
   const [open, setOpen] = React.useState(false)
@@ -48,6 +49,17 @@ export default function TermsOfUse() {
   //   }
   // }, [open])
 
+  const {
+    ThemeProviderAppBackgroundColor,
+    fontColor,
+    borderRadiuses,
+    carsTypeColor,
+    hoverColor,
+    iconsColor,
+    backAndNextButtonsColor,
+    innerTextOnHover,
+    inputsFontColor,
+  } = useContext(ThemeContext)
   return (
     <>
       <span
@@ -61,6 +73,7 @@ export default function TermsOfUse() {
         //   color: 'white',
         // }}
         className={styles.termOfUseOpenButton}
+        style={{ color: fontColor }}
       >
         Terms&nbsp;
       </span>

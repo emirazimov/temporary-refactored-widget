@@ -3,33 +3,33 @@
 // import AccordionSummary from "@material-ui/core/AccordionSummary"
 // import Card from "@material-ui/core/Card"
 // import CssBaseline from "@material-ui/core/CssBaseline"
-import Slide from '@material-ui/core/Slide'
-import { ThemeProvider } from '@material-ui/styles'
+import Slide from "@material-ui/core/Slide"
+import { ThemeProvider } from "@material-ui/styles"
 // import { isMobile } from 'react-device-detect';
-import React, { useContext, useEffect, useState } from 'react'
-import Draggable from 'react-draggable'
-import { connect } from 'react-redux'
+import React, { useContext, useEffect, useState } from "react"
+import Draggable from "react-draggable"
+import { connect } from "react-redux"
 // import {
 //   BookinglaneIcon,
 //   BookinglaneIconForMobile,
 //   CloseWidgetIcon,
 // } from "./assets/icons"
-import CheckOut from './Components/CheckoutForm/CheckOut/CheckOut'
-import CompanyProfile from './Components/CompanyProfile/CompanyProfile'
+import CheckOut from "./Components/CheckoutForm/CheckOut/CheckOut"
+import CompanyProfile from "./Components/CompanyProfile/CompanyProfile"
 import {
   getCompanyProfile,
   initializing,
-} from './Redux/company-profile-reducer'
-import { getCompanyToken } from './Redux/company-token-reducer'
+} from "./Redux/company-profile-reducer"
+import { getCompanyToken } from "./Redux/company-token-reducer"
 // import theme from "./Theme"
 
-import { userScreenHeight, userScreenWidth, useStyles } from './AppStyles'
-import { AppBar, useMediaQuery } from '@material-ui/core'
-import { useRef } from 'react'
+import { userScreenHeight, userScreenWidth, useStyles } from "./AppStyles"
+import { AppBar, useMediaQuery } from "@material-ui/core"
+import { useRef } from "react"
 // import Slide1 from "@mui/material/Slide"
-import { Preloader } from './Components/Helpers/Preloader/Preloader'
-import styles from './AppStyles.module.scss'
-import ThemeContext from './context'
+import { Preloader } from "./Components/Helpers/Preloader/Preloader"
+import styles from "./AppStyles.module.scss"
+import ThemeContext from "./context"
 // import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 let xOrdinate = 0
@@ -71,7 +71,7 @@ const App = (props) => {
 
   const handleClose = () => {
     setExpanded(false)
-    document.body.style.overflowY = 'unset'
+    document.body.style.overflowY = "unset"
     // position.current.y = 10
 
     if (userScreenWidth - xOrdinate < 500) {
@@ -128,7 +128,7 @@ const App = (props) => {
       position.current.x = -60
     }
     if (xOrdinate + 300 > userScreenWidth) {
-      position.current.x = userScreenWidth - 300
+      position.current.x = userScreenWidth - 400
     }
     if (yOrdinate - 215 < -userScreenHeight) {
       position.current.y = -userScreenHeight + 240
@@ -143,9 +143,9 @@ const App = (props) => {
 
   React.useEffect(() => {
     if (backgroundScrollStop) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = "unset"
     }
   }, [backgroundScrollStop])
 
@@ -177,7 +177,7 @@ const App = (props) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
 
-  const jwtToken = localStorage.getItem('Authorization')
+  const jwtToken = localStorage.getItem("Authorization")
 
   // useEffect(() => {
   //   if (jwtToken) {
@@ -188,13 +188,13 @@ const App = (props) => {
   // }, [jwtToken])
 
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction='up' ref={ref} {...props} />
+    return <Slide direction="up" ref={ref} {...props} />
   })
 
-  const isMobile = useMediaQuery('(max-width:530px)')
-  const isiPad = useMediaQuery('(max-width:1024px)')
+  const isMobile = useMediaQuery("(max-width:530px)")
+  const isiPad = useMediaQuery("(max-width:1024px)")
   const forBostonLimousineToDisplayIconOnTheLeft =
-    useMediaQuery('(max-width:500px)')
+    useMediaQuery("(max-width:500px)")
 
   let stylesForBody = `
     z-index: 1000000000; 
@@ -205,7 +205,7 @@ const App = (props) => {
   //   bottom: 50px;
   // right: 0;
   // left: 50px;
-  document.getElementById('widget-by-bookinglane').style = stylesForBody
+  document.getElementById("widget-by-bookinglane").style = stylesForBody
 
   const containerRef = React.useRef(null)
 
@@ -273,7 +273,7 @@ const App = (props) => {
                     : styles.mainBookNowIconEnabledWhileDraggingMobile
                 }
                 ref={refOfBookNow}
-                id='booknowIcon'
+                id="booknowIcon"
                 style={{
                   left: `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 30px)`,
                   bottom: `calc(${positioningForWithoutDraggableAppXAndY.current.y}px - 30px)`,
@@ -294,7 +294,7 @@ const App = (props) => {
                     // position="sticky"
                     className={styles.divForStickyHeader}
                   >
-                    <div className='companyProfileClassForDrag'>
+                    <div className="companyProfileClassForDrag">
                       {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                       <div className={styles.companyProfile}>
                         {/* это для pointer cursora */}
@@ -313,6 +313,7 @@ const App = (props) => {
                     ref={refOfCard}
                     // style={{ borderRadius: "10px" }}
                     className={styles.contentContainerMobile}
+                    style={{ background: ThemeProviderAppBackgroundColor }}
                   >
                     {props.initializing ? (
                       <CheckOut
@@ -361,7 +362,7 @@ const App = (props) => {
                       : styles.mainBookNowIconEnabledWhileDragging
                   }
                   ref={refOfBookNow}
-                  id='booknowIcon'
+                  id="booknowIcon"
                   style={{
                     left: `${positioningForWithoutDraggableAppXAndY.current.x}px`,
                     bottom: `${positioningForWithoutDraggableAppXAndY.current.y}px`,
@@ -382,7 +383,7 @@ const App = (props) => {
                       // position="sticky"
                       className={styles.divForStickyHeader}
                     >
-                      <div className='companyProfileClassForDrag'>
+                      <div className="companyProfileClassForDrag">
                         {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                         <div className={styles.companyProfile}>
                           {/* это для pointer cursora */}
@@ -401,6 +402,7 @@ const App = (props) => {
                       ref={refOfCard}
                       // style={{ borderRadius: "10px" }}
                       className={styles.contentContainer}
+                      style={{ background: ThemeProviderAppBackgroundColor }}
                     >
                       {props.initializing ? (
                         <CheckOut
@@ -529,7 +531,7 @@ const App = (props) => {
                       : styles.mainBookNowIconEnabledWhileDragging
                   }
                   ref={refOfBookNow}
-                  id='booknowIcon'
+                  id="booknowIcon"
                   style={{
                     left: `${positioningForWithoutDraggableAppXAndY.current.x}px`,
                     bottom: `${positioningForWithoutDraggableAppXAndY.current.y}px`,
@@ -550,7 +552,7 @@ const App = (props) => {
                       // position="sticky"
                       className={styles.divForStickyHeader}
                     >
-                      <div className='companyProfileClassForDrag'>
+                      <div className="companyProfileClassForDrag">
                         {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                         <div className={styles.companyProfile}>
                           {/* это для pointer cursora */}
@@ -566,9 +568,9 @@ const App = (props) => {
                     </div>
 
                     <div
-                      ref={refOfCard}
                       // style={{ borderRadius: "10px" }}
                       className={styles.contentContainer}
+                      style={{ background: ThemeProviderAppBackgroundColor }}
                     >
                       {props.initializing ? (
                         <CheckOut
@@ -599,7 +601,7 @@ const App = (props) => {
 
                 // disabled={false}
                 // bounds="body"
-                handle='.companyProfileClassForDrag, #booknowIcon'
+                handle=".companyProfileClassForDrag, #booknowIcon"
               >
                 <div ref={containerRef} className={styles.mainBookNowWrapper}>
                   <div
@@ -615,8 +617,9 @@ const App = (props) => {
                         ? styles.mainBookNowIconDisabledWhileDragging
                         : styles.mainBookNowIconEnabledWhileDragging
                     }
+                    style={{ display: expanded ? "none" : "block" }}
                     ref={refOfBookNow}
-                    id='booknowIcon'
+                    id="booknowIcon"
                   >
                     <div className={styles.letterB}></div>
                     <span className={styles.bookNow}>BOOK NOW!</span>
@@ -628,12 +631,13 @@ const App = (props) => {
                           ? styles.cardContainerShow
                           : styles.cardContainerHidden
                       }
+                      ref={refOfCard}
                     >
                       <div
                         // position="sticky"
                         className={styles.divForStickyHeader}
                       >
-                        <div className='companyProfileClassForDrag'>
+                        <div className="companyProfileClassForDrag">
                           {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                           <div className={styles.companyProfile}>
                             {/* это для pointer cursora */}

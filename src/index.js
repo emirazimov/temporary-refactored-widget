@@ -1,38 +1,44 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './App'
-import ThemeContext from './context'
-import store from './Redux/redux-store'
-import reportWebVitals from './reportWebVitals'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+import App from "./App"
+import ThemeContext from "./context"
+import store from "./Redux/redux-store"
+import reportWebVitals from "./reportWebVitals"
 
-var divForReact = document.createElement('div')
+var divForReact = document.createElement("div")
 
-divForReact.setAttribute('id', 'widget-by-bookinglane')
-document.getElementsByTagName('body')[0].appendChild(divForReact)
-var head = document.getElementsByTagName('head')[0]
+divForReact.setAttribute("id", "widget-by-bookinglane")
+document.getElementsByTagName("body")[0].appendChild(divForReact)
+var head = document.getElementsByTagName("head")[0]
 
 head.innerHTML += `<link
       rel="stylesheet"
       href="https://bookinglane-widgets.s3.us-east-2.amazonaws.com/Global-widget-files/widget.css"
     />`
 
-var ThemeProviderAppBackgroundColor = 'grey'
+var ThemeProviderAppBackgroundColor = window.ThemeProviderAppBackgroundColor
 
-var fontColor = 'white'
+var fontColor = window.fontColor
 
-var borderRadiuses = '0'
+var borderRadiusesForInnerElements = window.borderRadiusesForInnerElements
 
-var carsTypeColor = 'green'
+var borderRadiusesForWholeApp = window.borderRadiusesForWholeApp
 
-var hoverColor = 'purple'
+var borderColorForInnerElements = window.borderColorForInnerElements
 
-var iconsColor = 'white'
+var borderColorForOuterApp = window.borderColorForOuterApp
 
-var inputsFontColor = 'black'
+var carsTypeColor = window.carsTypeColor
 
-var backAndNextButtonsColor = 'blue'
-var innerTextOnHover = 'black'
+var hoverColor = window.hoverColor
+
+var iconsColor = window.iconsColor
+
+var inputsFontColor = window.inputsFontColor
+
+var backAndNextButtonsColor = window.backAndNextButtonsColor
+var innerTextOnHover = window.innerTextOnHover
 // font-color-for-customize
 
 function Main() {
@@ -42,7 +48,10 @@ function Main() {
         value={{
           ThemeProviderAppBackgroundColor,
           fontColor,
-          borderRadiuses,
+          borderRadiusesForInnerElements,
+          borderRadiusesForWholeApp,
+          borderColorForInnerElements,
+          borderColorForOuterApp,
           carsTypeColor,
           hoverColor,
           iconsColor,
@@ -57,6 +66,6 @@ function Main() {
   )
 }
 
-ReactDOM.render(<Main />, document.getElementById('widget-by-bookinglane'))
+ReactDOM.render(<Main />, document.getElementById("widget-by-bookinglane"))
 
 reportWebVitals()

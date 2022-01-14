@@ -74,6 +74,10 @@ export default React.memo(function SafetySeat({
     iconsColor,
     backAndNextButtonsColor,
     innerTextOnHover,
+    borderRadiusesForInnerElements,
+    borderRadiusesForWholeApp,
+    borderColorForInnerElements,
+    borderColorForOuterApp,
   } = useContext(ThemeContext)
 
   return (
@@ -266,7 +270,7 @@ export default React.memo(function SafetySeat({
                 //   }
                 // }
                 className={styles.boosterSeatCounterMinusSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{ background: backAndNextButtonsColor }}
               ></button>
             </div>
             <div
@@ -305,7 +309,10 @@ export default React.memo(function SafetySeat({
                 // }}
                 type="number"
                 className={styles.boosterSeatCounterInputSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{
+                  background: backAndNextButtonsColor,
+                  border: `1px solid ${borderColorForInnerElements}`,
+                }}
               />
             </div>
             <div
@@ -316,7 +323,7 @@ export default React.memo(function SafetySeat({
                 onClick={onIncreaseBoosterSeat}
                 // style={{ marginLeft: "4px" }}
                 className={styles.boosterSeatCounterPlusSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{ background: backAndNextButtonsColor }}
               ></button>
             </div>
             {/* </div> */}
@@ -390,7 +397,7 @@ export default React.memo(function SafetySeat({
                 //   }
                 // }
                 className={styles.safetySeatCounterMinusSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{ background: backAndNextButtonsColor }}
               ></button>
             </div>
             <div
@@ -429,7 +436,10 @@ export default React.memo(function SafetySeat({
                 // }}
                 type="number"
                 className={styles.safetySeatCounterInputSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{
+                  background: backAndNextButtonsColor,
+                  border: `1px solid ${borderColorForInnerElements}`,
+                }}
               />
             </div>
             <div
@@ -440,7 +450,7 @@ export default React.memo(function SafetySeat({
                 onClick={onIncreaseChildSafetySeat}
                 // style={{ marginLeft: "4px" }}
                 className={styles.safetySeatCounterPlusSelf}
-                style={{ background: ThemeProviderAppBackgroundColor }}
+                style={{ background: backAndNextButtonsColor }}
               ></button>
             </div>
             {/* </div> */}

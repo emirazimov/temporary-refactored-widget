@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import ThemeContext from "../../../context"
 // import Button from "@material-ui/core/Button"
 // import Dialog from "@material-ui/core/Dialog"
 // import DialogActions from "@material-ui/core/DialogActions"
@@ -47,6 +48,17 @@ export default function PrivacyPolicy() {
   //     }
   //   }
   // }, [open])
+  const {
+    ThemeProviderAppBackgroundColor,
+    fontColor,
+    borderRadiuses,
+    carsTypeColor,
+    hoverColor,
+    iconsColor,
+    backAndNextButtonsColor,
+    innerTextOnHover,
+    inputsFontColor,
+  } = useContext(ThemeContext)
 
   return (
     <>
@@ -61,6 +73,7 @@ export default function PrivacyPolicy() {
         //   color: 'white',
         // }}
         className={styles.privacyPolicyOpenButton}
+        style={{ color: fontColor }}
       >
         / Privacy Policy
       </span>

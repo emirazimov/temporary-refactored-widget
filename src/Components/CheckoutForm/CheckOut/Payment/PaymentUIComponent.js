@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 // import { connect } from "react-redux"
 import { FormProvider, useForm } from "react-hook-form"
 import {
@@ -6,6 +6,7 @@ import {
   // CustomFormInputForPayment,
   CustomMaskInput,
 } from "../CustomFormInput/CustomFormInput"
+import styled from "styled-components"
 // import { makeStyles } from "@material-ui/core/styles"
 // import { BackArrowIcon } from "../../../../assets/icons"
 // import { yupResolver } from "@hookform/resolvers/yup"
@@ -35,6 +36,7 @@ import "./PaymentStyles.css"
 // import { styles } from "@material-ui/pickers/views/Calendar/Calendar"
 import styles from "./Payment.module.scss"
 import { Switch } from "../../../Helpers/Switch/Switch"
+import ThemeContext from "../../../../context"
 // import ReactInputMask from "react-input-mask"
 
 // const SignupSchema = yup.object().shape({
@@ -115,6 +117,18 @@ const PaymentUIComponent = ({
   //   e.preventDefault()
   // }
 
+  const {
+    ThemeProviderAppBackgroundColor,
+    fontColor,
+    borderRadiuses,
+    carsTypeColor,
+    hoverColor,
+    iconsColor,
+    backAndNextButtonsColor,
+    innerTextOnHover,
+    inputsFontColor,
+  } = useContext(ThemeContext)
+
   return (
     <FormProvider {...methods}>
       <form
@@ -123,6 +137,7 @@ const PaymentUIComponent = ({
         // }}
         onSubmit={handleSubmit(onSubmit)}
         className={styles.formWrapper}
+        style={{ background: ThemeProviderAppBackgroundColor }}
       >
         <div
           // container
@@ -151,6 +166,7 @@ const PaymentUIComponent = ({
                 // }}
                 // className={classes.paymentTexts}
                 className={styles.paymentTitleSelf}
+                style={{ color: fontColor }}
               >
                 Payment
               </span>
@@ -183,7 +199,10 @@ const PaymentUIComponent = ({
                       ? styles.isPassengerCardholderTitleWhiteSelf
                       : styles.isPassengerCardholderTitleGreySelf
                   }
-                  // style={{}}
+                  style={{
+                    color: fontColor,
+                    opacity: riderDetails ? "1" : "0.3",
+                  }}
                 >
                   Is passenger a cardholder?
                 </span>
@@ -233,6 +252,7 @@ const PaymentUIComponent = ({
                     // style={{ fontSize: "15px" }}
                     // className={classes.paymentTexts}
                     className={styles.passengerDetailTitleSelf}
+                    style={{ color: fontColor }}
                   >
                     Passenger Detail
                   </span>
@@ -267,6 +287,7 @@ const PaymentUIComponent = ({
                       //   background: "transparent",
                       // }}
                       className={styles.cardholderInformationInputSelfFirstName}
+                      style={{ color: inputsFontColor }}
                       ref={register}
                     />
                   </div>
@@ -284,6 +305,7 @@ const PaymentUIComponent = ({
                       placeholder="Last Name"
                       // style={{ width: "100%", background: "transparent" }}
                       className={styles.cardholderInformationInputSelfLastName}
+                      style={{ color: inputsFontColor }}
                       ref={register}
                     />
                   </div>
@@ -313,6 +335,7 @@ const PaymentUIComponent = ({
                       defaultValue={formSummary.greetClientInfo.email}
                       // style={{ width: "100%", background: "transparent" }}
                       className={styles.cardholderInformationInputSelf}
+                      style={{ color: inputsFontColor }}
                       ref={register}
                     />
                   </div>
@@ -330,6 +353,7 @@ const PaymentUIComponent = ({
                       // className={classes.inputPlaceholderFontSize}
                       // style={{ width: "100%", background: "transparent" }}
                       className={styles.cardholderInformationInputSelf}
+                      style={{ color: inputsFontColor }}
                       ref={register}
                     />
                   </div>
@@ -350,6 +374,7 @@ const PaymentUIComponent = ({
                   // style={{ fontSize: "15px" }}
                   // className={classes.paymentTexts}
                   className={styles.cardholderInformationTitleSelf}
+                  style={{ color: fontColor }}
                 >
                   Cardholder Information
                 </span>
@@ -389,7 +414,7 @@ const PaymentUIComponent = ({
                       error={errors.client?.firstName ? true : false}
                       className={styles.cardholderInformationInputSelfFirstName}
                       ref={register}
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", color: inputsFontColor }}
                     />
                   </div>
                   {errors.client?.firstName && (
@@ -415,7 +440,7 @@ const PaymentUIComponent = ({
                     error={errors.client?.lastName ? true : false}
                     className={styles.cardholderInformationInputSelfLastName}
                     ref={register}
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", color: inputsFontColor }}
                   />
                   {errors.client?.lastName && (
                     <p className={styles.errorInputs}>
@@ -450,6 +475,7 @@ const PaymentUIComponent = ({
                     defaultValue={formSummary.client.email}
                     error={errors.client?.email ? true : false}
                     className={styles.cardholderInformationInputSelf}
+                    style={{ color: inputsFontColor }}
                     ref={register}
                   />
                   {errors.client?.email && (
@@ -473,6 +499,7 @@ const PaymentUIComponent = ({
                     // style={{ width: "100%", background: "transparent" }}
                     error={errors.client?.phoneNumber ? true : false}
                     className={styles.cardholderInformationInputSelf}
+                    style={{ color: inputsFontColor }}
                     ref={register}
                   />
                   {errors.client?.phoneNumber && (
@@ -507,6 +534,7 @@ const PaymentUIComponent = ({
                     className={
                       styles.cardholderInformationInputWithFullWidthSelf
                     }
+                    style={{ color: inputsFontColor }}
                   />
                   {errors.client?.address && (
                     <p className={styles.errorInputs}>
@@ -556,6 +584,7 @@ const PaymentUIComponent = ({
                     className={
                       styles.cardholderInformationInputWithFullWidthSelf
                     }
+                    style={{ color: inputsFontColor }}
                   />
 
                   <datalist id="states-list">
@@ -698,6 +727,7 @@ const PaymentUIComponent = ({
                       width: "100%",
                       paddingRight: "25px",
                       boxSizing: "border-box",
+                      color: inputsFontColor,
                     }}
                   />
 
@@ -764,6 +794,7 @@ const PaymentUIComponent = ({
                     defaultValue={formSummary.client.zip}
                     error={errors.client?.address ? true : false}
                     className={styles.cardholderInformationInputSelf}
+                    style={{ color: inputsFontColor }}
                   />
                   {errors.client?.zip && (
                     <p className={styles.errorInputs}>
@@ -780,6 +811,7 @@ const PaymentUIComponent = ({
                   // style={{ fontSize: "15px" }}
                   // className={classes.paymentTexts}
                   className={styles.cardInformationTitleSelf}
+                  style={{ color: fontColor }}
                 >
                   Card information
                 </span>
@@ -837,6 +869,7 @@ const PaymentUIComponent = ({
                     className={
                       styles.cardholderInformationInputWithFullWidthSelf
                     }
+                    style={{ color: inputsFontColor }}
                   />
 
                   {cardForPaymentSubmitError && (
@@ -887,6 +920,7 @@ const PaymentUIComponent = ({
                         //   // disableUnderline: true,
                         // }}
                         className={styles.cardholderInformationInputSelf}
+                        style={{ color: inputsFontColor }}
                       />
                     )}
                   </CustomMaskInput>
@@ -930,6 +964,7 @@ const PaymentUIComponent = ({
                         //   // disableUnderline: true,
                         // }}
                         className={styles.cardholderInformationInputSelf}
+                        style={{ color: inputsFontColor }}
                       />
                     )}
                   </CustomMaskInput>
@@ -946,10 +981,19 @@ const PaymentUIComponent = ({
               // item
               className={styles.checkboxWrapper}
             >
-              <label className={styles.checkmarkContainer}>
-                <input type="checkbox" onClick={() => setChecked(!checked)} />
-                <span className={styles.checkmarkSelf}></span>
-              </label>
+              <CheckboxLabel id="input">
+                <CheckboxInput
+                  type="checkbox"
+                  onClick={() => setChecked(!checked)}
+                  htmlFor="input"
+                  // className="checkboxInput"
+                />
+                <Checkbox
+                  fontColor={fontColor}
+                  // className="checkboxSpan"
+                  // style={{ border: `1px solid ${fontColor}` }}
+                ></Checkbox>
+              </CheckboxLabel>
               {/* <a underline="always" style={{ color: "#BABABA" }}> */}
               <TermsOfUse />
               {/* </a> */}
@@ -979,6 +1023,10 @@ const PaymentUIComponent = ({
                   // startIcon={<BackArrowIcon />}
                   // className={classes.backButtonSelf}
                   className={styles.buttonBackSelf}
+                  style={{
+                    background: backAndNextButtonsColor,
+                    color: fontColor,
+                  }}
                 >
                   Back
                 </button>
@@ -992,6 +1040,10 @@ const PaymentUIComponent = ({
                   // className={classes.payButtonSelf}
                   disabled={!checked}
                   className={styles.buttonNextSelf}
+                  style={{
+                    background: backAndNextButtonsColor,
+                    color: fontColor,
+                  }}
                 >
                   Pay ${total}
                 </button>
@@ -1006,3 +1058,72 @@ const PaymentUIComponent = ({
 }
 
 export default PaymentUIComponent
+
+const CheckboxLabel = styled.label`
+  position: relative;
+  // padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 40px;
+  &:hover {
+    span {
+      -webkit-box-shadow: 0px 0px 5px -1px #ffffff;
+      box-shadow: 0px 0px 5px -1px #ffffff;
+    }
+  }
+  input:checked ~ span {
+    background-color: transparent;
+  }
+
+  input:checked ~ span:after {
+    display: block;
+  }
+`
+const Checkbox = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: 1px solid ${(props) => props.fontColor};
+  border-radius: 5px;
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  &:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid ${(props) => props.fontColor};
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+`
+
+const CheckboxInput = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked + ${Checkbox} {
+    &:after {
+      display: block;
+    }
+  }
+  &:checked + ${Checkbox} {
+    background-color: transparent;
+  }
+`

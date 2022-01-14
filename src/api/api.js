@@ -2,11 +2,15 @@ import * as axios from "axios"
 
 const jwtToken = localStorage.getItem("Authorization")
 
+console.log(window)
+
+const accessKeyFromWinow = window.accessKeyForBookinglane
+
 const axiosInstance = axios.create({
-  baseURL: `https://apidev.bookinglane.com/api/`,
+  baseURL: `https://api.bookinglane.com/api/`,
   headers: {
     Authorization: "Bearer " + jwtToken,
-    "App-Version": "1.2.01",
+    "App-Version": "1.2.18",
   },
 })
 
@@ -15,9 +19,9 @@ export const authApi = {
     const company0Key = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
     return axios
       .post(
-        "https://apidev.bookinglane.com/api/companywidget/company-widget-auth",
+        "https://api.bookinglane.com/api/companywidget/company-widget-auth",
         {
-          accessKey: "14862f6b-0e7a-47d0-810a-06a348fd9ec1",
+          accessKey: accessKeyFromWinow,
         }
       )
       .then((response) => {
@@ -30,7 +34,7 @@ export const authApi = {
 
     const headers = {
       Authorization: "Bearer " + jwtToken,
-      "App-Version": "1.2.01",
+      "App-Version": "1.2.18",
     }
 
     return axiosInstance
@@ -64,7 +68,7 @@ export const fleetApi = {
         {
           headers: {
             Authorization: "Bearer " + jwtToken,
-            "App-Version": "1.2.01",
+            "App-Version": "1.2.18",
           },
         }
       )
@@ -110,7 +114,7 @@ export const formApi = {
         {
           headers: {
             Authorization: "Bearer " + jwtToken,
-            "App-Version": "1.2.01",
+            "App-Version": "1.2.18",
           },
         }
       )

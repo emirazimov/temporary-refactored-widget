@@ -1,5 +1,5 @@
 // import DateFnsUtils from "@date-io/date-fns"
-import { ListItem, TextField, useMediaQuery } from '@material-ui/core'
+import { ListItem, TextField, useMediaQuery } from "@material-ui/core"
 // import Button from "@material-ui/core/Button"
 // import Grid from "@material-ui/core/Grid"
 // import InputAdornment from "@material-ui/core/InputAdornment"
@@ -10,8 +10,8 @@ import { ListItem, TextField, useMediaQuery } from '@material-ui/core'
 // import * as yup from "yup"
 // import Autocomplete from "@material-ui/lab/Autocomplete"
 // import { MuiPickersUtilsProvider } from "@material-ui/pickers"
-import React, { useContext, useState } from 'react'
-import { Controller, FormProvider, useForm } from 'react-hook-form'
+import React, { useContext, useState } from "react"
+import { Controller, FormProvider, useForm } from "react-hook-form"
 // import { connect } from "react-redux"
 // import { placesApi } from "../../../../api/api"
 // import {
@@ -26,36 +26,36 @@ import { Controller, FormProvider, useForm } from 'react-hook-form'
 //   Ticket,
 // } from "../../../../assets/icons"
 // import { getCarsByType } from "../../../../Redux/car-reducer"
-import GoogleMap from '../../../GoogleMap/GoogleMapContainer/GoogleMap'
+import GoogleMap from "../../../GoogleMap/GoogleMapContainer/GoogleMap"
 // import { getCompanyCars } from "../../../../Redux/car-reducer"
 // import {
 //   CustomFormInput,
 //   DateInputControl,
 // } from "../CustomFormInput/CustomFormInput"
-import Hours from './Hours/Hours'
-import PassengerQuantity from './PassengerQuantity/PassengerQuantity'
+import Hours from "./Hours/Hours"
+import PassengerQuantity from "./PassengerQuantity/PassengerQuantity"
 // import { withStyles } from "@material-ui/styles"
 
-import Carousel, { consts } from 'react-elastic-carousel'
+import Carousel, { consts } from "react-elastic-carousel"
 
-import '../index.css'
+import "../index.css"
 // import { setHourlyRedux } from "../../../../Redux/hourly-reducer"
 // import { setGateMeetingRedux } from "../../../../Redux/gate-meeting-reducer"
 // import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab"
-import SafetySeat from './SafetySeat/SafetySeat'
-import ReactInputMask from 'react-input-mask'
-import Luggage from './Luggage/Luggage'
-import { AntSwitch, useStyles } from './AdressFormStyles'
-import styles from './AdressFormStyles/AdressForm.module.scss'
+import SafetySeat from "./SafetySeat/SafetySeat"
+import ReactInputMask from "react-input-mask"
+import Luggage from "./Luggage/Luggage"
+import { AntSwitch, useStyles } from "./AdressFormStyles"
+import styles from "./AdressFormStyles/AdressForm.module.scss"
 // import { StylesProvider } from "@material-ui/core/styles"
-import './AdressFormStyles/AdressFormDatePickerSeparatedStyles.scss'
-import { Switch } from '../../../Helpers/Switch/Switch'
-import './AdressFormStyles/AdressFormCarousel.scss'
-import CalendarPicker from '@mui/lab/CalendarPicker'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
-import { Modal } from '../../../Helpers/Modal/Modal'
-import ThemeContext from '../../../../context'
+import "./AdressFormStyles/AdressFormDatePickerSeparatedStyles.scss"
+import { Switch } from "../../../Helpers/Switch/Switch"
+import "./AdressFormStyles/AdressFormCarousel.scss"
+import CalendarPicker from "@mui/lab/CalendarPicker"
+import AdapterDateFns from "@mui/lab/AdapterDateFns"
+import LocalizationProvider from "@mui/lab/LocalizationProvider"
+import { Modal } from "../../../Helpers/Modal/Modal"
+import ThemeContext from "../../../../context"
 import {
   ClockIcon,
   DateIcon,
@@ -65,7 +65,9 @@ import {
   PlaneIcon,
   SafetySeatIcon,
   Ticket,
-} from '../../../../assets/icons'
+} from "../../../../assets/icons"
+
+import styled from "styled-components"
 
 {
   /*компонента перед экспортом обернута в react.memo*/
@@ -150,7 +152,7 @@ const AdressFormwithoutReactMemo = ({
   control,
 }) => {
   // const classes = useStyles()
-  const isMobile = useMediaQuery('(max-width:530px)')
+  const isMobile = useMediaQuery("(max-width:530px)")
 
   const {
     ThemeProviderAppBackgroundColor,
@@ -162,6 +164,10 @@ const AdressFormwithoutReactMemo = ({
     backAndNextButtonsColor,
     innerTextOnHover,
     inputsFontColor,
+    borderRadiusesForInnerElements,
+    borderRadiusesForWholeApp,
+    borderColorForInnerElements,
+    borderColorForOuterApp,
   } = useContext(ThemeContext)
 
   const MeetAndGreetSwitchBlock = (
@@ -191,7 +197,7 @@ const AdressFormwithoutReactMemo = ({
               // }}
               className={styles.meetAndGreetIconAndNameTitle}
             >
-              {'Meet & Greet/Luggage Assist'}
+              {"Meet & Greet/Luggage Assist"}
             </span>
           </div>
 
@@ -231,13 +237,13 @@ const AdressFormwithoutReactMemo = ({
                   setGateMeetingRedux(true)
                   setIsGateMeeting(true)
                   setIsAirportPickupIncludedLocalState(true)
-                  console.log('true')
+                  console.log("true")
                 } else {
                   // setIsGateMeeting(false)
                   setGateMeetingRedux(false)
                   setIsGateMeeting(false)
                   setIsAirportPickupIncludedLocalState(false)
-                  console.log('false')
+                  console.log("false")
                 }
                 // setIsGateMeeting(!isGateMeeting)
                 // setTimeout(() => {
@@ -265,8 +271,8 @@ const AdressFormwithoutReactMemo = ({
       className={styles.mainWrapper}
       style={{ backgroundColor: ThemeProviderAppBackgroundColor }}
     >
-      <FormProvider {...methods} style={{ width: '100%' }}>
-        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+      <FormProvider {...methods} style={{ width: "100%" }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
           <div className={styles.mapAndDirectionsWrapper}>
             <GoogleMap
               setDestinations={setDestinations}
@@ -358,10 +364,10 @@ const AdressFormwithoutReactMemo = ({
                         // {...params}
                         // fullWidth
                         // className={classes.inputPlaceholderFontSize}
-                        placeholder='Airlines'
+                        placeholder="Airlines"
                         // variant="standard"
                         // style={{ background: "transparent" }}
-                        autoComplete='off'
+                        autoComplete="off"
                         // InputProps={{
                         //   ...params.InputProps,
                         //   style: { inputStyle },
@@ -372,7 +378,7 @@ const AdressFormwithoutReactMemo = ({
                         //   },
                         //   // disableUnderline: true,
                         // }}
-                        list='airlines-list'
+                        list="airlines-list"
                         // className={
                         //   styles.cardholderInformationInputWithFullWidthSelf
                         // }
@@ -388,10 +394,14 @@ const AdressFormwithoutReactMemo = ({
                             : setAirlineId(null)
                         }}
                         className={styles.airLinesInput}
-                        style={{ color: inputsFontColor }}
+                        style={{
+                          color: inputsFontColor,
+                          border: `1px solid ${borderColorForInnerElements}`,
+                          background: backAndNextButtonsColor,
+                        }}
                       />
 
-                      <datalist id='airlines-list'>
+                      <datalist id="airlines-list">
                         {/* id="combo-box-demo"
                   options={states}
                   defaultValue={null}
@@ -437,12 +447,12 @@ const AdressFormwithoutReactMemo = ({
                       <div className={styles.flightNumberItem}>
                         <Ticket color={fontColor} />
                         <input
-                          name='flightNumber'
+                          name="flightNumber"
                           // variant="standard"
-                          placeholder='Flight number'
+                          placeholder="Flight number"
                           // className={classes.flightNumberInput}
                           className={styles.flightNumberInput}
-                          autoComplete='off'
+                          autoComplete="off"
                           // style={{
                           //   height: "100%",
                           //   // border: "none",
@@ -456,7 +466,11 @@ const AdressFormwithoutReactMemo = ({
                           //   marginTop: "0px",
                           //   borderRadius: "0px",
                           // }}
-                          style={{ color: inputsFontColor }}
+                          style={{
+                            color: inputsFontColor,
+                            border: `1px solid ${borderColorForInnerElements}`,
+                            background: backAndNextButtonsColor,
+                          }}
                           defaultValue={null}
                           value={flightNumber}
                           onChange={(e) => setFlightNumber(e.target.value)}
@@ -569,13 +583,17 @@ const AdressFormwithoutReactMemo = ({
                       //     ? new Date(date).toLocaleDateString("en-US")
                       //     : "Pick up Date"
                       // }
-                      placeholder='Pick up Date'
+                      placeholder="Pick up Date"
                       value={
                         formData.dateForDefaultValue && !resetInputs
                           ? formData.dateForDefaultValue
-                          : date?.toLocaleDateString('en-US')
+                          : date?.toLocaleDateString("en-US")
                       }
-                      style={{ color: inputsFontColor }}
+                      style={{
+                        color: inputsFontColor,
+                        border: `1px solid ${borderColorForInnerElements}`,
+                        background: backAndNextButtonsColor,
+                      }}
                     >
                       {/* <div className={styles.datePickerOpenButtonIcon}></div>
                       <span className={styles.datePickerOpenButtonText}>
@@ -634,10 +652,10 @@ const AdressFormwithoutReactMemo = ({
                     className={styles.timePicker}
                   >
                     <ReactInputMask
-                      name='orderStartTime'
-                      mask='71:98'
-                      autoComplete='off'
-                      maskChar='_'
+                      name="orderStartTime"
+                      mask="71:98"
+                      autoComplete="off"
+                      maskChar="_"
                       // alwaysShowMask={false}
                       formatChars={formatChars}
                       // mask={mask}
@@ -654,8 +672,8 @@ const AdressFormwithoutReactMemo = ({
                             <input
                               {...inputProps}
                               // variant="outlined"
-                              placeholder='hh:mm'
-                              autoComplete='off'
+                              placeholder="hh:mm"
+                              autoComplete="off"
                               className={
                                 redBorderOnSubmitForTime ||
                                 redBorderOnSubmitForTime2 ||
@@ -754,7 +772,11 @@ const AdressFormwithoutReactMemo = ({
                               //     </>
                               //   ),
                               // }}
-                              style={{ color: inputsFontColor }}
+                              style={{
+                                color: inputsFontColor,
+                                border: `1px solid ${borderColorForInnerElements}`,
+                                background: backAndNextButtonsColor,
+                              }}
                             />
                             <div
                               // color="primary"
@@ -778,7 +800,7 @@ const AdressFormwithoutReactMemo = ({
                               <div
                                 // value="AM"
                                 className={
-                                  AMPM == 'AM'
+                                  AMPM == "AM"
                                     ? styles.toggleButtonAMSelected
                                     : styles.toggleButtonAMNotSelected
                                 }
@@ -793,7 +815,7 @@ const AdressFormwithoutReactMemo = ({
                                 onClick={handleChangeAMPM}
                                 style={{
                                   color: fontColor,
-                                  background: 'transparent',
+                                  background: "transparent",
                                 }}
                               >
                                 AM
@@ -801,7 +823,7 @@ const AdressFormwithoutReactMemo = ({
                               <div
                                 // value="PM"
                                 className={
-                                  AMPM == 'PM'
+                                  AMPM == "PM"
                                     ? styles.toggleButtonPMSelected
                                     : styles.toggleButtonPMNotSelected
                                 }
@@ -816,7 +838,7 @@ const AdressFormwithoutReactMemo = ({
                                 onClick={handleChangeAMPM}
                                 style={{
                                   color: fontColor,
-                                  background: 'transparent',
+                                  background: "transparent",
                                 }}
                               >
                                 PM
@@ -831,7 +853,7 @@ const AdressFormwithoutReactMemo = ({
                 {/* </MuiPickersUtilsProvider> */}
               </div>
               <div
-                style={{ width: '100%' }}
+                style={{ width: "100%" }}
                 className={styles.passengersQuantityBlock}
               >
                 <div
@@ -1069,25 +1091,30 @@ const AdressFormwithoutReactMemo = ({
                     // style={{ height: "78px" }}
                   >
                     {carTypes.map((car, indexOfEachCar) => (
-                      <div
+                      <CarItemContainer
                         // container
                         // direction="column"
                         // // justify="center"
                         // alignItems="center"
-                        className={
-                          car.id === carSelectionID
-                            ? styles.carItemContainerSelected
-                            : styles.carItemContainer
-                        }
+                        // className={
+                        //   car.id === carSelectionID
+                        //     ? styles.carItemContainerSelected
+                        //     : styles.carItemContainer
+                        // }
+                        hoverColor={hoverColor}
+                        carsTypeColor={carsTypeColor}
+                        carSelected={car.id === carSelectionID}
+                        fontColor={fontColor}
+                        innerTextOnHover={innerTextOnHover}
                         onClick={() => handleClick(car.id)}
-                        selected={car.id === carSelectionID}
-                        name='carsValidation'
-                        style={{
-                          background:
-                            car.id === carSelectionID
-                              ? hoverColor
-                              : carsTypeColor,
-                        }}
+                        // selected={car.id === carSelectionID}
+                        name="carsValidation"
+                        // style={{
+                        //   background:
+                        //     car.id === carSelectionID
+                        //       ? hoverColor
+                        //       : carsTypeColor,
+                        // }}
                       >
                         <div
                           // item
@@ -1104,7 +1131,7 @@ const AdressFormwithoutReactMemo = ({
                         </div>
                         <div item className={styles.carImageContainer}>
                           <img
-                            alt='carImage'
+                            alt="carImage"
                             src={car.imageUrl}
                             className={
                               indexOfEachCar == 2
@@ -1116,7 +1143,7 @@ const AdressFormwithoutReactMemo = ({
                           />
                           {console.log(indexOfEachCar == 2)}
                         </div>
-                      </div>
+                      </CarItemContainer>
                     ))}
                   </Carousel>
                 </div>
@@ -1153,7 +1180,7 @@ const AdressFormwithoutReactMemo = ({
                     // //   // paddingTop: "7px",
                     // //   textTransform: "none",
                     // // }}
-                    type='submit'
+                    type="submit"
                     className={styles.buttonNextSelf}
                     style={{
                       background: backAndNextButtonsColor,
@@ -1176,3 +1203,40 @@ const AdressFormwithoutReactMemo = ({
 const AdressFormUIComponent = React.memo(AdressFormwithoutReactMemo)
 
 export default AdressFormUIComponent
+
+const CarItemContainer = styled.div`
+  width: 60px;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${(props) => {
+    if (!props.carSelected) {
+      return props.carsTypeColor
+    } else {
+      return props.hoverColor
+    }
+  }}} ;
+  span{
+    color:
+    
+    ${(props) => {
+      if (props.carSelected) {
+        return props.innerTextOnHover
+      } else {
+        return props.fontColor
+      }
+    }}};
+  }
+
+  transition: 0.1s;
+  &:hover {
+    background: ${(props) => props.hoverColor};
+    cursor: pointer;
+    transition: 0.1s;
+
+    span{
+    color:${(props) => props.innerTextOnHover} ;
+  }
+  }
+`
