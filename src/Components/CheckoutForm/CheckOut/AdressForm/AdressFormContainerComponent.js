@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { placesApi } from '../../../../api/api'
-import { getCarsByType, getCompanyCars } from '../../../../Redux/car-reducer'
-import Carousel, { consts } from 'react-elastic-carousel'
+import React, { useContext, useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { placesApi } from "../../../../api/api"
+import { getCarsByType, getCompanyCars } from "../../../../Redux/car-reducer"
+import Carousel, { consts } from "react-elastic-carousel"
 // import {
 //   LeftArrowForAdressForm,
 //   RightArrowForAdressForm,
 // } from "../../../../assets/icons"
 // import Button from "@material-ui/core/Button"
-import { useStyles } from './AdressFormStyles'
+import { useStyles } from "./AdressFormStyles"
 // import { useMediaQuery } from "@material-ui/core"
-import { connect } from 'react-redux'
+import { connect } from "react-redux"
 import {
   setBoosterSeatCount,
   setDateForDefaultValue,
@@ -20,16 +20,16 @@ import {
   setTimeForDefaultValue,
   setTimeForDefaultValueAlignment,
   setTimeForDefaultValueAMPM,
-} from '../../../../Redux/form-reducer'
+} from "../../../../Redux/form-reducer"
 
-import { setHourlyRedux } from '../../../../Redux/hourly-reducer'
-import { setGateMeetingRedux } from '../../../../Redux/gate-meeting-reducer'
+import { setHourlyRedux } from "../../../../Redux/hourly-reducer"
+import { setGateMeetingRedux } from "../../../../Redux/gate-meeting-reducer"
 // import { AdressFormHelpers } from "./adressFormHelpers"
-import AdressFormUIComponent from './AdressFormUIComponent'
-import styles from './AdressFormStyles/AdressForm.module.scss'
-import * as yup from 'yup'
-import ThemeContext from '../../../../context'
-import styled from 'styled-components'
+import AdressFormUIComponent from "./AdressFormUIComponent"
+import styles from "./AdressFormStyles/AdressForm.module.scss"
+import * as yup from "yup"
+import ThemeContext from "../../../../context"
+import styled from "styled-components"
 
 const AdressFormContainerComponent = ({
   next,
@@ -59,18 +59,18 @@ const AdressFormContainerComponent = ({
 
   const [destinations, setDestinations] = useState([
     {
-      rideCheckPoint: '',
+      rideCheckPoint: "",
       latitude: 0,
       longitude: 0,
       placeType: 0,
-      placeId: '',
+      placeId: "",
     },
     {
-      rideCheckPoint: '',
+      rideCheckPoint: "",
       latitude: 0,
       longitude: 0,
       placeType: 0,
-      placeId: '',
+      placeId: "",
     },
   ])
 
@@ -117,8 +117,8 @@ const AdressFormContainerComponent = ({
     setIsAirportPickupIncludedLocalState,
   ] = useState(false)
 
-  const [time, setTime] = useState('')
-  const startsWithTwo = time[0] === '2'
+  const [time, setTime] = useState("")
+  const startsWithTwo = time[0] === "2"
 
   const [timeMask, setTimeMask] = useState(false)
 
@@ -164,29 +164,29 @@ const AdressFormContainerComponent = ({
   }
 
   var firstTimeHalf = time
-    .substr(0, time.indexOf(':'))
+    .substr(0, time.indexOf(":"))
     .match(/\d+/)
     ?.join()
-    ?.split('')
+    ?.split("")
   var secondTimeHalf = time
-    .substr(time.indexOf(':'))
+    .substr(time.indexOf(":"))
     .match(/\d+/)
     ?.join()
-    ?.split('')
-  var secondTimeHalf2 = time.substr(time.indexOf(':')).match(/\d+/)
+    ?.split("")
+  var secondTimeHalf2 = time.substr(time.indexOf(":")).match(/\d+/)
 
   var firstTimeHalfRedux = formData?.timeForDefaultValue
-    ?.substr(0, formData?.timeForDefaultValue?.indexOf(':'))
+    ?.substr(0, formData?.timeForDefaultValue?.indexOf(":"))
     ?.match(/\d+/)
     ?.join()
-    ?.split('')
+    ?.split("")
   var secondTimeHalfRedux = formData?.timeForDefaultValue
-    ?.substr(formData?.timeForDefaultValue?.indexOf(':'))
+    ?.substr(formData?.timeForDefaultValue?.indexOf(":"))
     ?.match(/\d+/)
     ?.join()
-    ?.split('')
+    ?.split("")
   var secondTimeHalfRedux2 = formData?.timeForDefaultValue
-    ?.substr(formData?.timeForDefaultValue?.indexOf(':'))
+    ?.substr(formData?.timeForDefaultValue?.indexOf(":"))
     ?.match(/\d+/)
 
   const onSubmit2 = (data) => {
@@ -197,10 +197,10 @@ const AdressFormContainerComponent = ({
       destinations[1].rideCheckPoint &&
       (date || formData.dateForDefaultValue) &&
       (time || formData.timeForDefaultValue) &&
-      (firstTimeHalf?.[0] >= '0' || formData.timeForDefaultValue) &&
-      (firstTimeHalf?.[1] >= '0' || formData.timeForDefaultValue) &&
-      (secondTimeHalf?.[0] >= '0' || formData.timeForDefaultValue) &&
-      (secondTimeHalf?.[1] >= '0' || formData.timeForDefaultValue) &&
+      (firstTimeHalf?.[0] >= "0" || formData.timeForDefaultValue) &&
+      (firstTimeHalf?.[1] >= "0" || formData.timeForDefaultValue) &&
+      (secondTimeHalf?.[0] >= "0" || formData.timeForDefaultValue) &&
+      (secondTimeHalf?.[1] >= "0" || formData.timeForDefaultValue) &&
       // false &&
       carSelectionID &&
       (passengers || formData.passengersQuantityForBackStep) &&
@@ -228,7 +228,7 @@ const AdressFormContainerComponent = ({
         setRedBorderOnSubmit2(false)
       }
       if (
-        !new Date(data.orderStartDate).toLocaleDateString('en-GB') ||
+        !new Date(data.orderStartDate).toLocaleDateString("en-GB") ||
         !formData.dateForDefaultValue
       ) {
         setRedBorderOnSubmitForDate(true)
@@ -241,8 +241,8 @@ const AdressFormContainerComponent = ({
       //   setRedBorderOnSubmitForTime(false)
       // }
       if (
-        (firstTimeHalf?.[0] <= '0' && firstTimeHalfRedux?.[0] <= '0') ||
-        (firstTimeHalf?.[0] <= '' && firstTimeHalfRedux?.[0] <= '0') ||
+        (firstTimeHalf?.[0] <= "0" && firstTimeHalfRedux?.[0] <= "0") ||
+        (firstTimeHalf?.[0] <= "" && firstTimeHalfRedux?.[0] <= "0") ||
         (firstTimeHalf?.[0] == undefined &&
           firstTimeHalfRedux?.[0] <= undefined)
       ) {
@@ -251,8 +251,8 @@ const AdressFormContainerComponent = ({
         setRedBorderOnSubmitForTime2(false)
       }
       if (
-        (firstTimeHalf?.[1] <= '0' && firstTimeHalfRedux?.[1] <= '0') ||
-        (firstTimeHalf?.[1] <= '' && firstTimeHalfRedux?.[1] <= '') ||
+        (firstTimeHalf?.[1] <= "0" && firstTimeHalfRedux?.[1] <= "0") ||
+        (firstTimeHalf?.[1] <= "" && firstTimeHalfRedux?.[1] <= "") ||
         (firstTimeHalf?.[1] == undefined &&
           firstTimeHalfRedux?.[1] <= undefined)
       ) {
@@ -261,8 +261,8 @@ const AdressFormContainerComponent = ({
         setRedBorderOnSubmitForTime6(false)
       }
       if (
-        (secondTimeHalf2 <= '0' && secondTimeHalfRedux2 <= '0') ||
-        (secondTimeHalf2 <= '' && secondTimeHalfRedux2 <= '')
+        (secondTimeHalf2 <= "0" && secondTimeHalfRedux2 <= "0") ||
+        (secondTimeHalf2 <= "" && secondTimeHalfRedux2 <= "")
       ) {
         setRedBorderOnSubmitForTime3(true)
       } else {
@@ -270,16 +270,16 @@ const AdressFormContainerComponent = ({
       }
 
       if (
-        (secondTimeHalf?.[0] <= '0' && secondTimeHalfRedux?.[0] <= '0') ||
-        (secondTimeHalf?.[0] <= '' && secondTimeHalfRedux?.[0] <= '')
+        (secondTimeHalf?.[0] <= "0" && secondTimeHalfRedux?.[0] <= "0") ||
+        (secondTimeHalf?.[0] <= "" && secondTimeHalfRedux?.[0] <= "")
       ) {
         setRedBorderOnSubmitForTime4(true)
       } else {
         setRedBorderOnSubmitForTime4(false)
       }
       if (
-        (secondTimeHalf?.[1] <= '0' && secondTimeHalfRedux?.[1] <= '0') ||
-        (secondTimeHalf?.[1] <= '' && secondTimeHalfRedux?.[1] <= '') ||
+        (secondTimeHalf?.[1] <= "0" && secondTimeHalfRedux?.[1] <= "0") ||
+        (secondTimeHalf?.[1] <= "" && secondTimeHalfRedux?.[1] <= "") ||
         (secondTimeHalf?.[1] == undefined &&
           secondTimeHalfRedux?.[1] <= undefined)
       ) {
@@ -345,7 +345,7 @@ const AdressFormContainerComponent = ({
   } = useContext(ThemeContext)
   const [fontColorState, setFontColorState] = useState(fontColor)
   const myArrow = ({ type, onClick, isEdge }) => {
-    const pointer = type === consts.PREV ? '<' : '>'
+    const pointer = type === consts.PREV ? "<" : ">"
     // console.log(isEdge)
 
     return (
@@ -383,8 +383,8 @@ const AdressFormContainerComponent = ({
   const [boosterSeat, setBoosterSeat] = useState(0)
   const [childSafetySeat, setChildSafetySeat] = useState(0)
 
-  const [alignment, setAlignment] = React.useState('web')
-  const [AMPM, setAMPM] = React.useState('')
+  const [alignment, setAlignment] = React.useState("web")
+  const [AMPM, setAMPM] = React.useState("")
 
   const handleChangeAMPM = (event, newAlignment) => {
     if (newAlignment !== null) {
@@ -399,44 +399,44 @@ const AdressFormContainerComponent = ({
   const [triggerToTimePicker, setTriggerToTimePicker] = useState(false)
   var eventCount = 0
   const inputStyle = {
-    WebkitBoxShadow: '0 0 0 1000px #282828 inset',
-    height: '0px',
+    WebkitBoxShadow: "0 0 0 1000px #282828 inset",
+    height: "0px",
   }
   // console.log(hourlyRedux)
 
   const mask = [
     /[0-2]/,
     startsWithTwo ? /[0-3]/ : /[0-9]/,
-    ':',
+    ":",
     /[0-5]/,
     /[0-9]/,
   ]
 
   let formatChars = {
-    7: '[0-1]',
-    8: '[0-9]',
-    9: '[0-5]',
-    1: !timeMask ? '[0-9]' : '[0-2]',
-    a: '[A-Za-z]',
-    '*': '[A-Za-z0-9]',
+    7: "[0-1]",
+    8: "[0-9]",
+    9: "[0-5]",
+    1: !timeMask ? "[0-9]" : "[0-2]",
+    a: "[A-Za-z]",
+    "*": "[A-Za-z0-9]",
   }
   let formatChars2 = {
-    7: '[0-1]',
-    8: '[0-2]',
-    9: '[0-5]',
-    1: '[0-2]',
-    a: '[A-Za-z]',
-    '*': '[A-Za-z0-9]',
+    7: "[0-1]",
+    8: "[0-2]",
+    9: "[0-5]",
+    1: "[0-2]",
+    a: "[A-Za-z]",
+    "*": "[A-Za-z0-9]",
   }
 
   const handleInput = (event) => {
-    if (event.target.value == '0_:__') {
+    if (event.target.value == "0_:__") {
       setTimeMask(false)
     }
-    if (event.target.value == '1_:__') {
+    if (event.target.value == "1_:__") {
       setTimeMask(true)
     }
-    console.log('This is: ' + setTimeForDefaultValue)
+    console.log("This is: " + setTimeForDefaultValue)
     setTimeForDefaultValue(event.target.value)
     setTime(event.target.value)
     // const emir = "00:10"
@@ -445,7 +445,7 @@ const AdressFormContainerComponent = ({
     // console.log(regexp.test(emir))
     console.log(
       event.target.value.match(/\d+/),
-      event.target.value.substr(event.target.value.indexOf(':')).match(/\d+/)
+      event.target.value.substr(event.target.value.indexOf(":")).match(/\d+/)
     )
   }
 
@@ -481,9 +481,9 @@ const AdressFormContainerComponent = ({
       })
       setSafetySeatCount(childSafetySeat)
       setBoosterSeatCount(boosterSeat)
-      setDateForDefaultValue(date?.toLocaleDateString('en-US'))
+      setDateForDefaultValue(date?.toLocaleDateString("en-US"))
 
-      const forRes = date?.toLocaleDateString('en-US')
+      const forRes = date?.toLocaleDateString("en-US")
       const forRes2 = time + ` ${AMPM}`
 
       // ._d.toLocaleTimeString("en-US", {
