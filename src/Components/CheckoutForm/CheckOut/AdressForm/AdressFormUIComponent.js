@@ -28,6 +28,7 @@ import {
 } from "../../../../assets/icons"
 import Autocomplete from "@mui/material/Autocomplete"
 import styled from "styled-components"
+import ReCAPTCHA from "react-google-recaptcha"
 
 {
   /*компонента перед экспортом обернута в react.memo*/
@@ -116,6 +117,8 @@ const AdressFormwithoutReactMemo = ({
   time,
   setTime,
   setShowCarsWithSafetySeat,
+  showRecaptcha,
+  setShowRecaptcha,
 }) => {
   const isMobile = useMediaQuery("(max-width:530px)")
 
@@ -200,6 +203,11 @@ const AdressFormwithoutReactMemo = ({
       <Luggage luggage={luggage} setLuggage={setLuggage} />
     </>
   )
+
+  function onChange(value) {
+    console.log("Captcha value:", value)
+    window.localStorage.setItem("captcha", value)
+  }
 
   React.useEffect(() => {
     fetchAirlines()
@@ -560,6 +568,15 @@ const AdressFormwithoutReactMemo = ({
                     ))}
                   </Carousel>
                 </div>
+                <Modal
+                  onClose={() => setShowRecaptcha(false)}
+                  show={showRecaptcha}
+                >
+                  <ReCAPTCHA
+                    sitekey="6LeuP3weAAAAAHoe3aaP27xmYorD1s1vXK7XdlPk"
+                    onChange={onChange}
+                  />
+                </Modal>
                 <div className={styles.buttonGroupBlockContainer}>
                   <button
                     type="submit"

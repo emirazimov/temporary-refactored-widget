@@ -128,6 +128,8 @@ const AdressFormContainerComponent = ({
 
   const [show, setShow] = useState(false)
 
+  const [showRecaptcha, setShowRecaptcha] = useState(false)
+
   // const { errors, register, handleSubmit, setValue, ...methods } = useForm({
   //   // mode: "onBlur",
   //   // resolver: yupResolver(schema),
@@ -233,7 +235,8 @@ const AdressFormContainerComponent = ({
       // false &&
       carSelectionID &&
       (passengers || formData.passengersQuantityForBackStep) &&
-      (AMPM || formData?.timeForDefaultValueAMPM?.ampm)
+      (AMPM || formData?.timeForDefaultValueAMPM?.ampm) &&
+      Boolean(localStorage.getItem("captcha")) == true
     ) {
       if (isAirline) {
         if (!airlineId) {
@@ -246,6 +249,8 @@ const AdressFormContainerComponent = ({
         return true
       }
     } else {
+      Boolean(localStorage.getItem("captcha")) !== true &&
+        setShowRecaptcha(true)
       if (!destinations[0].rideCheckPoint) {
         setRedBorderOnSubmit(true)
       } else {
@@ -671,6 +676,8 @@ const AdressFormContainerComponent = ({
       setDate={setDate}
       show={show}
       setShow={setShow}
+      showRecaptcha={showRecaptcha}
+      setShowRecaptcha={setShowRecaptcha}
       AMPM={AMPM}
       setDateForDefaultValue={setDateForDefaultValue}
       control={control}

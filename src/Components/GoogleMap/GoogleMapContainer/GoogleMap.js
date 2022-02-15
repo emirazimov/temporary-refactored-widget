@@ -478,6 +478,7 @@ const GoogleMap = React.memo(
                                             suggestion
                                           )}
                                           className={styles.itemInsideDropDown}
+                                          style={{ width: "96%" }}
                                         >
                                           {/* <MenuItem
                                         onMouseEnter={(e) => (
