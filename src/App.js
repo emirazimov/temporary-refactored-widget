@@ -297,63 +297,62 @@ const App = (props) => {
                 />
                 <span className={styles.bookNowMobile}>BOOK NOW!</span>
               </BookNowIconBlock>
-              {window.acces && (
-                <div
-                  className={
-                    expanded
-                      ? styles.cardContainerShowMobile
-                      : styles.cardContainerHiddenMobile
-                  }
-                >
-                  <div
-                    // position="sticky"
-                    className={styles.divForStickyHeader}
-                  >
-                    <div className="companyProfileClassForDrag">
-                      {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
-                      <div className={styles.companyProfile}>
-                        {/* это для pointer cursora */}
-                        <CompanyProfile
-                          setExpanded={handleClose}
-                          initializing={props.initializing}
-                          expanded={expanded}
-                          setActiveStep={setActiveStep}
-                          setBackgroundScrollStop={setBackgroundScrollStop}
-                        />
-                      </div>
-                    </div>
-                  </div>
 
-                  <div
-                    ref={refOfCard}
-                    // style={{ borderRadius: "10px" }}
-                    className={styles.contentContainerMobile}
-                    style={{ background: ThemeProviderAppBackgroundColor }}
-                  >
-                    {props.initializing ? (
-                      <CheckOut
-                        isFetching={props.isFetching}
+              <div
+                className={
+                  expanded
+                    ? styles.cardContainerShowMobile
+                    : styles.cardContainerHiddenMobile
+                }
+              >
+                <div
+                  // position="sticky"
+                  className={styles.divForStickyHeader}
+                >
+                  <div className="companyProfileClassForDrag">
+                    {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
+                    <div className={styles.companyProfile}>
+                      {/* это для pointer cursora */}
+                      <CompanyProfile
                         setExpanded={handleClose}
-                        activeStep={activeStep}
+                        initializing={props.initializing}
+                        expanded={expanded}
                         setActiveStep={setActiveStep}
-                        nextStep={nextStep}
-                        backStep={backStep}
                         setBackgroundScrollStop={setBackgroundScrollStop}
                       />
-                    ) : (
-                      <Preloader />
-                    )}
+                    </div>
                   </div>
                 </div>
-              )}
+
+                <div
+                  ref={refOfCard}
+                  // style={{ borderRadius: "10px" }}
+                  className={styles.contentContainerMobile}
+                  style={{
+                    background: ThemeProviderAppBackgroundColor,
+                  }}
+                >
+                  {props.initializing ? (
+                    <CheckOut
+                      isFetching={props.isFetching}
+                      setExpanded={handleClose}
+                      activeStep={activeStep}
+                      setActiveStep={setActiveStep}
+                      nextStep={nextStep}
+                      backStep={backStep}
+                      setBackgroundScrollStop={setBackgroundScrollStop}
+                    />
+                  ) : (
+                    <Preloader />
+                  )}
+                </div>
+              </div>
+
               {/* {!jwtToken && null} */}
             </div>
           </>
         ) : (
           <>
-            {/* <CssBaseline /> */}
-            {/* <ThemeProvider theme={theme}> */}
-            {/* <div className={classes.main}> */}
             {forBostonLimousineToDisplayIconOnTheLeft && (
               <div
                 ref={containerRef}
@@ -443,91 +442,6 @@ const App = (props) => {
               </div>
             )}
             {isiPad && (
-              // <Draggable
-              //   onDrag={handleDrag}
-              //   onStop={enableAccordionButton}
-              //   position={position.current}
-              //   // defaultPosition={{ x: userScreenWidth, y: 25 }}
-
-              //   // disabled={false}
-              //   // bounds="body"
-              //   handle=".companyProfileClassForDrag"
-              // >
-              // <Accordion
-              //   elevation={0}
-              //   disabled={disabled}
-              //   classes={{
-              //     root: classes.MuiAccordionroot,
-              //     disabled: classes.disabledButton,
-              //   }}
-              //   TransitionProps={{
-              //     timeout: 0,
-              //   }}
-              //   expanded={expanded === "panel1"}
-              //   onChange={handleChange("panel1")}
-              // >
-              //   <AccordionSummary
-              //     className={classes.accordionIpad}
-              //     expandIcon={<BookinglaneIcon />}
-              //     aria-controls="panel1a-content"
-              //     id="panel1a-header"
-              //     ref={refOfBookNow}
-              //     onClick={() => {
-              //       setBackgroundScrollStop(true)
-              //     }}
-              //   ></AccordionSummary>
-
-              //   <AccordionDetails>
-              //     {jwtToken && (
-              //       <div className="mainContent">
-              //         <Card
-              //           className={classes.contentIpad}
-              //           style={{ bottom: userScreenHeight - yOrdinate }}
-              //           style={
-              //             activeStep === 1
-              //               ? { overflowY: "hidden auto" }
-              //               : { overflowY: "auto" }
-              //           }
-              //           ref={refOfCard}
-              //           // style={{ borderRadius: "10px" }}
-              //         >
-              //           <AppBar position="sticky" color=" #101020">
-              //             <div className="companyProfileClassForDrag">
-              //               {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
-              //               <div className={classes.companyProfile}>
-              //                 {/* это для pointer cursora */}
-              //                 <CompanyProfile
-              //                   setExpanded={handleClose}
-              //                   initializing={props.initializing}
-              //                   expanded={expanded}
-              //                   setActiveStep={setActiveStep}
-              //                   setBackgroundScrollStop={
-              //                     setBackgroundScrollStop
-              //                   }
-              //                 />
-              //               </div>
-              //             </div>
-              //           </AppBar>
-
-              //           {props.initializing ? (
-              //             <CheckOut
-              //               isFetching={props.isFetching}
-              //               setExpanded={handleClose}
-              //               activeStep={activeStep}
-              //               setActiveStep={setActiveStep}
-              //               nextStep={nextStep}
-              //               backStep={backStep}
-              //               setBackgroundScrollStop={setBackgroundScrollStop}
-              //             />
-              //           ) : null}
-              //         </Card>
-              //       </div>
-              //     )}
-              //     {!jwtToken && null}
-              //   </AccordionDetails>
-              // </Accordion>
-              // </Draggable>
-
               <div
                 ref={containerRef}
                 className={styles.mainBookNowWrapper}
@@ -570,6 +484,10 @@ const App = (props) => {
                       ? styles.cardContainerShow
                       : styles.cardContainerHidden
                   }
+                  style={{
+                    border: `1px solid ${borderColorForOuterApp}`,
+                    borderRadius: borderRadiusesForWholeApp,
+                  }}
                 >
                   <div
                     // position="sticky"
@@ -593,7 +511,11 @@ const App = (props) => {
                   <div
                     // style={{ borderRadius: "10px" }}
                     className={styles.contentContainer}
-                    style={{ background: ThemeProviderAppBackgroundColor }}
+                    style={{
+                      background: ThemeProviderAppBackgroundColor,
+                      borderTopRightRadius: borderRadiusesForWholeApp,
+                      borderTopLeftRadius: borderRadiusesForWholeApp,
+                    }}
                   >
                     {props.initializing ? (
                       <CheckOut
@@ -661,6 +583,10 @@ const App = (props) => {
                         : styles.cardContainerHidden
                     }
                     ref={refOfCard}
+                    style={{
+                      border: `1px solid ${borderColorForOuterApp}`,
+                      borderRadius: borderRadiusesForWholeApp,
+                    }}
                   >
                     <div
                       // position="sticky"
@@ -668,7 +594,13 @@ const App = (props) => {
                     >
                       <div className="companyProfileClassForDrag">
                         {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
-                        <div className={styles.companyProfile}>
+                        <div
+                          className={styles.companyProfile}
+                          style={{
+                            borderTopRightRadius: borderRadiusesForWholeApp,
+                            borderTopLeftRadius: borderRadiusesForWholeApp,
+                          }}
+                        >
                           {/* это для pointer cursora */}
                           <CompanyProfile
                             setExpanded={handleClose}
@@ -685,7 +617,11 @@ const App = (props) => {
                       // ref={refOfCard}
                       // style={{ borderRadius: "10px" }}
                       className={styles.contentContainer}
-                      style={{ background: ThemeProviderAppBackgroundColor }}
+                      style={{
+                        background: ThemeProviderAppBackgroundColor,
+                        borderBottomRightRadius: borderRadiusesForWholeApp,
+                        borderBottomLeftRadius: borderRadiusesForWholeApp,
+                      }}
                     >
                       {props.initializing ? (
                         <CheckOut

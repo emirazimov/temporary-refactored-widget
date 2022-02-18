@@ -4,30 +4,31 @@ const jwtToken = localStorage.getItem("Authorization")
 
 console.log(window)
 
-// const accessKeyFromWinow = window.accessKeyForBookinglane
-const accessKeyFromWinow = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
+const accessKeyFromWinow = window.accessKeyForBookinglane
+// const accessKeyFromWinow = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
+// const accessKeyFromWinow = "72bdcbaf-f52c-4df1-87b2-a7e54acd1842"
 
 const axiosInstance = axios.create({
-  baseURL: `https://apidev.bookinglane.com/api/`,
+  baseURL: `https://api.bookinglane.com/api/`,
   headers: {
     "App-Version": "1.2.18",
   },
 })
 
 export const authApi = {
-  getToken() {
-    const company0Key = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
-    return axios
-      .post(
-        "https://api.bookinglane.com/api/companywidget/company-widget-auth",
-        {
-          accessKey: accessKeyFromWinow,
-        }
-      )
-      .then((response) => {
-        return response
-      })
-  },
+  // getToken() {
+  //   const company0Key = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
+  //   return axios
+  //     .post(
+  //       "https://api.bookinglane.com/api/companywidget/company-widget-auth",
+  //       {
+  //         accessKey: accessKeyFromWinow,
+  //       }
+  //     )
+  //     .then((response) => {
+  //       return response
+  //     })
+  // },
 
   getCompanyProfile() {
     // const jwtToken = localStorage.getItem("Authorization")

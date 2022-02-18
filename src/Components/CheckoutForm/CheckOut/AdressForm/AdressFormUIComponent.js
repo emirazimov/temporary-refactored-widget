@@ -35,40 +35,27 @@ import ReCAPTCHA from "react-google-recaptcha"
 }
 
 const AdressFormwithoutReactMemo = ({
-  next,
   carTypes,
-  pageSize,
-  getCompanyCars,
-  setFormData,
   formData,
   setHourlyRedux,
   setGateMeetingRedux,
   gateMeeting,
   hourlyAndSeatsRedux,
-  setSafetySeatCount,
-  setBoosterSeatCount,
-  backgroundScrollStopForTimePicker,
-  setBackgroundScrollStopForTimePicker,
   resetInputs,
   setDateForDefaultValue,
   setTimeForDefaultValue,
-  setTimeForDefaultValueAMPM,
-  setTimeForDefaultValueAlignment,
   setPassengersQuantityForBackStep,
   isBoosterSeatExistOnBackend,
   isSafetySeatExistOnBackend,
   airlines,
-  alignment,
   bookingType,
   boosterSeat,
   carSelectionID,
   childSafetySeat,
   destinations,
   flightNumber,
-  formatChars,
   handleChangeAMPM,
   handleClick,
-
   handleSubmit,
   hourly,
   hoursAddressForm,
@@ -78,7 +65,6 @@ const AdressFormwithoutReactMemo = ({
   myArrow,
   onSubmit,
   passengers,
-  redBorderOnAirlines,
   redBorderOnSubmit,
   redBorderOnSubmit2,
   redBorderOnSubmitForCarType,
@@ -103,22 +89,23 @@ const AdressFormwithoutReactMemo = ({
   setLuggage,
   setPassengers,
   setSafetySeat,
-
   date,
   setDate,
   show,
   setShow,
   AMPM,
-  register,
-  control,
   fetchAirlines,
   extractAirlineId,
-  airlineName,
   time,
   setTime,
   setShowCarsWithSafetySeat,
   showRecaptcha,
   setShowRecaptcha,
+  setSafetySeatCount,
+  setBoosterSeatCount,
+  redBorderOnSubmitForHours,
+  setHoursRedux,
+  hoursCount,
 }) => {
   const isMobile = useMediaQuery("(max-width:530px)")
 
@@ -130,6 +117,8 @@ const AdressFormwithoutReactMemo = ({
     hoverColor,
     iconsColor,
     backAndNextButtonsColor,
+    backAndNextButtonsFontColor,
+    backAndNextButtonsBorderColor,
     innerTextOnHover,
     inputsFontColor,
     inputsBackground,
@@ -174,7 +163,10 @@ const AdressFormwithoutReactMemo = ({
         <div className={styles.meetAndGreetContainer}>
           <div className={styles.meetAndGreetIconAndNameContainer}>
             <MeetAndGreetIcon color={fontColor} />
-            <span className={styles.meetAndGreetIconAndNameTitle}>
+            <span
+              className={styles.meetAndGreetIconAndNameTitle}
+              style={{ color: fontColor }}
+            >
               {"Meet & Greet/Luggage Assist"}
             </span>
           </div>
@@ -290,8 +282,8 @@ const AdressFormwithoutReactMemo = ({
               <div className={styles.dateTimeBlock}>
                 <div className={styles.dateTimeBlockContainer}>
                   <div className={styles.datePicker}>
-                    <DateIcon color={fontColor} />
-                    <input
+                    <DateIcon color={inputsFontColor} />
+                    <div
                       onClick={() => setShow(true)}
                       className={
                         redBorderOnSubmitForDate
@@ -309,9 +301,18 @@ const AdressFormwithoutReactMemo = ({
                         border: !redBorderOnSubmitForDate
                           ? `1px solid ${borderColorForInnerElements}`
                           : `1px solid red`,
+                        borderRadius: borderRadiusesForInnerElements,
                         background: inputsBackground,
                       }}
-                    ></input>
+                    >
+                      {formData.dateForDefaultValue && !resetInputs
+                        ? formData.dateForDefaultValue
+                        : date?.toLocaleDateString("en-US")}
+
+                      {!formData.dateForDefaultValue ? (
+                        <span style={{ color: "grey" }}>Pick up Date</span>
+                      ) : null}
+                    </div>
 
                     <Modal onClose={() => setShow(false)} show={show}>
                       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -335,7 +336,7 @@ const AdressFormwithoutReactMemo = ({
                   </div>
                   <div className={styles.timePicker}>
                     <div className={styles.timePickerContainer}>
-                      <ClockIcon color={fontColor} />
+                      <ClockIcon color={inputsFontColor} />
                       <input
                         name="orderStartTime"
                         placeholder="hh:mm"
@@ -363,6 +364,7 @@ const AdressFormwithoutReactMemo = ({
                           background: inputsBackground,
                           textAlign: "right",
                           paddingRight: "78px",
+                          borderRadius: borderRadiusesForInnerElements,
                         }}
                         value={
                           !resetInputs ? formData.timeForDefaultValue : null
@@ -384,6 +386,7 @@ const AdressFormwithoutReactMemo = ({
                             background:
                               AMPM == "AM" ? `${hoverColor}` : "transparent",
                             opacity: AMPM == "AM" ? "1" : "0.5",
+                            borderRadius: borderRadiusesForInnerElements,
                           }}
                         >
                           AM
@@ -404,6 +407,7 @@ const AdressFormwithoutReactMemo = ({
                             background:
                               AMPM == "PM" ? `${hoverColor}` : "transparent",
                             opacity: AMPM == "PM" ? "1" : "0.5",
+                            borderRadius: borderRadiusesForInnerElements,
                           }}
                         >
                           PM
@@ -472,6 +476,12 @@ const AdressFormwithoutReactMemo = ({
                       childSafetySeat={childSafetySeat}
                       isBoosterSeatExistOnBackend={isBoosterSeatExistOnBackend}
                       isSafetySeatExistOnBackend={isSafetySeatExistOnBackend}
+                      showCarsWithSafetySeat={formData.showCarsWithSafetySeat}
+                      setSafetySeatCount={setSafetySeatCount}
+                      setBoosterSeatCount={setBoosterSeatCount}
+                      safetySeatCountRedux={formData.safetySeatCount}
+                      boosterSeatCountRedux={formData.boosterSeatCount}
+                      showCarsWithSafetySeat={formData.showCarsWithSafetySeat}
                     />
                   </div>
                 )}
@@ -508,6 +518,10 @@ const AdressFormwithoutReactMemo = ({
                     hourly={hourly}
                     hoursAddressForm={hoursAddressForm}
                     setHoursAddressForm={setHoursAddressForm}
+                    setHoursAddressForm={setHoursAddressForm}
+                    redBorderOnSubmitForHours={redBorderOnSubmitForHours}
+                    setHoursRedux={setHoursRedux}
+                    hoursCount={hoursCount}
                   />
                 )}
               </div>
@@ -538,6 +552,9 @@ const AdressFormwithoutReactMemo = ({
                     {carTypes.map((car, indexOfEachCar) => (
                       <CarItemContainer
                         hoverColor={hoverColor}
+                        borderRadiusesForInnerElements={
+                          borderRadiusesForInnerElements
+                        }
                         carsTypeColor={carsTypeColor}
                         carSelected={car.id === carSelectionID}
                         fontColor={fontColor}
@@ -583,8 +600,9 @@ const AdressFormwithoutReactMemo = ({
                     className={styles.buttonNextSelf}
                     style={{
                       background: backAndNextButtonsColor,
-                      color: fontColor,
-                      border: `1px solid ${borderColorForInnerElements}`,
+                      color: backAndNextButtonsFontColor,
+                      border: `1px solid ${backAndNextButtonsBorderColor}`,
+                      borderRadius: borderRadiusesForInnerElements,
                     }}
                   >
                     Next
@@ -609,6 +627,7 @@ const CarItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+    border-radius:${(props) => props.borderRadiusesForInnerElements};
   background: ${(props) => {
     if (!props.carSelected) {
       return props.carsTypeColor
