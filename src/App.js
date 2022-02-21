@@ -3,34 +3,34 @@
 // import AccordionSummary from "@material-ui/core/AccordionSummary"
 // import Card from "@material-ui/core/Card"
 // import CssBaseline from "@material-ui/core/CssBaseline"
-import Slide from "@material-ui/core/Slide"
+import Slide from '@material-ui/core/Slide'
 // import { ThemeProvider } from "@material-ui/styles"
 // import { isMobile } from 'react-device-detect';
-import React, { useContext, useEffect, useState } from "react"
-import Draggable from "react-draggable"
-import { connect } from "react-redux"
+import React, { useContext, useEffect, useState } from 'react'
+import Draggable from 'react-draggable'
+import { connect } from 'react-redux'
 import {
   BookNowIcon,
   BookNowIconForMobile,
   // CloseWidgetIcon,
-} from "./assets/icons"
-import CheckOut from "./Components/CheckoutForm/CheckOut/CheckOut"
-import CompanyProfile from "./Components/CompanyProfile/CompanyProfile"
+} from './assets/icons'
+import CheckOut from './Components/CheckoutForm/CheckOut/CheckOut'
+import CompanyProfile from './Components/CompanyProfile/CompanyProfile'
 import {
   getCompanyProfile,
   initializing,
-} from "./Redux/company-profile-reducer"
+} from './Redux/company-profile-reducer'
 
 // import theme from "./Theme"
 
-import { userScreenHeight, userScreenWidth, useStyles } from "./AppStyles"
-import { AppBar, useMediaQuery } from "@material-ui/core"
-import { useRef } from "react"
+import { userScreenHeight, userScreenWidth, useStyles } from './AppStyles'
+import { AppBar, useMediaQuery } from '@material-ui/core'
+import { useRef } from 'react'
 // import Slide1 from "@mui/material/Slide"
-import { Preloader } from "./Components/Helpers/Preloader/Preloader"
-import styles from "./AppStyles.module.scss"
-import ThemeContext from "./context"
-import styled from "styled-components"
+import { Preloader } from './Components/Helpers/Preloader/Preloader'
+import styles from './AppStyles.module.scss'
+import ThemeContext from './context'
+import styled from 'styled-components'
 // import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 let xOrdinate = 0
@@ -72,7 +72,7 @@ const App = (props) => {
 
   const handleClose = () => {
     setExpanded(false)
-    document.body.style.overflowY = "unset"
+    document.body.style.overflowY = 'unset'
     // position.current.y = 10
 
     if (userScreenWidth - xOrdinate < 500) {
@@ -148,9 +148,9 @@ const App = (props) => {
 
   React.useEffect(() => {
     if (backgroundScrollStop) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = 'unset'
     }
   }, [backgroundScrollStop])
 
@@ -182,21 +182,21 @@ const App = (props) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
 
-  const jwtToken = localStorage.getItem("Authorization")
+  const jwtToken = localStorage.getItem('Authorization')
 
   useEffect(() => {
-    localStorage.removeItem("captcha")
+    localStorage.removeItem('captcha')
     props.getCompanyProfile()
   }, [])
 
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />
+    return <Slide direction='up' ref={ref} {...props} />
   })
 
-  const isMobile = useMediaQuery("(max-width:530px)")
-  const isiPad = useMediaQuery("(max-width:1024px)")
+  const isMobile = useMediaQuery('(max-width:530px)')
+  const isiPad = useMediaQuery('(max-width:1024px)')
   const forBostonLimousineToDisplayIconOnTheLeft =
-    useMediaQuery("(max-width:500px)")
+    useMediaQuery('(max-width:500px)')
 
   let stylesForBody = `
     z-index: 1000000000; 
@@ -207,7 +207,7 @@ const App = (props) => {
   //   bottom: 50px;
   // right: 0;
   // left: 50px;
-  document.getElementById("widget-by-bookinglane").style = stylesForBody
+  document.getElementById('widget-by-bookinglane').style = stylesForBody
 
   const containerRef = React.useRef(null)
 
@@ -251,6 +251,7 @@ const App = (props) => {
     inputsBackground,
     bookNowIconFontAndCircleBorderColor,
     bookNowIconBackgroundColor,
+    bookNowIconInnerElementsColor,
   } = useContext(ThemeContext)
 
   return (
@@ -281,21 +282,24 @@ const App = (props) => {
                 bookNowIconBackgroundColor={bookNowIconBackgroundColor}
                 disabled={disabled}
                 ref={refOfBookNow}
-                id="booknowIcon"
+                id='booknowIcon'
                 style={{
                   left:
-                    leftOrRight == "left"
+                    leftOrRight == 'left'
                       ? `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 30px)`
                       : `calc(${positioningForWithoutDraggableAppXAndY.current.x}px + 30px)`,
                   // right: "0",
                   bottom: `calc(${positioningForWithoutDraggableAppXAndY.current.y}px - 30px)`,
-                  display: expanded ? "none" : "block",
+                  display: expanded ? 'none' : 'block',
                 }}
               >
-                <BookNowIconForMobile
-                  color={bookNowIconFontAndCircleBorderColor}
-                />
-                <span className={styles.bookNowMobile}>BOOK NOW!</span>
+                <BookNowIconForMobile color={bookNowIconInnerElementsColor} />
+                <span
+                  className={styles.bookNowMobile}
+                  style={{ color: bookNowIconInnerElementsColor }}
+                >
+                  BOOK NOW!
+                </span>
               </BookNowIconBlock>
 
               <div
@@ -309,7 +313,7 @@ const App = (props) => {
                   // position="sticky"
                   className={styles.divForStickyHeader}
                 >
-                  <div className="companyProfileClassForDrag">
+                  <div className='companyProfileClassForDrag'>
                     {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                     <div className={styles.companyProfile}>
                       {/* это для pointer cursora */}
@@ -376,18 +380,23 @@ const App = (props) => {
                   bookNowIconBackgroundColor={bookNowIconBackgroundColor}
                   disabled={disabled}
                   ref={refOfBookNow}
-                  id="booknowIcon"
+                  id='booknowIcon'
                   style={{
                     marginLeft:
-                      leftOrRight == "left"
+                      leftOrRight == 'left'
                         ? `${positioningForWithoutDraggableAppXAndY.current.x}px`
                         : `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 180px)`,
                     bottom: `${positioningForWithoutDraggableAppXAndY.current.y}px`,
-                    display: expanded ? "none" : "block",
+                    display: expanded ? 'none' : 'block',
                   }}
                 >
-                  <BookNowIcon color={bookNowIconFontAndCircleBorderColor} />
-                  <span className={styles.bookNow}>BOOK NOW!</span>
+                  <BookNowIcon color={bookNowIconInnerElementsColor} />
+                  <span
+                    className={styles.bookNow}
+                    style={{ color: bookNowIconInnerElementsColor }}
+                  >
+                    BOOK NOW!
+                  </span>
                 </BookNowIconBlock>
                 {/* {jwtToken && ( */}
                 <div
@@ -401,7 +410,7 @@ const App = (props) => {
                     // position="sticky"
                     className={styles.divForStickyHeader}
                   >
-                    <div className="companyProfileClassForDrag">
+                    <div className='companyProfileClassForDrag'>
                       {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                       <div className={styles.companyProfile}>
                         {/* это для pointer cursora */}
@@ -447,7 +456,7 @@ const App = (props) => {
                 className={styles.mainBookNowWrapper}
                 style={{
                   marginLeft:
-                    leftOrRight == "left"
+                    leftOrRight == 'left'
                       ? `${positioningForWithoutDraggableAppXAndY.current.x}px`
                       : `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 180px)`,
                   bottom: `${positioningForWithoutDraggableAppXAndY.current.y}px`,
@@ -467,15 +476,20 @@ const App = (props) => {
                   bookNowIconBackgroundColor={bookNowIconBackgroundColor}
                   disabled={disabled}
                   ref={refOfBookNow}
-                  id="booknowIcon"
+                  id='booknowIcon'
                   style={{
                     left: `${positioningForWithoutDraggableAppXAndY.current.x}px`,
                     bottom: `${positioningForWithoutDraggableAppXAndY.current.y}px`,
-                    display: expanded ? "none" : "block",
+                    display: expanded ? 'none' : 'block',
                   }}
                 >
-                  <BookNowIcon color={bookNowIconFontAndCircleBorderColor} />
-                  <span className={styles.bookNow}>BOOK NOW!</span>
+                  <BookNowIcon color={bookNowIconInnerElementsColor} />
+                  <span
+                    className={styles.bookNow}
+                    style={{ color: bookNowIconInnerElementsColor }}
+                  >
+                    BOOK NOW!
+                  </span>
                 </BookNowIconBlock>
                 {/* {jwtToken && ( */}
                 <div
@@ -493,7 +507,7 @@ const App = (props) => {
                     // position="sticky"
                     className={styles.divForStickyHeader}
                   >
-                    <div className="companyProfileClassForDrag">
+                    <div className='companyProfileClassForDrag'>
                       {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                       <div className={styles.companyProfile}>
                         {/* это для pointer cursora */}
@@ -546,7 +560,7 @@ const App = (props) => {
 
                 // disabled={false}
                 // bounds="body"
-                handle=".companyProfileClassForDrag, #booknowIcon"
+                handle='.companyProfileClassForDrag, #booknowIcon'
               >
                 <div ref={containerRef} className={styles.mainBookNowWrapper}>
                   <BookNowIconBlock
@@ -562,18 +576,23 @@ const App = (props) => {
                     //     ? styles.mainBookNowIconDisabledWhileDragging
                     //     : styles.mainBookNowIconEnabledWhileDragging
                     // }
-                    style={{ display: expanded ? "none" : "block" }}
+                    style={{ display: expanded ? 'none' : 'block' }}
                     bookNowIconFontAndCircleBorderColor={
                       bookNowIconFontAndCircleBorderColor
                     }
                     bookNowIconBackgroundColor={bookNowIconBackgroundColor}
                     disabled={disabled}
                     ref={refOfBookNow}
-                    id="booknowIcon"
+                    id='booknowIcon'
                   >
                     {/* <div className={styles.letterB}></div> */}
-                    <BookNowIcon color={bookNowIconFontAndCircleBorderColor} />
-                    <span className={styles.bookNow}>BOOK NOW!</span>
+                    <BookNowIcon color={bookNowIconInnerElementsColor} />
+                    <span
+                      className={styles.bookNow}
+                      style={{ color: bookNowIconInnerElementsColor }}
+                    >
+                      BOOK NOW!
+                    </span>
                   </BookNowIconBlock>
                   {/* {jwtToken && ( */}
                   <div
@@ -592,7 +611,7 @@ const App = (props) => {
                       // position="sticky"
                       className={styles.divForStickyHeader}
                     >
-                      <div className="companyProfileClassForDrag">
+                      <div className='companyProfileClassForDrag'>
                         {/* этот класс c div-oм для реакт драга чтобы можно было перетаскивать по шапке виджета*/}
                         <div
                           className={styles.companyProfile}
@@ -665,12 +684,12 @@ export default connect(mapStateToProps, { getCompanyProfile })(App)
 const BookNowIconBlock = styled.div`
   pointer-events: ${(props) => {
     if (props.disabled) {
-      return "none"
+      return 'none'
     }
   }};
   opacity: ${(props) => {
     if (props.disabled) {
-      return " 0.5"
+      return ' 0.5'
     }
   }};
   @keyframes pulse {
