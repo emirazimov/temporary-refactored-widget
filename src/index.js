@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './App'
-import ThemeContext from './context'
-import store from './Redux/redux-store'
-import reportWebVitals from './reportWebVitals'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+import App from "./App"
+import ThemeContext from "./context"
+import store from "./Redux/redux-store"
+import reportWebVitals from "./reportWebVitals"
 
 // var divForReact = document.createElement("div")
 
@@ -31,6 +31,8 @@ var borderColorForOuterApp = window.borderColorForOuterApp
 
 var carsTypeColor = window.carsTypeColor
 
+var carsTypeBorderColor = window.carsTypeBorderColor
+
 var hoverColor = window.hoverColor
 
 var iconsColor = window.iconsColor
@@ -46,13 +48,12 @@ var fleetCarsBackgroundColor = window.fleetCarsBackgroundColor
 var innerTextOnHover = window.innerTextOnHover
 var inputsBackground = window.inputsBackground
 
-var bookNowIconFontAndCircleBorderColor =
-  window.bookNowIconFontAndCircleBorderColor
+var bookNowIconCircleBorderColor = window.bookNowIconCircleBorderColor
 
 var bookNowIconBackgroundColor = window.bookNowIconBackgroundColor
 var bookNowIconInnerElementsColor = window.bookNowIconInnerElementsColor
-var AMPMHoverBackgroundColor = '#6C6C6C'
-var AMPMHoverFontColor = 'white'
+var AMPMHoverBackgroundColor = window.AMPMHoverBackgroundColor
+var AMPMHoverFontColor = window.AMPMHoverFontColor
 // font-color-for-customize
 
 function Main() {
@@ -67,13 +68,14 @@ function Main() {
           borderColorForInnerElements,
           borderColorForOuterApp,
           carsTypeColor,
+          carsTypeBorderColor,
           hoverColor,
           iconsColor,
           backAndNextButtonsColor,
           innerTextOnHover,
           inputsFontColor,
           inputsBackground,
-          bookNowIconFontAndCircleBorderColor,
+          bookNowIconCircleBorderColor,
           bookNowIconBackgroundColor,
           bookNowIconInnerElementsColor,
           backAndNextButtonsFontColor,
@@ -89,6 +91,6 @@ function Main() {
   )
 }
 
-ReactDOM.render(<Main />, document.getElementById('widget-by-bookinglane'))
+ReactDOM.render(<Main />, document.getElementById("widget-by-bookinglane"))
 
 reportWebVitals()
