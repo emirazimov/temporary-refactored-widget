@@ -285,7 +285,7 @@ const App = (props) => {
                 style={{
                   left:
                     leftOrRight == "left"
-                      ? `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 30px)`
+                      ? `calc(${positioningForWithoutDraggableAppXAndY.current.x}px - 15px)`
                       : `calc(${positioningForWithoutDraggableAppXAndY.current.x}px + 50px)`,
                   right: "0",
                   bottom: `calc(${positioningForWithoutDraggableAppXAndY.current.y}px - 30px)`,
