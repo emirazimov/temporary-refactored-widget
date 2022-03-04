@@ -1,7 +1,7 @@
-@use '../MAINCSSFORWHOLECOMPONENTS/_AppBackgroundColor.module.scss' as *;
-@use '../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss' as *;
-@use '../MAINCSSFORWHOLECOMPONENTS/_MainInputsStyles.module.scss' as *;
-@use '../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss' as *;
+@use "../MAINCSSFORWHOLECOMPONENTS/_AppBackgroundColor.module.scss" as *;
+@use "../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss" as *;
+@use "../MAINCSSFORWHOLECOMPONENTS/_MainInputsStyles.module.scss" as *;
+@use "../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss" as *;
 
 // $icons-color: red;
 $height-for-counters: 35px;
@@ -41,7 +41,7 @@ $height-for-counters: 35px;
 
 @mixin counters-buttons-minus-icon {
   &::before {
-    content: '';
+    content: "";
     width: 12px;
     height: 2px;
     background: $font-color;
@@ -53,7 +53,7 @@ $height-for-counters: 35px;
 
 @mixin counters-buttons-plus-icon {
   &::before {
-    content: '';
+    content: "";
     width: 12px;
     height: 2px;
     background: $font-color;
@@ -63,7 +63,7 @@ $height-for-counters: 35px;
     // left: 50%;
   }
   &::after {
-    content: '';
+    content: "";
     width: 12px;
     height: 1.7px;
     background: white;
@@ -100,4 +100,5 @@ $height-for-counters: 35px;
   font-weight: 400;
   font-size: 14px;
   padding: 0;
+  outline: none;
 }
