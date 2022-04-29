@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { CustomMaskInput } from '../CustomFormInput/CustomFormInput'
-import styled from 'styled-components'
-import PrivacyPolicy from '../../../TermsOfUse/PrivacyPolicy/PrivacyPolicy'
-import TermsOfUse from '../../../TermsOfUse/TermOfUse/TermOfUse'
-import Cleave from 'cleave.js/react'
-import './PaymentStyles.css'
-import styles from './Payment.module.scss'
-import { Switch } from '../../../Helpers/Switch/Switch'
-import ThemeContext from '../../../../context'
-import Autocomplete from '@mui/material/Autocomplete'
+import React, { useState, useEffect, useContext } from "react"
+import { FormProvider, useForm } from "react-hook-form"
+import { CustomMaskInput } from "../CustomFormInput/CustomFormInput"
+import styled from "styled-components"
+import PrivacyPolicy from "../../../TermsOfUse/PrivacyPolicy/PrivacyPolicy"
+import TermsOfUse from "../../../TermsOfUse/TermOfUse/TermOfUse"
+import Cleave from "cleave.js/react"
+import "./PaymentStyles.css"
+import styles from "./Payment.module.scss"
+import { Switch } from "../../../Helpers/Switch/Switch"
+import ThemeContext from "../../../../context"
+import Autocomplete from "@mui/material/Autocomplete"
 
 const PaymentUIComponent = ({
   next,
@@ -60,8 +60,8 @@ const PaymentUIComponent = ({
   round,
 }) => {
   const inputStyle = {
-    WebkitBoxShadow: '0 0 0 1000px transparent inset',
-    height: '0px',
+    WebkitBoxShadow: "0 0 0 1000px transparent inset",
+    height: "0px",
   }
 
   const {
@@ -110,7 +110,7 @@ const PaymentUIComponent = ({
                   }
                   style={{
                     color: fontColor,
-                    opacity: riderDetails ? '1' : '0.3',
+                    opacity: riderDetails ? "1" : "0.3",
                   }}
                 >
                   Is passenger a cardholder?
@@ -141,10 +141,10 @@ const PaymentUIComponent = ({
                     // }
                     inputsFontColor={inputsFontColor}
                   >
-                    <input
-                      name='greetClientInfo.firstName'
-                      autoComplete='off'
-                      placeholder='First Name'
+                    <InputFirstAndLastName
+                      name="greetClientInfo.firstName"
+                      autoComplete="off"
+                      placeholder="First Name"
                       defaultValue={formSummary.greetClientInfo.firstName}
                       className={styles.cardholderInformationInputSelfFirstName}
                       style={{
@@ -157,16 +157,17 @@ const PaymentUIComponent = ({
                         borderBottomLeftRadius: borderRadiusesForInnerElements,
                       }}
                       ref={register}
+                      inputsFontColor={inputsFontColor}
                     />
                   </CardholderInformationInputSelfContainerJustForFirstAndLastName>
                   <div
                     className={styles.cardholderInformationInputSelfContainer2}
                   >
-                    <input
-                      name='greetClientInfo.lastName'
-                      autoComplete='off'
+                    <InputFirstAndLastName
+                      name="greetClientInfo.lastName"
+                      autoComplete="off"
                       defaultValue={formSummary.greetClientInfo.lastName}
-                      placeholder='Last Name'
+                      placeholder="Last Name"
                       className={styles.cardholderInformationInputSelfLastName}
                       style={{
                         color: inputsFontColor,
@@ -178,6 +179,7 @@ const PaymentUIComponent = ({
                         borderBottomRightRadius: borderRadiusesForInnerElements,
                       }}
                       ref={register}
+                      inputsFontColor={inputsFontColor}
                     />
                   </div>
                 </div>
@@ -185,10 +187,10 @@ const PaymentUIComponent = ({
                   <div
                     className={styles.cardholderInformationInputSelfContainer1}
                   >
-                    <input
-                      name='greetClientInfo.email'
-                      autoComplete='off'
-                      placeholder='Email'
+                    <InputsDivided
+                      name="greetClientInfo.email"
+                      autoComplete="off"
+                      placeholder="Email"
                       defaultValue={formSummary.greetClientInfo.email}
                       className={styles.cardholderInformationInputSelf}
                       style={{
@@ -199,16 +201,17 @@ const PaymentUIComponent = ({
                         borderRadius: borderRadiusesForInnerElements,
                       }}
                       ref={register}
+                      inputsFontColor={inputsFontColor}
                     />
                   </div>
                   <div
                     className={styles.cardholderInformationInputSelfContainer2}
                   >
-                    <input
-                      name='greetClientInfo.phoneNumber'
-                      autoComplete='off'
+                    <InputsDivided
+                      name="greetClientInfo.phoneNumber"
+                      autoComplete="off"
                       defaultValue={formSummary.greetClientInfo.phoneNumber}
-                      placeholder='Phone Number'
+                      placeholder="Phone Number"
                       className={styles.cardholderInformationInputSelf}
                       style={{
                         color: inputsFontColor,
@@ -218,6 +221,7 @@ const PaymentUIComponent = ({
                         borderRadius: borderRadiusesForInnerElements,
                       }}
                       ref={register}
+                      inputsFontColor={inputsFontColor}
                     />
                   </div>
                 </div>
@@ -235,25 +239,25 @@ const PaymentUIComponent = ({
               <div className={styles.cardholderInformationInputsWrapper}>
                 <div
                   className={styles.cardholderInformationInputSelfContainer}
-                  style={{ width: '50%' }}
+                  style={{ width: "50%" }}
                 >
                   <CardholderInformationInputSelfContainerJustForFirstAndLastName
                     // className={
                     //   styles.cardholderInformationInputSelfContainerJustForFirstAndLastName
                     // }
                     inputsFontColor={inputsFontColor}
-                    style={{ width: '100%' }}
+                    style={{ width: "100%" }}
                   >
-                    <input
-                      name='client.firstName'
-                      autoComplete='off'
+                    <InputFirstAndLastName
+                      name="client.firstName"
+                      autoComplete="off"
                       defaultValue={formSummary.client.firstName}
-                      placeholder='First Name'
+                      placeholder="First Name"
                       error={errors.client?.firstName ? true : false}
                       className={styles.cardholderInformationInputSelfFirstName}
                       ref={register}
                       style={{
-                        width: '100%',
+                        width: "100%",
                         color: inputsFontColor,
                         borderLeft: `1px solid ${borderColorForInnerElements}`,
                         borderTop: `1px solid ${borderColorForInnerElements}`,
@@ -262,6 +266,7 @@ const PaymentUIComponent = ({
                         borderTopLeftRadius: borderRadiusesForInnerElements,
                         borderBottomLeftRadius: borderRadiusesForInnerElements,
                       }}
+                      inputsFontColor={inputsFontColor}
                     />
                   </CardholderInformationInputSelfContainerJustForFirstAndLastName>
                   {errors.client?.firstName && (
@@ -272,18 +277,18 @@ const PaymentUIComponent = ({
                 </div>
                 <div
                   className={styles.cardholderInformationInputSelfContainer}
-                  style={{ width: '50%' }}
+                  style={{ width: "50%" }}
                 >
-                  <input
-                    name='client.lastName'
-                    autoComplete='off'
-                    placeholder='Last Name'
+                  <InputFirstAndLastName
+                    name="client.lastName"
+                    autoComplete="off"
+                    placeholder="Last Name"
                     defaultValue={formSummary.client.lastName}
                     error={errors.client?.lastName ? true : false}
                     className={styles.cardholderInformationInputSelfLastName}
                     ref={register}
                     style={{
-                      width: '100%',
+                      width: "100%",
                       color: inputsFontColor,
                       borderRight: `1px solid ${borderColorForInnerElements}`,
                       borderTop: `1px solid ${borderColorForInnerElements}`,
@@ -292,6 +297,7 @@ const PaymentUIComponent = ({
                       borderTopRightRadius: borderRadiusesForInnerElements,
                       borderBottomRightRadius: borderRadiusesForInnerElements,
                     }}
+                    inputsFontColor={inputsFontColor}
                   />
                   {errors.client?.lastName && (
                     <p className={styles.errorInputs}>
@@ -305,10 +311,10 @@ const PaymentUIComponent = ({
                 <div
                   className={styles.cardholderInformationInputSelfContainer1}
                 >
-                  <input
-                    name='client.email'
-                    autoComplete='off'
-                    placeholder='Email'
+                  <InputsDivided
+                    name="client.email"
+                    autoComplete="off"
+                    placeholder="Email"
                     defaultValue={formSummary.client.email}
                     error={errors.client?.email ? true : false}
                     className={styles.cardholderInformationInputSelf}
@@ -319,6 +325,7 @@ const PaymentUIComponent = ({
                       borderRadius: borderRadiusesForInnerElements,
                     }}
                     ref={register}
+                    inputsFontColor={inputsFontColor}
                   />
                   {errors.client?.email && (
                     <p className={styles.errorInputs}>
@@ -329,11 +336,11 @@ const PaymentUIComponent = ({
                 <div
                   className={styles.cardholderInformationInputSelfContainer2}
                 >
-                  <input
-                    name='client.phoneNumber'
-                    autoComplete='off'
+                  <InputsDivided
+                    name="client.phoneNumber"
+                    autoComplete="off"
                     defaultValue={formSummary.client.phoneNumber}
-                    placeholder='Phone Number'
+                    placeholder="Phone Number"
                     error={errors.client?.phoneNumber ? true : false}
                     className={styles.cardholderInformationInputSelf}
                     style={{
@@ -343,6 +350,7 @@ const PaymentUIComponent = ({
                       borderRadius: borderRadiusesForInnerElements,
                     }}
                     ref={register}
+                    inputsFontColor={inputsFontColor}
                   />
                   {errors.client?.phoneNumber && (
                     <p className={styles.errorInputs}>
@@ -357,10 +365,10 @@ const PaymentUIComponent = ({
                     styles.cardholderInformationInputsContainerForPositionErrorMessage
                   }
                 >
-                  <input
-                    name='client.address'
-                    autoComplete='off'
-                    placeholder='Address'
+                  <InputFullWidth
+                    name="client.address"
+                    autoComplete="off"
+                    placeholder="Address"
                     defaultValue={formSummary.client.address}
                     ref={register}
                     error={errors.client?.address ? true : false}
@@ -368,13 +376,14 @@ const PaymentUIComponent = ({
                       styles.cardholderInformationInputWithFullWidthSelf
                     }
                     style={{
-                      width: '100%',
-                      paddingRight: '0',
+                      width: "100%",
+                      paddingRight: "0",
                       color: inputsFontColor,
                       border: `1px solid ${borderColorForInnerElements}`,
                       background: inputsBackground,
                       borderRadius: borderRadiusesForInnerElements,
                     }}
+                    inputsFontColor={inputsFontColor}
                   />
                   {errors.client?.address && (
                     <p className={styles.errorInputs}>
@@ -400,21 +409,22 @@ const PaymentUIComponent = ({
                     options={states.map((state) => state.name)}
                     renderInput={(params) => (
                       <div ref={params.InputProps.ref}>
-                        <input
-                          type='text'
+                        <InputFullWidth
+                          type="text"
                           {...params.inputProps}
-                          placeholder='State'
+                          placeholder="State"
                           className={
                             styles.cardholderInformationInputWithFullWidthSelfState
                           }
                           style={{
-                            width: '100%',
-                            paddingRight: '0',
+                            width: "100%",
+                            paddingRight: "0",
                             color: inputsFontColor,
                             border: `1px solid ${borderColorForInnerElements}`,
                             background: inputsBackground,
                             borderRadius: borderRadiusesForInnerElements,
                           }}
+                          inputsFontColor={inputsFontColor}
                         />
                       </div>
                     )}
@@ -441,20 +451,21 @@ const PaymentUIComponent = ({
                     options={cities.map((city) => city.name)}
                     renderInput={(params) => (
                       <div ref={params.InputProps.ref}>
-                        <input
-                          type='text'
+                        <InputsDivided
+                          type="text"
                           {...params.inputProps}
                           className={styles.cardholderInformationInputSelf}
-                          placeholder='City'
+                          placeholder="City"
                           style={{
-                            width: '100%',
-                            paddingRight: '25px',
-                            boxSizing: 'border-box',
+                            width: "100%",
+                            paddingRight: "25px",
+                            boxSizing: "border-box",
                             color: inputsFontColor,
                             border: `1px solid ${borderColorForInnerElements}`,
                             background: inputsBackground,
                             borderRadius: borderRadiusesForInnerElements,
                           }}
+                          inputsFontColor={inputsFontColor}
                         />
                       </div>
                     )}
@@ -467,10 +478,10 @@ const PaymentUIComponent = ({
                 <div
                   className={styles.cardholderInformationInputSelfContainer2}
                 >
-                  <input
-                    name='client.zip'
-                    autoComplete='off'
-                    placeholder='ZIP'
+                  <InputsDivided
+                    name="client.zip"
+                    autoComplete="off"
+                    placeholder="ZIP"
                     ref={register}
                     defaultValue={formSummary.client.zip}
                     error={errors.client?.address ? true : false}
@@ -481,6 +492,7 @@ const PaymentUIComponent = ({
                       background: inputsBackground,
                       borderRadius: borderRadiusesForInnerElements,
                     }}
+                    inputsFontColor={inputsFontColor}
                   />
                   {errors.client?.zip && (
                     <p className={styles.errorInputs}>
@@ -506,16 +518,15 @@ const PaymentUIComponent = ({
                   }
                 >
                   <Cleave
-                    delimiter='-'
+                    delimiter="-"
                     options={{
                       creditCard: true,
                       onCreditCardTypeChanged: handleType,
                     }}
-                    name='paymentInfo.cardNumber'
+                    name="paymentInfo.cardNumber"
                     error={errors.paymentInfo?.cardNumber ? true : false}
                     onChange={handleNum}
-                    placeholder='Card number'
-                    className='credit-card-input-by-bookinglane'
+                    placeholder="Card number"
                     className={
                       styles.cardholderInformationInputWithFullWidthSelf
                     }
@@ -537,16 +548,16 @@ const PaymentUIComponent = ({
                   className={styles.cardholderInformationInputSelfContainer1}
                 >
                   <CustomMaskInput
-                    name='paymentInfo.month'
+                    name="paymentInfo.month"
                     ref={register}
-                    mask='99/99'
-                    autoComplete='off'
+                    mask="99/99"
+                    autoComplete="off"
                     defaultValue={`${formSummary.paymentInfo.month}/${formSummary.paymentInfo.year}`}
                   >
                     {() => (
                       <input
-                        placeholder='mm/yy'
-                        autoComplete='off'
+                        placeholder="mm/yy"
+                        autoComplete="off"
                         error={errors.paymentInfo?.month ? true : false}
                         className={styles.cardholderInformationInputSelf}
                         style={{
@@ -568,16 +579,16 @@ const PaymentUIComponent = ({
                   className={styles.cardholderInformationInputSelfContainer2}
                 >
                   <CustomMaskInput
-                    name='paymentInfo.cvc'
+                    name="paymentInfo.cvc"
                     ref={register}
-                    mask={cardType == 'amex' ? '9999' : '999'}
-                    autoComplete='off'
+                    mask={cardType == "amex" ? "9999" : "999"}
+                    autoComplete="off"
                     defaultValue={formSummary.paymentInfo.cvc}
                   >
                     {() => (
-                      <input
-                        placeholder='CVV/CVC'
-                        autoComplete='off'
+                      <InputsDivided
+                        placeholder="CVV/CVC"
+                        autoComplete="off"
                         error={errors.paymentInfo?.cvc ? true : false}
                         className={styles.cardholderInformationInputSelf}
                         style={{
@@ -586,6 +597,7 @@ const PaymentUIComponent = ({
                           background: inputsBackground,
                           borderRadius: borderRadiusesForInnerElements,
                         }}
+                        inputsFontColor={inputsFontColor}
                       />
                     )}
                   </CustomMaskInput>
@@ -598,11 +610,11 @@ const PaymentUIComponent = ({
               </div>
             </div>
             <div className={styles.checkboxWrapper}>
-              <CheckboxLabel id='input'>
+              <CheckboxLabel id="input">
                 <CheckboxInput
-                  type='checkbox'
+                  type="checkbox"
                   onClick={() => setChecked(!checked)}
-                  htmlFor='input'
+                  htmlFor="input"
                 />
                 <CheckboxSpan fontColor={fontColor}></CheckboxSpan>
               </CheckboxLabel>
@@ -612,8 +624,8 @@ const PaymentUIComponent = ({
             <div className={styles.buttonGroupBlock}>
               <div className={styles.buttonGroupBlockContainer}>
                 <button
-                  variant='contained'
-                  color='primary'
+                  variant="contained"
+                  color="primary"
                   onClick={back}
                   className={styles.buttonBackSelf}
                   style={{
@@ -626,11 +638,11 @@ const PaymentUIComponent = ({
                   Back
                 </button>
                 <button
-                  type='submit'
+                  type="submit"
                   disabled={!checked}
                   className={styles.buttonNextSelf}
                   style={{
-                    opacity: !checked ? '0.5' : '1',
+                    opacity: !checked ? "0.5" : "1",
                     background: backAndNextButtonsColor,
                     color: backAndNextButtonsFontColor,
                     border: `1px solid ${backAndNextButtonsBorderColor}`,
@@ -655,7 +667,7 @@ const CardholderInformationInputSelfContainerJustForFirstAndLastName = styled.di
   position: relative;
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     border-right: 1px solid ${(props) => props.inputsFontColor};
     top: 28%;
     right: 0;
@@ -705,7 +717,7 @@ const CheckboxSpan = styled.span`
   border: 1px solid ${(props) => props.fontColor};
   border-radius: 5px;
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     display: none;
   }
@@ -736,5 +748,88 @@ const CheckboxInput = styled.input`
   }
   &:checked + ${CheckboxSpan} {
     background-color: transparent;
+  }
+`
+
+const InputFirstAndLastName = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  padding: 0;
+  text-indent: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 13.5px;
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+  }
+  &:focus {
+    outline: none;
+  }
+`
+const InputsDivided = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  padding: 0;
+  text-indent: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 13.5px;
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-size: 13.5px;
+    color: ${(props) => props.inputsFontColor};
+  }
+  &:focus {
+    outline: none;
+  }
+`
+
+const InputFullWidth = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  padding: 0;
+  text-indent: 20px;
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: ${(props) => props.inputsFontColor};
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: ${(props) => props.inputsFontColor};
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: ${(props) => props.inputsFontColor};
+  }
+  &:focus {
+    outline: none;
   }
 `
