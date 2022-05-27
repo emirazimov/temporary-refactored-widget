@@ -247,7 +247,10 @@ const GoogleMap = React.memo(
                                       className={
                                         styles.numberOfDestinationPoint
                                       }
-                                      style={{ color: inputsFontColor }}
+                                      style={{
+                                        color: inputsFontColor,
+                                        border: `2px solid ${inputsFontColor}`,
+                                      }}
                                     >
                                       {id}
                                     </span>
