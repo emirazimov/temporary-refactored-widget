@@ -1,24 +1,24 @@
-import React, { useContext } from "react"
-import Carousel from "react-material-ui-carousel"
-import { Preloader } from "../../../Helpers/Preloader/Preloader"
-import { AppBar, useMediaQuery } from "@material-ui/core"
-import { AspectRatio } from "react-aspect-ratio"
-import "./FleetForm.css"
-import IncorrectAddressError from "../../IncorrectAdressError/IncorrectAddressError"
-import styles from "./FleetForm.module.scss"
-import { Modal } from "../../../Helpers/Modal/Modal"
-import ThemeContext from "../../../../context"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import "./FleetForm.css"
+import React, { useContext, useState } from 'react'
+import Carousel from 'react-material-ui-carousel'
+import { Preloader } from '../../../Helpers/Preloader/Preloader'
+import { AppBar, useMediaQuery } from '@material-ui/core'
+import { AspectRatio } from 'react-aspect-ratio'
+import './FleetForm.css'
+import IncorrectAddressError from '../../IncorrectAdressError/IncorrectAddressError'
+import styles from './FleetForm.module.scss'
+import { Modal } from '../../../Helpers/Modal/Modal'
+import ThemeContext from '../../../../context'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import './FleetForm.css'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", right: "0", zIndex: "30" }}
+      style={{ ...style, display: 'block', right: '0', zIndex: '30' }}
       onClick={onClick}
     />
   )
@@ -29,7 +29,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", left: "0", zIndex: "30" }}
+      style={{ ...style, display: 'block', left: '0', zIndex: '30' }}
       onClick={onClick}
     />
   )
@@ -58,10 +58,10 @@ const FleetForm = ({
   setShowSafetySeatIsNotAvailable,
   formData,
 }) => {
-  const isMobile = useMediaQuery("(max-width:500px)")
-  const isiPad = useMediaQuery("(max-width:1024px)")
+  const isMobile = useMediaQuery('(max-width:500px)')
+  const isiPad = useMediaQuery('(max-width:1024px)')
 
-  const carTextColor = "white"
+  const carTextColor = 'white'
   const car = [cars[0], cars[1]]
 
   const settings = {
@@ -75,15 +75,15 @@ const FleetForm = ({
     appendDots: (dots) => (
       <div
         style={{
-          position: "absolute",
-          height: "6px",
-          backgroundColor: "transparent",
+          position: 'absolute',
+          height: '6px',
+          backgroundColor: 'transparent',
           // borderRadius: "10px",
-          padding: "0",
-          bottom: "10px",
+          padding: '0',
+          bottom: '10px',
         }}
       >
-        <ul style={{ margin: "0px", paddingLeft: "0px", textAlign: "center" }}>
+        <ul style={{ margin: '0px', paddingLeft: '0px', textAlign: 'center' }}>
           {dots}
         </ul>
       </div>
@@ -101,8 +101,21 @@ const FleetForm = ({
     //     ></div>
     //   )
     // },
-    dotsClass: "button__bar",
+    dotsClass: 'button__bar',
   }
+  const slickSlide = document.getElementsByClassName('slick-slide')
+
+  const [isModalWithSlidesReady, setIsModalWithSlidesReady] = useState(false)
+
+  function setWidthForSlickSlide() {
+    for (let i = 0; i < slickSlide.length; i++) {
+      slickSlide[i].style.width = 'auto'
+    }
+
+    setIsModalWithSlidesReady(true)
+  }
+
+  console.log(document.getElementsByClassName('slick-slide'))
 
   const {
     ThemeProviderAppBackgroundColor,
@@ -147,26 +160,26 @@ const FleetForm = ({
                 >
                   <span
                     style={{
-                      width: "100%",
+                      width: '100%',
                       color: fontColor,
-                      textAlign: "center",
-                      marginTop: "30px",
-                      marginBottom: " 45px",
+                      textAlign: 'center',
+                      marginTop: '30px',
+                      marginBottom: ' 45px',
                     }}
                   >
                     Safety Seat is Not Available
                   </span>
                   <button
-                    type="button"
+                    type='button'
                     style={{
-                      width: "100%",
+                      width: '100%',
                       color: fontColor,
                       background: ThemeProviderAppBackgroundColor,
-                      border: "none",
+                      border: 'none',
                       borderTop: `1px solid ${fontColor}`,
-                      cursor: "pointer",
-                      paddingTop: "18px",
-                      paddingBottom: "18px",
+                      cursor: 'pointer',
+                      paddingTop: '18px',
+                      paddingBottom: '18px',
                     }}
                     onClick={() => {
                       setShowSafetySeatIsNotAvailable(false)
@@ -204,8 +217,8 @@ const FleetForm = ({
                     key={`${car?.id}${car?.name}`}
                     style={{
                       cursor: showSafetySeatIsNotAvailable
-                        ? "not-allowed"
-                        : "pointer",
+                        ? 'not-allowed'
+                        : 'pointer',
                       background: fleetCarsBackgroundColor,
                       border: `1px solid ${borderColorForInnerElements}`,
                       borderRadius: borderRadiusesForInnerElements,
@@ -241,10 +254,11 @@ const FleetForm = ({
                               <img
                                 src={url?.path}
                                 key={url?.id}
-                                alt="car"
+                                alt='car'
                                 className={styles.carImageSelf}
                                 onClick={(event) => {
                                   handleClickOpen(car?.id)
+                                  setWidthForSlickSlide()
                                 }}
                                 style={{
                                   borderRadius: borderRadiusesForInnerElements,
@@ -268,10 +282,10 @@ const FleetForm = ({
 
                             <img
                               src={
-                                "https://fl-1.cdn.flockler.com/embed/not-found.png"
+                                'https://fl-1.cdn.flockler.com/embed/not-found.png'
                               }
                               className={styles.carImageSelf}
-                              alt="car"
+                              alt='car'
                               style={{
                                 borderRadius: borderRadiusesForInnerElements,
                               }}
@@ -462,39 +476,42 @@ const FleetForm = ({
                   </div>
                 ))}
                 <Modal onClose={() => handleClickClose()} show={show}>
-                  <Slider
-                    {...settings}
-                    style={{
-                      width: !isMobile ? "550px" : "239px",
-                      height: !isMobile ? "400px" : "170px",
-                    }}
-                    // className={styles.modalSlider}
-                  >
-                    {result?.imageUrls?.map((url) => (
-                      <AspectRatio
-                        ratio="4/3"
-                        style={{
-                          width: !isMobile ? "550px" : "239px",
-                          height: !isMobile ? "400px" : "170px",
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img
-                          src={url?.path}
+                  {isModalWithSlidesReady && (
+                    <Slider
+                      {...settings}
+                      style={{
+                        width: !isMobile ? '550px' : '239px',
+                        height: !isMobile ? '400px' : '170px',
+                      }}
+                      // className={styles.modalSlider}
+                    >
+                      {result?.imageUrls?.map((url) => (
+                        <AspectRatio
+                          ratio='4/3'
                           style={{
-                            borderRadius: "8px",
-                            width: !isMobile ? "550px" : "239px",
-                            height: !isMobile ? "400px" : "170px",
+                            width: !isMobile ? '550px' : '239px',
+                            height: !isMobile ? '400px' : '170px',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center',
                           }}
-                          alt="car"
-                          key={`${url?.id}${url?.path}`}
-                        />
-                      </AspectRatio>
-                    ))}
-                  </Slider>
+                        >
+                          {console.log(result?.imageUrls)}
+                          <img
+                            src={url?.path}
+                            style={{
+                              borderRadius: '8px',
+                              width: !isMobile ? '550px' : '239px',
+                              height: !isMobile ? '400px' : '170px',
+                            }}
+                            alt='car'
+                            key={`${url?.id}${url?.path}`}
+                          />
+                        </AspectRatio>
+                      ))}
+                    </Slider>
+                  )}
                 </Modal>
                 {Object.keys(cars).length === 0 && (
                   <div
@@ -537,7 +554,7 @@ const FleetForm = ({
                   disabled={carCard ? false : true}
                   className={styles.buttonNextSelf}
                   style={{
-                    opacity: carCard ? "1" : "0.5",
+                    opacity: carCard ? '1' : '0.5',
                     background: backAndNextButtonsColor,
                     color: backAndNextButtonsFontColor,
                     border: `1px solid ${backAndNextButtonsBorderColor}`,

@@ -1,10 +1,10 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
-import App from "./App"
-import ThemeContext from "./context"
-import store from "./Redux/redux-store"
-import reportWebVitals from "./reportWebVitals"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './App'
+import ThemeContext from './context'
+import store from './Redux/redux-store'
+import reportWebVitals from './reportWebVitals'
 
 // var divForReact = document.createElement("div")
 
@@ -68,6 +68,11 @@ var switchesBackgroundColorEnabled = window.switchesBackgroundColorEnabled
 var dotsLineColor = window.dotsLineColor
 
 var headerFontColor = window.headerFontColor
+
+var latitude = window.latitude
+
+var longitude = window.longitude
+
 // font-color-for-customize
 
 function Main() {
@@ -107,6 +112,8 @@ function Main() {
           switchesBackgroundColorEnabled,
           dotsLineColor,
           headerFontColor,
+          latitude,
+          longitude,
         }}
       >
         <App />
@@ -115,6 +122,6 @@ function Main() {
   )
 }
 
-ReactDOM.render(<Main />, document.getElementById("widget-by-bookinglane"))
+ReactDOM.render(<Main />, document.getElementById('widget-by-bookinglane'))
 
 reportWebVitals()
