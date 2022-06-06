@@ -44,6 +44,7 @@ export const Modal = (props) => {
           </div> */}
           <div
             className={styles.modalBody}
+            id="modal" // IMPORTANT THIS ID FOR SLICK SLIDER. WITHOUT THIS ID IT"S GONNA CRASH
             onClick={(e) => {
               e.stopPropagation()
             }}

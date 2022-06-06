@@ -201,6 +201,12 @@ html {
   &::-webkit-scrollbar-thumb:hover {
     background: #bfaf82;
   }
+  @media screen and (min-width: 3840px) {
+    //For 4K Displays (Ultra HD)
+    .container {
+      height: 58vh;
+    }
+  }
 }
 $heightForMobile: 100%;
 .contentContainerMobile {

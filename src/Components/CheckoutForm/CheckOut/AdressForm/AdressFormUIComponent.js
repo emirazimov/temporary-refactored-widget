@@ -204,6 +204,15 @@ const AdressFormwithoutReactMemo = ({
     window.localStorage.setItem('captcha', value)
   }
 
+  // const MeetAndGreetLuggageAssistCondition = () => {
+  //   if (
+  //     (isAirline || formData.isAirportPickupIncluded) &&
+  //     (formData.bookingType === 3 || bookingType === 3)
+  //   ) {
+  //     return MeetAndGreetSwitchBlock
+  //   }
+  // }
+
   React.useEffect(() => {
     fetchAirlines()
   }, [])
