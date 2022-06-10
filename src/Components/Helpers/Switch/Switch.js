@@ -46,7 +46,7 @@ export const Switch = (props) => {
 
         {...props}
       />
-      <label for={`switch${props.numberToIdentify}`}></label>
+      <label htmlFor={`switch${props.numberToIdentify}`}></label>
     </SwitchWrapper>
   )
 }

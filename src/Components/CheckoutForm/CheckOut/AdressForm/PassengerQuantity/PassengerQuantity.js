@@ -50,7 +50,7 @@ export default React.memo(function PassengerQuantity({
     setPassengers((passengers) => passengers + 1)
     setPassengersQuantityForBackStep(progress)
 
-    console.log(passengersQuantityForBackStep)
+    // console.log(passengersQuantityForBackStep)
   }
   // console.log(passengersQuantityForBackStep)
   //   React.useEffect(() => {

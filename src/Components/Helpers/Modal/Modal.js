@@ -51,7 +51,7 @@ export const Modal = (props) => {
           >
             {props.children}
           </div>
-          {console.log(props.children)}
+          {/* {console.log(props.children)} */}
           {props?.children?.props?.children?.type == "div" && (
             <div className={styles.modalFooter}>
               <button onClick={props.onClose} className={styles.modalOkButton}>

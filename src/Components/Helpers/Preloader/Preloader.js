@@ -38,10 +38,10 @@ export const Preloader = () => {
       //   backgroundColor: "black",
       //   // marginTop: "40px",
       // }}
-      class={styles.loaderContainer}
+      className={styles.loaderContainer}
       style={{ background: ThemeProviderAppBackgroundColor }}
     >
-      <div class={styles.loader}></div>
+      <div className={styles.loader}></div>
     </div>
   )
 }

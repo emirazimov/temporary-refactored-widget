@@ -40,16 +40,16 @@ export const LuggageIcon = (color) => (
   //   <path
   //     d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"
   //     stroke={color.color}
-  //     stroke-width="2"
-  //     stroke-linecap="round"
-  //     stroke-linejoin="round"
+  //     strokeWidth="2"
+  //     strokeLinecap="round"
+  //     strokeLinejoin="round"
   //   />
   //   <path
   //     d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21"
   //     stroke={color.color}
-  //     stroke-width="2"
-  //     stroke-linecap="round"
-  //     stroke-linejoin="round"
+  //     strokeWidth="2"
+  //     strokeLinecap="round"
+  //     strokeLinejoin="round"
   //   />
   // </svg>
 
@@ -64,16 +64,16 @@ export const LuggageIcon = (color) => (
     <path
       d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"
       stroke={color.color}
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21"
       stroke={color.color}
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
@@ -123,8 +123,8 @@ export const Ticket = (color) => (
     style={iconsForInputs}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M20.0156 13.8957L10.0198 3.89995C9.79447 3.67462 9.42914 3.67462 9.20382 3.89995C9.09504 4.00873 8.9575 4.265 8.93256 4.73516C8.89482 5.44651 8.73274 6.81897 7.77585 7.77585C6.81897 8.73274 5.44651 8.89482 4.73516 8.93256C4.265 8.9575 4.00873 9.09504 3.89995 9.20382C3.67462 9.42915 3.67462 9.79447 3.89995 10.0198L13.8957 20.0156C14.2337 20.3535 14.7817 20.3535 15.1197 20.0156L20.0156 15.1197C20.3535 14.7817 20.3535 14.2337 20.0156 13.8957ZM11.2438 2.67598L21.2395 12.6717C22.2535 13.6857 22.2535 15.3297 21.2395 16.3436L16.3436 21.2395C15.3297 22.2535 13.6857 22.2535 12.6717 21.2395L2.67598 11.2438C1.77467 10.3425 1.77467 8.88116 2.67598 7.97985C3.18965 7.46618 3.91805 7.24251 4.64347 7.20403C5.3009 7.16916 6.08482 7.01895 6.55188 6.55188C7.01895 6.08482 7.16916 5.3009 7.20403 4.64347C7.24251 3.91805 7.46618 3.18965 7.97985 2.67598C8.88116 1.77467 10.3425 1.77467 11.2438 2.67598Z"
       fill={color.color}
     />
@@ -219,8 +219,8 @@ export const EndLocationIcon = (color) => (
     style={iconsForInputs}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M12.4388 7L14.8387 4H7V10H14.8387L12.4388 7ZM19 12H7V22H5V2H19L15 7L19 12Z"
       fill={color.color}
     />
@@ -499,8 +499,8 @@ export const DateIcon = (color) => (
       fill={color.color}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6ZM18 5H6C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5Z"
       fill={color.color}
     />
@@ -872,25 +872,49 @@ export const ErrorIcon = () => (
 )
 
 export const MeetAndGreetIcon = (color) => (
+  // <svg
+  //   width="24"
+  //   height="24"
+  //   color
+  //   viewBox="0 0 24 24"
+  //   fill={color.color}
+  //   xmlns="http://www.w3.org/2000/svg"
+  //   style={iconsForCounters}
+  // >
+  //   <mask id="path-1-inside-1_1092:6497" fill={color.color}>
+  //     <path d="M12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6ZM17 2H19C19 4.7 18.07 6.41 16.7 7.5C16.2 7.9 15.6 8.2 15 8.4V22H13V16H11V22H9V10.1C8.7 10.2 8.5 10.3 8.4 10.4C7.87 10.81 7 11.43 7 14H5C5 11.94 5.35 10.22 7.11 8.71C8.21 7.81 10 7 12 7C14 7 14.68 6.54 15.48 5.94C15.96 5.55 17 4.76 17 2ZM4 16H7V22H4V16Z" />
+  //   </mask>
+  //   <path
+  //     d="M12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6ZM17 2H19C19 4.7 18.07 6.41 16.7 7.5C16.2 7.9 15.6 8.2 15 8.4V22H13V16H11V22H9V10.1C8.7 10.2 8.5 10.3 8.4 10.4C7.87 10.81 7 11.43 7 14H5C5 11.94 5.35 10.22 7.11 8.71C8.21 7.81 10 7 12 7C14 7 14.68 6.54 15.48 5.94C15.96 5.55 17 4.76 17 2ZM4 16H7V22H4V16Z"
+  //     stroke={color.color}
+  //     strokeWidth="4"
+  //     mask="url(#path-1-inside-1_1092:6497)"
+  //   />
+  //   <rect x="10" y="8" width="3" height="6" fill={color.color} />
+  // </svg>
+
   <svg
-    width="24"
-    height="24"
-    color
-    viewBox="0 0 24 24"
-    fill="none"
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill={color.color}
     xmlns="http://www.w3.org/2000/svg"
     style={iconsForCounters}
   >
-    <mask id="path-1-inside-1_1092:6497" fill={color.color}>
-      <path d="M12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6ZM17 2H19C19 4.7 18.07 6.41 16.7 7.5C16.2 7.9 15.6 8.2 15 8.4V22H13V16H11V22H9V10.1C8.7 10.2 8.5 10.3 8.4 10.4C7.87 10.81 7 11.43 7 14H5C5 11.94 5.35 10.22 7.11 8.71C8.21 7.81 10 7 12 7C14 7 14.68 6.54 15.48 5.94C15.96 5.55 17 4.76 17 2ZM4 16H7V22H4V16Z" />
-    </mask>
-    <path
-      d="M12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6ZM17 2H19C19 4.7 18.07 6.41 16.7 7.5C16.2 7.9 15.6 8.2 15 8.4V22H13V16H11V22H9V10.1C8.7 10.2 8.5 10.3 8.4 10.4C7.87 10.81 7 11.43 7 14H5C5 11.94 5.35 10.22 7.11 8.71C8.21 7.81 10 7 12 7C14 7 14.68 6.54 15.48 5.94C15.96 5.55 17 4.76 17 2ZM4 16H7V22H4V16Z"
-      stroke={color.color}
-      stroke-width="4"
-      mask="url(#path-1-inside-1_1092:6497)"
+    <circle cx="10.9727" cy="2.7442" r="1.62897" fill={color.color} />
+    <rect
+      x="5"
+      y="13.0605"
+      width="2.17196"
+      height="7.60185"
+      fill={color.color}
     />
-    <rect x="10" y="8" width="3" height="6" fill={color.color} />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M13.6878 19.5762V7.23982L17.7961 2.39272C17.8324 2.34986 17.8644 2.30349 17.8915 2.25429C18.2833 1.54314 17.543 0.743119 16.8037 1.07863L16.732 1.11118C16.634 1.15562 16.5452 1.21784 16.4699 1.29467L12.3918 5.45845H9.34391C8.77979 5.45845 8.31612 5.88859 8.26301 6.43878L5.75256 11.7759C5.71109 11.8641 5.68714 11.9595 5.68205 12.0568C5.64425 12.7793 6.54851 13.1333 7.01135 12.5773L7.13516 12.4285C7.16736 12.3898 7.19592 12.3482 7.22047 12.3043L8.25793 10.4465V19.5762C8.25793 20.1759 8.74414 20.6621 9.34391 20.6621C9.94368 20.6621 10.4299 20.1759 10.4299 19.5762V14.1463H11.5159V19.5762C11.5159 20.1759 12.0021 20.6621 12.6018 20.6621C13.2016 20.6621 13.6878 20.1759 13.6878 19.5762Z"
+      fill={color.color}
+    />
   </svg>
 )
 
@@ -908,7 +932,7 @@ export const MeetAndGreetIconBlack = () => (
     <path
       d="M12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6ZM17 2H19C19 4.7 18.07 6.41 16.7 7.5C16.2 7.9 15.6 8.2 15 8.4V22H13V16H11V22H9V10.1C8.7 10.2 8.5 10.3 8.4 10.4C7.87 10.81 7 11.43 7 14H5C5 11.94 5.35 10.22 7.11 8.71C8.21 7.81 10 7 12 7C14 7 14.68 6.54 15.48 5.94C15.96 5.55 17 4.76 17 2ZM4 16H7V22H4V16Z"
       stroke="white"
-      stroke-width="4"
+      strokeWidth="4"
       mask="url(#path-1-inside-1_1119:9470)"
     />
     <rect x="10" y="8" width="3" height="6" fill="white" />

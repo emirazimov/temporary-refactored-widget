@@ -53,7 +53,7 @@ const App = (props) => {
     x: window.positionX,
     y: -50,
   })
-  console.log(position)
+  // console.log(position)
   const [expanded, setExpanded] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
   // const [disabledWidget, setDisabledWidget] = React.useState(false)
@@ -218,7 +218,7 @@ const App = (props) => {
     x: window.positionXforWithoutDraggableApp,
     y: window.positionYforWithoutDraggableApp,
   })
-  console.log(window)
+  // console.log(window)
   // var iframe = document.createElement("iframe")
   // // iframe.setAttribute("id", "widget-by-bookinglane")
   // document.getElementsByTagName("h1").appendChild(iframe)

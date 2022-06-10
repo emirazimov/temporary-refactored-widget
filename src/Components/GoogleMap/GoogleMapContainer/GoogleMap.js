@@ -1,23 +1,23 @@
-import { GoogleApiWrapper, Map, Marker } from 'google-maps-react'
-import React, { forwardRef, useContext, useState } from 'react'
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react"
+import React, { forwardRef, useContext, useState } from "react"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
-} from 'react-places-autocomplete'
+} from "react-places-autocomplete"
 import {
   AddLocIcon,
   DeleteLocIcon,
   EndLocationIcon,
   StartLocationIcon,
-} from '../../../assets/icons'
-import MapStyles from '../mapStyles'
-import { connect } from 'react-redux'
-import { useStyles } from './GoogleMapStyles'
-import styles from './GoogleMap.module.scss'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import './animationForGoogleMap.css'
-import ThemeContext from '../../../context'
-import styled from 'styled-components'
+} from "../../../assets/icons"
+import MapStyles from "../mapStyles"
+import { connect } from "react-redux"
+import { useStyles } from "./GoogleMapStyles"
+import styles from "./GoogleMap.module.scss"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+import "./animationForGoogleMap.css"
+import ThemeContext from "../../../context"
+import styled from "styled-components"
 
 const GoogleMap = React.memo(
   forwardRef(
@@ -57,7 +57,7 @@ const GoogleMap = React.memo(
 
       const handleChanger = (e) => {
         setCondition(e.event.target)
-        console.log(condition)
+        // console.log(condition)
       }
       const [markers, setMarkers] = useState([])
       const [mapCenter, setMapCenter] = useState({
@@ -83,7 +83,7 @@ const GoogleMap = React.memo(
         const latLng = await getLatLng(results[0])
         const placeId = results[0].place_id
         let placeType = 0
-        if (results[0].types.some((types) => types === 'airport')) {
+        if (results[0].types.some((types) => types === "airport")) {
           placeType = 2
         }
         selectedArray = [...destinations]
@@ -110,19 +110,19 @@ const GoogleMap = React.memo(
         let newArr = [
           ...destinations,
           {
-            rideCheckPoint: '',
+            rideCheckPoint: "",
             latitude: 0,
             longitude: 0,
             placeType: 0,
-            placeId: '',
+            placeId: "",
           },
         ]
         setDestinations(newArr)
       }
 
       const airportCenter4 = [
-        'Daniel K. Inouye International Airport (HNL), Rodgers Blvd, Honolulu, HI, USA',
-        'Honolulu Airport (HNL), Rodgers Blvd, Honolulu, HI, USA',
+        "Daniel K. Inouye International Airport (HNL), Rodgers Blvd, Honolulu, HI, USA",
+        "Honolulu Airport (HNL), Rodgers Blvd, Honolulu, HI, USA",
       ]
       var nothing = null
       const removeEndPoint = (index) => {
@@ -196,7 +196,7 @@ const GoogleMap = React.memo(
               <div className={styles.mapInputsContainer}>
                 <TransitionGroup>
                   {destinations.map((destination, id) => {
-                    console.log(destinations)
+                    // console.log(destinations)
                     if (!airportCenter4.includes(destination?.rideCheckPoint)) {
                       nothing = destinations[id]?.rideCheckPoint
                     }
@@ -205,10 +205,10 @@ const GoogleMap = React.memo(
                       <CSSTransition
                         key={id}
                         classNames={{
-                          enter: 'enter',
-                          enterActive: 'enterActive',
-                          exit: 'exit',
-                          exitActive: 'exitActive',
+                          enter: "enter",
+                          enterActive: "enterActive",
+                          exit: "exit",
+                          exitActive: "exitActive",
                         }}
                         timeout={300}
                       >
@@ -266,7 +266,7 @@ const GoogleMap = React.memo(
                                             ?.rideCheckPoint
                                         : nothing
                                     }
-                                    name='rideCheckPoint'
+                                    name="rideCheckPoint"
                                     defaultValue={
                                       destinations[id]?.rideCheckPoint
                                     }
@@ -284,7 +284,7 @@ const GoogleMap = React.memo(
                                         borderRadiusesForInnerElements,
                                     }}
                                     inputsFontColor={inputsFontColor}
-                                    placeholder={id === 0 ? 'From' : 'To'}
+                                    placeholder={id === 0 ? "From" : "To"}
                                     className={setDestinationsIcons(
                                       id,
                                       destinations
@@ -387,6 +387,6 @@ const mapStateToProps = (state) => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCmKhi_5V_pulQtm6DFJ8teDZpR9I5hJoM',
-  libraries: ['places', 'drawing', 'geometry'],
+  apiKey: "AIzaSyCmKhi_5V_pulQtm6DFJ8teDZpR9I5hJoM",
+  libraries: ["places", "drawing", "geometry"],
 })(connect(mapStateToProps, {})(GoogleMap))

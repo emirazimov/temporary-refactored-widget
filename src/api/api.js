@@ -2,7 +2,7 @@ import * as axios from "axios"
 
 const jwtToken = localStorage.getItem("Authorization")
 
-console.log(window)
+// console.log(window)
 
 const accessKeyFromWinow = window.accessKeyForBookinglane
 // const accessKeyFromWinow = "14862f6b-0e7a-47d0-810a-06a348fd9ec1"
@@ -76,7 +76,7 @@ export const fleetApi = {
         }
       )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         return response
       })
       .catch(function (error) {

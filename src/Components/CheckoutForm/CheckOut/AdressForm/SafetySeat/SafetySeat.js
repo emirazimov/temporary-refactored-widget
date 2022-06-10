@@ -51,7 +51,7 @@ export default React.memo(function SafetySeat({
     }
     setBoosterSeat((boosterSeat) => boosterSeat + 1)
     setBoosterSeatCount(boosterSeatCountRedux + 1)
-    console.log(boosterSeatCountRedux)
+    // console.log(boosterSeatCountRedux)
   }
 
   const onDecreaseChildSafetySeat = () => {

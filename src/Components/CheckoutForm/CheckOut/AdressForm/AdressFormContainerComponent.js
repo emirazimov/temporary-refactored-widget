@@ -139,7 +139,7 @@ const AdressFormContainerComponent = ({
     })
     res ? setAirlineId(res.id) : setAirlineId(null)
     setAirlineNAme(name)
-    console.log(res)
+    // console.log(res)
   }
 
   const {
@@ -179,7 +179,7 @@ const AdressFormContainerComponent = ({
     setAirlines(res)
   }
 
-  const [flightNumber, setFlightNumber] = useState(null)
+  const [flightNumber, setFlightNumber] = useState(0)
 
   const {
     ThemeProviderAppBackgroundColor,
@@ -206,7 +206,7 @@ const AdressFormContainerComponent = ({
       <Button
         onClick={() => {
           onClick()
-          console.log(type)
+          // console.log(type)
         }}
         disabled={isEdge}
         isEdge={isEdge}
@@ -237,7 +237,7 @@ const AdressFormContainerComponent = ({
     setAMPM(event.target.textContent)
 
     setTimeForDefaultValueAMPM(event.target.textContent)
-    console.log(event.target.textContent)
+    // console.log(event.target.textContent)
   }
 
   const inputStyle = {
@@ -269,7 +269,7 @@ const AdressFormContainerComponent = ({
       ""
     )
 
-    console.log(timeNumberIsFullZero)
+    // console.log(timeNumberIsFullZero)
     if (
       destinations[0].rideCheckPoint &&
       destinations[1].rideCheckPoint &&
@@ -362,7 +362,7 @@ const AdressFormContainerComponent = ({
   }
 
   const onSubmit = (data) => {
-    console.log(data)
+    // console.log(data)
 
     if (onSubmit2(data)) {
       if (Boolean(localStorage.getItem("captcha")) == false) {

@@ -67,7 +67,7 @@ const PreviewUIComponent = ({
   setShow,
 }) => {
   const isMobile = useMediaQuery("(max-width:500px)")
-  console.log(formData.orderStartDateTime)
+  // console.log(formData.orderStartDateTime)
 
   const settings = {
     dots: true,

@@ -403,7 +403,7 @@ const PaymentUIComponent = ({
                   <Autocomplete
                     disablePortal
                     onChange={(event, newValue) => {
-                      console.log(newValue)
+                      // console.log(newValue)
                       newValue ? extractStateId(newValue) : setStatesId(null)
                     }}
                     options={states.map((state) => state.name)}
@@ -445,7 +445,7 @@ const PaymentUIComponent = ({
                   <Autocomplete
                     disablePortal
                     onChange={(event, newValue) => {
-                      console.log(cities)
+                      // console.log(cities)
                       newValue ? extractCityId(newValue) : setCitiesId(null)
                     }}
                     options={cities.map((city) => city.name)}

@@ -110,7 +110,7 @@ const FleetForm = ({
 
   // const slickCurrent = document.getElementsByClassName("slick-current")
 
-  console.log(document.getElementById("modal"))
+  // console.log(document.getElementById("modal"))
 
   const [isModalWithSlidesReady, setIsModalWithSlidesReady] = useState(false)
 
@@ -128,7 +128,7 @@ const FleetForm = ({
     setIsModalWithSlidesReady(true)
   }
 
-  console.log(document.getElementsByClassName("slick-current"))
+  // console.log(document.getElementsByClassName("slick-current"))
 
   const {
     ThemeProviderAppBackgroundColor,
@@ -208,7 +208,7 @@ const FleetForm = ({
                 </span>
               </div>
               <div className={styles.carListContainer}>
-                {console.log(typeof cars)}
+                {/* {console.log(typeof cars)} */}
                 {cars.map((car, index) => (
                   <div
                     onClick={(event) => {
@@ -510,7 +510,7 @@ const FleetForm = ({
                             alignItems: "center",
                           }}
                         >
-                          {console.log(result?.imageUrls)}
+                          {/* {console.log(result?.imageUrls)} */}
                           <img
                             src={url?.path}
                             style={{

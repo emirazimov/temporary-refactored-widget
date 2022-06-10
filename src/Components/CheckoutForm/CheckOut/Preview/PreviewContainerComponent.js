@@ -27,7 +27,7 @@ const PreviewContainerComponent = ({
     setNote(event.target.value)
   }
   const [carCard, setCarCard] = React.useState(0)
-  const [carModal, setCarModal] = React.useState(null)
+  const [carModal, setCarModal] = React.useState(false)
   const [open, setOpen] = React.useState(false)
 
   const [show, setShow] = React.useState(false)

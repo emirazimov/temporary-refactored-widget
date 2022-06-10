@@ -24,7 +24,7 @@ const FleetFormContainerComponent = ({
   formData,
 }) => {
   const [carCard, setCarCard] = React.useState(0)
-  const [carModal, setCarModal] = React.useState(null)
+  const [carModal, setCarModal] = React.useState(0)
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = (id) => {
