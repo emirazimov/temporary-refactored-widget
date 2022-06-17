@@ -199,7 +199,7 @@ const AdressFormwithoutReactMemo = ({
     </>
   )
 
-  function onChange(value) {
+  function onChangeRecaptcha(value) {
     // console.log('Captcha value:', value)
     window.localStorage.setItem("captcha", value)
   }
@@ -605,7 +605,7 @@ const AdressFormwithoutReactMemo = ({
                 >
                   <ReCAPTCHA
                     sitekey="6LeuP3weAAAAAHoe3aaP27xmYorD1s1vXK7XdlPk"
-                    onChange={onChange}
+                    onChange={onChangeRecaptcha}
                   />
                 </Modal>
                 <div className={styles.buttonGroupBlockContainer}>

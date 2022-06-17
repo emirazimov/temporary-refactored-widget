@@ -135,33 +135,42 @@ const PaymentUIComponent = ({
                   </span>
                 </div>
                 <div className={styles.cardholderInformationInputsWrapper}>
-                  <CardholderInformationInputSelfContainerJustForFirstAndLastName
-                    // className={
-                    //   styles.cardholderInformationInputSelfContainerJustForFirstAndLastName
-                    // }
-                    inputsFontColor={inputsFontColor}
+                  <div
+                    className={styles.cardholderInformationInputSelfContainer}
+                    style={{ width: "50%" }}
                   >
-                    <InputFirstAndLastName
-                      name="greetClientInfo.firstName"
-                      autoComplete="off"
-                      placeholder="First Name"
-                      defaultValue={formSummary.greetClientInfo.firstName}
-                      className={styles.cardholderInformationInputSelfFirstName}
-                      style={{
-                        color: inputsFontColor,
-                        borderLeft: `1px solid ${borderColorForInnerElements}`,
-                        borderTop: `1px solid ${borderColorForInnerElements}`,
-                        borderBottom: `1px solid ${borderColorForInnerElements}`,
-                        background: inputsBackground,
-                        borderTopLeftRadius: borderRadiusesForInnerElements,
-                        borderBottomLeftRadius: borderRadiusesForInnerElements,
-                      }}
-                      ref={register}
+                    <CardholderInformationInputSelfContainerJustForFirstAndLastName
+                      // className={
+                      //   styles.cardholderInformationInputSelfContainerJustForFirstAndLastName
+                      // }
                       inputsFontColor={inputsFontColor}
-                    />
-                  </CardholderInformationInputSelfContainerJustForFirstAndLastName>
+                    >
+                      <InputFirstAndLastName
+                        name="greetClientInfo.firstName"
+                        autoComplete="off"
+                        placeholder="First Name"
+                        defaultValue={formSummary.greetClientInfo.firstName}
+                        className={
+                          styles.cardholderInformationInputSelfFirstName
+                        }
+                        style={{
+                          color: inputsFontColor,
+                          borderLeft: `1px solid ${borderColorForInnerElements}`,
+                          borderTop: `1px solid ${borderColorForInnerElements}`,
+                          borderBottom: `1px solid ${borderColorForInnerElements}`,
+                          background: inputsBackground,
+                          borderTopLeftRadius: borderRadiusesForInnerElements,
+                          borderBottomLeftRadius:
+                            borderRadiusesForInnerElements,
+                        }}
+                        ref={register}
+                        inputsFontColor={inputsFontColor}
+                      />
+                    </CardholderInformationInputSelfContainerJustForFirstAndLastName>
+                  </div>
                   <div
                     className={styles.cardholderInformationInputSelfContainer2}
+                    style={{ width: "50%" }}
                   >
                     <InputFirstAndLastName
                       name="greetClientInfo.lastName"
