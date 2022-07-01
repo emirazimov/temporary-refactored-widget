@@ -577,14 +577,20 @@ export default connect(mapStateToProps, {
 })(AdressFormContainerComponent)
 
 const Button = styled.button`
-  width: 30px;
-  height: 100%;
-  background: ${(props) => props.inputsBackground};
+  width: 30px !important;
+  height: 100% !important;
+  padding: 0 !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  background: ${(props) => props.inputsBackground} !important;
   /* color: $font-color; */
-  border: 1px solid ${(props) => props.borderColorForInnerElements};
-  border-radius: ${(props) => props.borderRadiusesForInnerElements};
-  cursor: pointer;
-  transition: 0.2s;
+  border: 1px solid ${(props) => props.borderColorForInnerElements} !important;
+  border-radius: ${(props) => props.borderRadiusesForInnerElements} !important;
+  cursor: pointer !important;
+  transition: 0.2s !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+
   &:hover {
     background: $hover-color;
     color: $inner-text-on-hover;

@@ -46,7 +46,10 @@ export const Switch = (props) => {
 
         {...props}
       />
-      <label htmlFor={`switch${props.numberToIdentify}`}></label>
+      <label
+        htmlFor={`switch${props.numberToIdentify}`}
+        className={styles.siwtchsLabel}
+      ></label>
     </SwitchWrapper>
   )
 }
@@ -62,59 +65,59 @@ const SwitchWrapper = styled.div`
   // margin-top: 20px;
   // border-radius: 5px;
   // background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
   input {
     &${SwitchInput} {
-      opacity: 0; // hides checkbox
-      position: absolute;
+      opacity: 0 !important; // hides checkbox
+      position: absolute !important;
       // & + label {
       //   background: white;
       // }
 
       & + label {
-        position: relative;
-        display: inline-block;
-        user-select: none;
-        transition: 0.4s ease;
-        height: 22px;
-        width: 34px;
-        border: 1px solid ${(props) => props.switchesBorderColor};
-        background: ${(props) => props.switchesBackgroundColor};
-        border-radius: 11px;
-        box-sizing: border-box;
+        position: relative !important;
+        display: inline-block !important;
+        user-select: none !important;
+        transition: 0.4s ease !important;
+        height: 22px !important;
+        width: 34px !important;
+        border: 1px solid ${(props) => props.switchesBorderColor}!important;
+        background: ${(props) => props.switchesBackgroundColor}!important;
+        border-radius: 11px !important;
+        box-sizing: border-box !important;
         &:hover {
-          cursor: pointer;
+          cursor: pointer !important;
           // border: 1px solid white;
-          transition: 0.1s ease;
+          transition: 0.1s ease !important;
         }
         &:before {
-          content: "";
-          position: absolute;
-          display: block;
-          transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
-          height: 20px;
-          width: 32px;
-          top: 0;
-          left: 0;
-          border-radius: 30px;
+          content: "" !important;
+          position: absolute !important;
+          display: block !important;
+          transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1) !important;
+          height: 20px !important;
+          width: 32px !important;
+          top: 0 !important;
+          left: 0 !important;
+          border-radius: 30px !important;
         }
         &:after {
-          content: "";
-          position: absolute;
-          display: block;
+          content: "" !important;
+          position: absolute !important;
+          display: block !important;
           box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),
             0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13),
-            0 3px 3px hsla(0, 0%, 0%, 0.05);
-          transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
-          background: ${(props) => props.switchesCircleColor};
-          height: 13px;
-          width: 13px;
-          top: 3px;
-          left: 2px;
-          border-radius: 60px;
+            0 3px 3px hsla(0, 0%, 0%, 0.05) !important;
+          transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1) !important;
+          background: ${(props) => props.switchesCircleColor}!important;
+          height: 13px !important;
+          width: 13px !important;
+          top: 3px !important;
+          left: 2px !important;
+          border-radius: 60px !important;
           // &:hover {
           //   background: white;
           //   transition: 0.1s ease;
@@ -123,7 +126,7 @@ const SwitchWrapper = styled.div`
         &:hover::after {
           // @include inactiveMixin;
           // @include afterAnimation;
-          background: ${(props) => props.switchesCircleColorEnabled};
+          background: ${(props) => props.switchesCircleColorEnabled}!important;
           // height: 15px;
           // width: 15px;
           // top: 1px;
@@ -138,14 +141,16 @@ const SwitchWrapper = styled.div`
       // When Active
       &:checked {
         & + label {
-          border: 1px solid ${(props) => props.switchesBorderColorEnabled};
-          background: ${(props) => props.switchesBackgroundColorEnabled};
+          border: 1px solid
+            ${(props) => props.switchesBorderColorEnabled}!important;
+          background: ${(props) =>
+            props.switchesBackgroundColorEnabled}!important;
         }
 
         & + label:after {
-          left: 51%;
+          left: 51% !important;
 
-          background: ${(props) => props.switchesBorderColorEnabled};
+          background: ${(props) => props.switchesBorderColorEnabled}!important;
         }
       }
     }

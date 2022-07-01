@@ -673,136 +673,137 @@ export default PaymentUIComponent
 
 const CardholderInformationInputSelfContainerJustForFirstAndLastName = styled.div`
   /* width: 50%; */
-  position: relative;
+  position: relative !important;
   &:after {
-    position: absolute;
-    content: "";
-    border-right: 1px solid ${(props) => props.inputsFontColor};
-    top: 28%;
-    right: 0;
-    width: 1px;
-    height: 44%;
-    margin-top: auto;
-    margin-bottom: auto;
+    position: absolute !important;
+    content: "" !important;
+    border-right: 1px solid ${(props) => props.inputsFontColor}!important;
+    top: 28% !important;
+    right: 0 !important;
+    width: 1px !important;
+    height: 44% !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
   }
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
 `
 
 const CheckboxLabel = styled.label`
-  position: relative;
+  position: relative !important;
   // padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-right: 40px;
+  display: initial !important;
+  margin-bottom: 12px !important;
+  cursor: pointer !important;
+  font-size: 22px !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  margin-right: 40px !important;
   &:hover {
     span {
-      -webkit-box-shadow: 0px 0px 5px -1px #ffffff;
-      box-shadow: 0px 0px 5px -1px #ffffff;
+      -webkit-box-shadow: 0px 0px 5px -1px #ffffff !important;
+      box-shadow: 0px 0px 5px -1px #ffffff !important;
     }
   }
   input:checked ~ span {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   input:checked ~ span:after {
-    display: block;
+    display: block !important;
   }
 `
 const CheckboxSpan = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: transparent;
-  border: 1px solid ${(props) => props.fontColor};
-  border-radius: 5px;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 25px !important;
+  width: 25px !important;
+  background-color: transparent !important;
+  border: 1px solid ${(props) => props.fontColor}!important;
+  border-radius: 5px !important;
   &:after {
-    content: "";
-    position: absolute;
-    display: none;
+    content: "" !important;
+    position: absolute !important;
+    display: none !important;
   }
   &:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid ${(props) => props.fontColor};
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+    left: 9px !important;
+    top: 5px !important;
+    width: 5px !important;
+    height: 10px !important;
+    border: solid ${(props) => props.fontColor}!important;
+    border-width: 0 3px 3px 0 !important;
+    -webkit-transform: rotate(45deg) !important;
+    -ms-transform: rotate(45deg) !important;
+    transform: rotate(45deg) !important;
   }
 `
 
 const CheckboxInput = styled.input`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  position: absolute !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+  height: 0 !important;
+  width: 0 !important;
 
   &:checked + ${CheckboxSpan} {
     &:after {
-      display: block;
+      display: block !important;
     }
   }
   &:checked + ${CheckboxSpan} {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 `
 
 const InputFirstAndLastName = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 35px;
-  padding: 0;
-  text-indent: 20px;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: 13.5px;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 0 !important;
+  text-indent: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 13.5px !important;
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 13.5px;
-    color: ${(props) => props.inputsFontColor};
-    opacity: 1; /* Firefox */
+    font-size: 13.5px !important;
+    color: ${(props) => props.inputsFontColor}!important;
+    opacity: 1 !important; /* Firefox */
   }
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    font-size: 13.5px;
-    color: ${(props) => props.inputsFontColor};
+    font-size: 13.5px !important;
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &::-ms-input-placeholder {
     /* Microsoft Edge */
-    font-size: 13.5px;
-    color: ${(props) => props.inputsFontColor};
+    font-size: 13.5px !important;
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &:focus {
-    outline: none;
+    outline: none !important;
   }
 `
 const InputsDivided = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 35px;
-  padding: 0;
-  text-indent: 20px;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: 13.5px;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 0 !important;
+  text-indent: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 13.5px !important;
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 13.5px;
-    color: ${(props) => props.inputsFontColor};
-    opacity: 1; /* Firefox */
+    font-size: 13.5px !important;
+    color: ${(props) => props.inputsFontColor}!important;
+    opacity: 1 !important; /* Firefox */
   }
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
@@ -811,8 +812,8 @@ const InputsDivided = styled.input`
   }
   &::-ms-input-placeholder {
     /* Microsoft Edge */
-    font-size: 13.5px;
-    color: ${(props) => props.inputsFontColor};
+    font-size: 13.5px !important;
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &:focus {
     outline: none;
@@ -820,25 +821,25 @@ const InputsDivided = styled.input`
 `
 
 const InputFullWidth = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 35px;
-  padding: 0;
-  text-indent: 20px;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 0 !important;
+  text-indent: 20px !important;
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: ${(props) => props.inputsFontColor};
-    opacity: 1; /* Firefox */
+    color: ${(props) => props.inputsFontColor}!important;
+    opacity: 1 !important; /* Firefox */
   }
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: ${(props) => props.inputsFontColor};
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: ${(props) => props.inputsFontColor};
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &:focus {
-    outline: none;
+    outline: none !important;
   }
 `

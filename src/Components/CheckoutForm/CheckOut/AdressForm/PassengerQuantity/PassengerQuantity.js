@@ -84,7 +84,7 @@ export default React.memo(function PassengerQuantity({
 
         <span
           className={styles.passengerCounterTitle}
-          style={{ color: fontColor }}
+          style={{ color: `${fontColor}  ` }}
         >
           Number of passengers
         </span>
@@ -96,16 +96,16 @@ export default React.memo(function PassengerQuantity({
             type="button"
             className={styles.passengerQuantityMinusSelf}
             style={{
-              background: inputsBackground,
+              background: `${inputsBackground}`,
               border: redBorderOnSubmitForPassengers
                 ? "1px solid red"
                 : `1px solid ${countersOuterBorderColor}`,
 
-              borderRight: redBorderOnSubmitForPassengers
-                ? `1px solid red`
-                : `1px solid ${countersInnerDividerBorder}`,
-              borderTopLeftRadius: borderRadiusesForInnerElements,
-              borderBottomLeftRadius: borderRadiusesForInnerElements,
+              // borderRight: redBorderOnSubmitForPassengers
+              //   ? `1px solid red   `
+              //   : `1px solid ${countersInnerDividerBorder}`,
+              borderTopLeftRadius: `${borderRadiusesForInnerElements}   `,
+              borderBottomLeftRadius: `${borderRadiusesForInnerElements}  `,
             }}
           >
             <MinusIcon color={fontColor} />
@@ -124,14 +124,14 @@ export default React.memo(function PassengerQuantity({
             type="number"
             className={styles.passengerQuantityInputSelf}
             style={{
-              background: inputsBackground,
+              background: `${inputsBackground}   `,
               borderTop: redBorderOnSubmitForPassengers
-                ? "1px solid red"
-                : `1px solid ${countersOuterBorderColor}`,
+                ? "1px solid red   "
+                : `1px solid ${countersOuterBorderColor}   `,
               borderBottom: redBorderOnSubmitForPassengers
-                ? "1px solid red"
-                : `1px solid ${countersOuterBorderColor}`,
-              color: inputsFontColor,
+                ? "1px solid red   "
+                : `1px solid ${countersOuterBorderColor}   `,
+              color: `${inputsFontColor}   `,
             }}
           />
         </div>
@@ -143,16 +143,16 @@ export default React.memo(function PassengerQuantity({
             }}
             className={styles.passengerQuantityPlusSelf}
             style={{
-              background: inputsBackground,
+              background: `${inputsBackground}   `,
               border: redBorderOnSubmitForPassengers
-                ? "1px solid red"
-                : `1px solid ${countersOuterBorderColor}`,
+                ? "1px solid red   "
+                : `1px solid ${countersOuterBorderColor}   `,
 
-              borderLeft: redBorderOnSubmitForPassengers
-                ? `1px solid red`
-                : `1px solid ${countersInnerDividerBorder}`,
-              borderTopRightRadius: borderRadiusesForInnerElements,
-              borderBottomRightRadius: borderRadiusesForInnerElements,
+              // borderLeft: redBorderOnSubmitForPassengers
+              //   ? `1px solid red   `
+              //   : `1px solid ${countersInnerDividerBorder}   `,
+              borderTopRightRadius: `${borderRadiusesForInnerElements}   `,
+              borderBottomRightRadius: `${borderRadiusesForInnerElements}   `,
             }}
             type="button"
           >

@@ -348,32 +348,33 @@ const GoogleMap = React.memo(
 )
 
 const AddressInput = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 35px;
-  position: relative;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 37px;
-  padding-right: 35px;
-  background-position-x: 2%;
-  background-position-y: 60%;
-  font-size: 13.5px;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 35px !important;
+  position: relative !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 37px !important;
+  padding-right: 35px !important;
+  background-position-x: 2% !important;
+  background-position-y: 60% !important;
+  font-size: 13.5px !important;
+  margin: 0 !important;
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: ${(props) => props.inputsFontColor};
-    opacity: 1; /* Firefox */
+    color: ${(props) => props.inputsFontColor}!important;
+    opacity: 1 !important; /* Firefox */
   }
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: ${(props) => props.inputsFontColor};
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: ${(props) => props.inputsFontColor};
+    color: ${(props) => props.inputsFontColor}!important;
   }
   &:focus {
-    outline: none;
+    outline: none !important;
   }
 `
 

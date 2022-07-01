@@ -27,14 +27,14 @@ $height-for-counters: 35px;
 }
 
 @mixin counters-button-styles {
-  width: 34px;
-  height: $height-for-counters;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
-  background: $whole-app-background;
+  // border: none;
+  // background: $whole-app-background;
   // filter: brightness(85%);
   // position: relative;
 }
@@ -76,29 +76,26 @@ $height-for-counters: 35px;
 }
 
 @mixin counters-input-styles {
-  width: 34px;
-  width: 34px;
+  width: 34px !important;
   // marginLeft: "2px",
   // marginRight: "2.5px",
   // marginBottom: "4px",
-  height: $height-for-counters;
-  border-top: $inputs-border;
-  border-bottom: $inputs-border;
-  border-right: none;
-  border-left: none;
-  background-color: $whole-app-background;
-  box-sizing: border-box;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  height: 35px !important;
+
+  border-right: none !important;
+  border-left: none !important ;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   // border: none;
-  color: $font-color;
-  text-align: center;
-  font-family: Roboto;
-  text-transform: none;
-  font-weight: 400;
-  font-size: 14px;
-  padding: 0;
-  outline: none;
+  text-align: center !important;
+  font-family: Roboto !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  padding: 0 !important;
+  outline: none !important;
+  margin: 0 !important;
 }

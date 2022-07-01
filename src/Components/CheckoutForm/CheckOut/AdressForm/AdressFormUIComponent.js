@@ -168,7 +168,7 @@ const AdressFormwithoutReactMemo = ({
             <MeetAndGreetIcon color={fontColor} />
             <span
               className={styles.meetAndGreetIconAndNameTitle}
-              style={{ color: fontColor }}
+              style={{ color: `${fontColor}   ` }}
             >
               {"Meet & Greet/Luggage Assist"}
             </span>
@@ -220,10 +220,18 @@ const AdressFormwithoutReactMemo = ({
   return (
     <div
       className={styles.mainWrapper}
-      style={{ backgroundColor: ThemeProviderAppBackgroundColor }}
+      style={{
+        backgroundColor: `${ThemeProviderAppBackgroundColor}   `,
+      }}
     >
-      <FormProvider {...methods} style={{ width: "100%" }}>
-        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+      <FormProvider {...methods} style={{ width: "100%   " }}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          style={{
+            width: "100%   ",
+            background: `${ThemeProviderAppBackgroundColor}`,
+          }}
+        >
           <div className={styles.mapAndDirectionsWrapper}>
             <GoogleMap
               setDestinations={setDestinations}
@@ -233,8 +241,18 @@ const AdressFormwithoutReactMemo = ({
               redBorderOnSubmit2={redBorderOnSubmit2}
             />
           </div>
-          <div className={styles.underMapOptionsWrapper}>
-            <div className={styles.underMapOptionsContainer}>
+          <div
+            className={styles.underMapOptionsWrapper}
+            style={{
+              background: `${ThemeProviderAppBackgroundColor}   `,
+            }}
+          >
+            <div
+              className={styles.underMapOptionsContainer}
+              style={{
+                background: `${ThemeProviderAppBackgroundColor}   `,
+              }}
+            >
               {(isAirline || formData.isAirportPickupIncluded) &&
                 (formData.bookingType === 3 || bookingType === 3) && (
                   <div className={styles.underMapOptionsContainerForAirlines}>
@@ -247,12 +265,15 @@ const AdressFormwithoutReactMemo = ({
                             ? extractAirlineId(newValue)
                             : setAirlineId(null)
                         }}
-                        style={{ width: "100%" }}
+                        style={{ width: "100%   " }}
                         options={airlines.map((airline) => airline.name)}
                         renderInput={(params) => (
                           <div
                             ref={params.InputProps.ref}
-                            style={{ width: "100%", display: "flex" }}
+                            style={{
+                              width: "100%   ",
+                              display: "flex   ",
+                            }}
                           >
                             <input
                               type="text"
@@ -260,10 +281,10 @@ const AdressFormwithoutReactMemo = ({
                               placeholder="Airlines"
                               className={styles.airLinesInput}
                               style={{
-                                width: "100%",
-                                color: inputsFontColor,
-                                border: `1px solid ${borderColorForInnerElements}`,
-                                background: inputsBackground,
+                                width: "100%   ",
+                                color: `${inputsFontColor}   `,
+                                border: `1px solid ${borderColorForInnerElements}   `,
+                                background: `${inputsBackground}   `,
                               }}
                             />
                           </div>
@@ -279,9 +300,9 @@ const AdressFormwithoutReactMemo = ({
                           className={styles.flightNumberInput}
                           autoComplete="off"
                           style={{
-                            color: inputsFontColor,
-                            border: `1px solid ${borderColorForInnerElements}`,
-                            background: inputsBackground,
+                            color: `${inputsFontColor}   `,
+                            border: `1px solid ${borderColorForInnerElements}   `,
+                            background: `${inputsBackground}   `,
                           }}
                           defaultValue={null}
                           value={flightNumber}
@@ -311,10 +332,10 @@ const AdressFormwithoutReactMemo = ({
                       style={{
                         color: inputsFontColor,
                         border: !redBorderOnSubmitForDate
-                          ? `1px solid ${borderColorForInnerElements}`
-                          : `1px solid red`,
-                        borderRadius: borderRadiusesForInnerElements,
-                        background: inputsBackground,
+                          ? `1px solid ${borderColorForInnerElements}   `
+                          : `1px solid red   `,
+                        borderRadius: `${borderRadiusesForInnerElements}   `,
+                        background: `${inputsBackground}   `,
                       }}
                     >
                       {formData.dateForDefaultValue && !resetInputs
@@ -324,8 +345,8 @@ const AdressFormwithoutReactMemo = ({
                       {!formData.dateForDefaultValue || resetInputs ? (
                         <span
                           style={{
-                            color: inputsFontColor,
-                            fontSize: "13.5px",
+                            color: `${inputsFontColor}   `,
+                            fontSize: "13.5px   ",
                           }}
                         >
                           Pick up Date
@@ -370,7 +391,7 @@ const AdressFormwithoutReactMemo = ({
                         }}
                         onChange={handleChange}
                         style={{
-                          color: inputsFontColor,
+                          color: `${inputsFontColor}   `,
                           border:
                             redBorderOnSubmitForTime ||
                             redBorderOnSubmitForTime2 ||
@@ -378,12 +399,12 @@ const AdressFormwithoutReactMemo = ({
                             redBorderOnSubmitForTime4 ||
                             redBorderOnSubmitForTime5 ||
                             redBorderOnSubmitForTime6
-                              ? `1px solid red`
-                              : `1px solid ${borderColorForInnerElements}`,
-                          background: inputsBackground,
-                          textAlign: "right",
-                          paddingRight: "78px",
-                          borderRadius: borderRadiusesForInnerElements,
+                              ? `1px solid red   `
+                              : `1px solid ${borderColorForInnerElements}   `,
+                          background: `${inputsBackground}   `,
+                          textAlign: "right   ",
+                          paddingRight: "78px   ",
+                          borderRadius: `${borderRadiusesForInnerElements}   `,
                         }}
                         inputsFontColor={inputsFontColor}
                         value={
@@ -400,14 +421,14 @@ const AdressFormwithoutReactMemo = ({
                           style={{
                             color:
                               AMPM == "AM"
-                                ? `${AMPMHoverFontColor}`
-                                : inputsFontColor,
+                                ? `${AMPMHoverFontColor}   `
+                                : `${inputsFontColor}   `,
                             background:
                               AMPM == "AM"
-                                ? `${AMPMHoverBackgroundColor}`
-                                : "transparent",
-                            opacity: AMPM == "AM" ? "1" : "0.5",
-                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)`,
+                                ? `${AMPMHoverBackgroundColor}   `
+                                : "transparent   ",
+                            opacity: AMPM == "AM" ? "1   " : "0.5   ",
+                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)   `,
                           }}
                         >
                           AM
@@ -420,15 +441,15 @@ const AdressFormwithoutReactMemo = ({
                           }}
                           style={{
                             color:
-                              AMPM == "PM"
-                                ? `${AMPMHoverFontColor}`
-                                : inputsFontColor,
+                              AMPM == "PM "
+                                ? `${AMPMHoverFontColor}   `
+                                : `${inputsFontColor}   `,
                             background:
                               AMPM == "PM"
-                                ? `${AMPMHoverBackgroundColor}`
-                                : "transparent",
-                            opacity: AMPM == "PM" ? "1" : "0.5",
-                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)`,
+                                ? `${AMPMHoverBackgroundColor}   `
+                                : "transparent   ",
+                            opacity: AMPM == "PM" ? "1   " : "0.5   ",
+                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)   `,
                           }}
                         >
                           PM
@@ -439,7 +460,7 @@ const AdressFormwithoutReactMemo = ({
                 </div>
               </div>
               <div
-                style={{ width: "100%" }}
+                style={{ width: "100%   " }}
                 className={styles.passengersQuantityBlock}
               >
                 <div className={styles.passengersQuantityBlockContainer}>
@@ -471,7 +492,7 @@ const AdressFormwithoutReactMemo = ({
                       <SafetySeatIcon color={fontColor} />
                       <span
                         className={styles.safetySeatIconAndNameTitle}
-                        style={{ color: fontColor }}
+                        style={{ color: `${fontColor}  ` }}
                       >
                         Safety Seat
                       </span>
@@ -512,7 +533,7 @@ const AdressFormwithoutReactMemo = ({
                     <HourlyIcon color={fontColor} />
                     <span
                       className={styles.hourlyIconAndNameTitle}
-                      style={{ color: fontColor }}
+                      style={{ color: `${fontColor}   ` }}
                     >
                       Hourly
                     </span>
@@ -548,7 +569,7 @@ const AdressFormwithoutReactMemo = ({
                 <div className={styles.preferencesTitleContainer}>
                   <span
                     className={styles.preferencesTitle}
-                    style={{ color: fontColor }}
+                    style={{ color: `${fontColor}   ` }}
                   >
                     Preferences
                   </span>
@@ -556,10 +577,10 @@ const AdressFormwithoutReactMemo = ({
                 <div
                   className={styles.preferencesCarsContainer}
                   style={{
-                    borderRadius: `${borderRadiusesForInnerElements}`,
+                    borderRadius: `${borderRadiusesForInnerElements}   `,
                     border: redBorderOnSubmitForCarType
-                      ? "1px solid red"
-                      : "1px solid transprent",
+                      ? "1px solid red   "
+                      : "1px solid transprent   ",
                   }}
                 >
                   <Carousel
@@ -613,10 +634,10 @@ const AdressFormwithoutReactMemo = ({
                     type="submit"
                     className={styles.buttonNextSelf}
                     style={{
-                      background: backAndNextButtonsColor,
-                      color: backAndNextButtonsFontColor,
-                      border: `1px solid ${backAndNextButtonsBorderColor}`,
-                      borderRadius: borderRadiusesForInnerElements,
+                      background: `${backAndNextButtonsColor}   `,
+                      color: `${backAndNextButtonsFontColor}   `,
+                      border: `1px solid ${backAndNextButtonsBorderColor}   `,
+                      borderRadius: ` ${borderRadiusesForInnerElements}   `,
                     }}
                   >
                     Next
@@ -650,7 +671,7 @@ const CarItemContainer = styled.div`
       return props.hoverColor
     }
   }};
-  outline: none !important;
+  outline: none;
   span {
     color: ${(props) => {
       if (props.carSelected) {

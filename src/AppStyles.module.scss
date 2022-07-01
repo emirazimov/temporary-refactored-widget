@@ -6,6 +6,22 @@ html {
   font-family: "Vazir", sans-serif;
 }
 
+// #widget-by-bookinglane button {
+//   appearance: initial !important;
+//   box-sizing: initial !important;
+//   display: initial !important;
+//   font-family: Roboto !important;
+//   font-weight: initial !important;
+//   letter-spacing: initial !important;
+//   line-height: initial !important;
+//   padding: initial !important;
+//   position: initial !important;
+//   text-decoration: initial !important;
+//   text-transform: initial !important;
+//   transition: initial !important;
+//   vertical-align: initial !important;
+// }
+
 .mainBookNowWrapper {
 }
 
@@ -142,17 +158,18 @@ html {
 }
 .cardContainerShow,
 .cardContainerShowMobile {
-  pointer-events: auto;
-  width: 356px;
-  position: relative;
-  visibility: visible;
+  pointer-events: auto !important;
+  width: 356px !important;
+  position: relative !important;
+  visibility: visible !important;
 
   // overflow-y: scroll;
-  opacity: 1;
-  transform: translateY(0);
-  -webkit-transform: translateY(0);
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  -webkit-transform: translateY(0) !important;
+  transition: 0.4s !important;
+  -webkit-transition: 0.4s !important;
+  line-height: initial !important;
 }
 .cardContainerHidden,
 .cardContainerHiddenMobile {

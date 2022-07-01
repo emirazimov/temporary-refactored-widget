@@ -31,6 +31,7 @@ import { Preloader } from "./Components/Helpers/Preloader/Preloader"
 import styles from "./AppStyles.module.scss"
 import ThemeContext from "./context"
 import styled from "styled-components"
+import "./StylesForResetingEmbeddingWebsitesStyles.scss"
 // import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 let xOrdinate = 0
@@ -304,6 +305,7 @@ const App = (props) => {
                     left: "11%",
                     whiteSpace: "nowrap",
                     fontFamily: "Roboto",
+                    lineHeight: "initial",
                   }}
                 >
                   BOOK NOW!
@@ -411,6 +413,7 @@ const App = (props) => {
                       left: "11%",
                       whiteSpace: "nowrap",
                       fontFamily: "Roboto",
+                      lineHeight: "initial",
                     }}
                   >
                     BOOK NOW!
@@ -527,6 +530,7 @@ const App = (props) => {
                         left: "11%",
                         whiteSpace: "nowrap",
                         fontFamily: "Roboto",
+                        lineHeight: "initial",
                       }}
                     >
                       BOOK NOW!

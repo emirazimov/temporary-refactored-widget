@@ -933,6 +933,7 @@ const PreviewUIComponent = ({
                 className={styles.reservationDetailsItemValueSelf}
                 style={{
                   color: fontColor,
+                  fontWeight: "700",
                 }}
               >
                 {`$${round(selectedCar.price + selectedCar.transactionFee, 2)}`}
@@ -996,41 +997,49 @@ const PreviewUIComponent = ({
 export default PreviewUIComponent
 
 const Textarea = styled.textarea`
-  width: 100%;
+  width: 100% !important;
   // display: block;
-  height: 45px;
-  color: ${(props) => props.fontColor};
-  font-family: "Vazir", sans-serif;
-  font-size: 15px;
-  border: none;
-  outline: none;
-  resize: none;
-  padding: 0;
-  background: transparent;
-  border-bottom: 1px solid ${(props) => props.fontColor};
+  height: 45px !important;
+  max-height: 45px !important;
+  min-height: 45px !important;
+  color: ${(props) => props.fontColor} !important;
+  font-family: "Vazir", sans-serif !important;
+  font-size: 15px !important;
+  border: none !important;
+  outline: none !important;
+  resize: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid ${(props) => props.fontColor} !important;
+
+  margin-bottom: initial !important;
+  font-weight: initial !important;
+  font-family: Roboto !important;
+  border-radius: initial !important;
+
   &::-webkit-input-placeholder {
-    font-size: 15px;
-    color: ${(props) => props.fontColor};
-    font-family: "Vazir", sans-serif;
+    font-size: 15px !important;
+    color: ${(props) => props.fontColor} !important;
+    font-family: "Vazir", sans-serif !important;
   }
   &:-moz-placeholder {
     /* Upto Firefox 18, Deprecated in Firefox 19  */
-    font-size: 15px;
-    color: ${(props) => props.fontColor};
-    font-family: "Vazir", sans-serif;
+    font-size: 15px !important;
+    color: ${(props) => props.fontColor} !important;
+    font-family: "Vazir", sans-serif !important;
   }
   &::-moz-placeholder {
     /* Firefox 19+ */
-    font-size: 15px;
-    color: ${(props) => props.fontColor};
-    font-family: "Vazir", sans-serif;
+    font-size: 15px !important;
+    color: ${(props) => props.fontColor} !important;
+    font-family: "Vazir", sans-serif !important;
   }
   &:-ms-input-placeholder {
     font-size: 15px;
-    color: ${(props) => props.fontColor};
-    font-family: "Vazir", sans-serif;
+    color: ${(props) => props.fontColor} !important;
+    font-family: "Vazir", sans-serif !important;
   }
   &:focus::placeholder {
-    color: transparent;
+    color: transparent !important;
   }
 `

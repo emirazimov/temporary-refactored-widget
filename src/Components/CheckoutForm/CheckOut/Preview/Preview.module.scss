@@ -135,11 +135,49 @@
 }
 
 .buttonBackSelf {
-  @include buttonBackSelf;
+  width: 50% !important;
+  height: 100% !important;
+  cursor: pointer !important;
+  transition: 0.2s !important;
+  font-size: 13.5px !important;
+  // for Setting def values if there is css conflicts
+  font-weight: initial !important;
+  letter-spacing: initial !important;
+  line-height: initial !important;
+  padding: initial !important;
+  position: initial !important;
+  text-decoration: initial !important;
+  text-transform: initial !important;
+  font-family: Roboto !important;
+  display: initial !important;
+  box-sizing: initial !important;
+  appearance: initial !important;
+  vertical-align: initial !important;
+  overflow: initial !important;
+  margin: initial !important;
 }
 
 .buttonNextSelf {
-  @include buttonNextSelf;
+  width: 50% !important;
+  height: 100% !important;
+  cursor: pointer !important;
+  transition: 0.2s !important;
+  font-size: 13.5px !important;
+  // for Setting def values if there is css conflicts
+  font-weight: initial !important;
+  letter-spacing: initial !important;
+  line-height: initial !important;
+  padding: initial !important;
+  position: initial !important;
+  text-decoration: initial !important;
+  text-transform: initial !important;
+  font-family: Roboto !important;
+  display: initial !important;
+  box-sizing: initial !important;
+  appearance: initial !important;
+  vertical-align: initial !important;
+  overflow: initial !important;
+  margin: initial !important;
 }
 
 .carouselModal {

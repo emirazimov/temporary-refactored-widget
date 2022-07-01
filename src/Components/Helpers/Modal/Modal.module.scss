@@ -101,6 +101,19 @@
   background: rgb(189, 189, 189);
   color: black;
   border-radius: 5px;
+  appearance: initial !important;
+  box-sizing: initial !important;
+  display: initial !important;
+  font-family: Roboto !important;
+  font-weight: initial !important;
+  letter-spacing: initial !important;
+  line-height: initial !important;
+  padding: initial !important;
+  position: initial !important;
+  text-decoration: initial !important;
+  text-transform: initial !important;
+  transition: initial !important;
+  vertical-align: initial !important;
   &:hover {
     background: rgb(90, 90, 90);
     color: white;

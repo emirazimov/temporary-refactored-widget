@@ -1,16 +1,19 @@
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/_IconsForWholeAddressFormPage.scss'
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/_IconsForWholeAddressFormPage.scss"
   as *;
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss' as *;
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/MainInputsStyles.module' as *;
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/_AppBackgroundColor.module.scss' as *;
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/_ButtonsGroupBackAndNext.module.scss'
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss" as *;
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/MainInputsStyles.module" as *;
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/_AppBackgroundColor.module.scss" as *;
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/_ButtonsGroupBackAndNext.module.scss"
   as *;
-@use '../../../../MAINCSSFORWHOLECOMPONENTS/_MainCountersStyles.module.scss' as *;
+@use "../../../../MAINCSSFORWHOLECOMPONENTS/_MainCountersStyles.module.scss" as *;
 
 .passengerQuantityWrapper {
+  width: 100%;
+  height: 37px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   @include margin-top-bottom-for-adressfrom-inputs;
 }
 .passengerQuantityIconAndTitleContainer {
@@ -31,9 +34,32 @@
   flex-direction: row;
   align-items: center;
 }
-
+.passengerQuantityInputContainer {
+  height: 100%;
+}
 .passengerQuantityInputSelf {
-  @include counters-input-styles;
+  width: 34px !important;
+  // marginLeft: "2px",
+  // marginRight: "2.5px",
+  // marginBottom: "4px",
+  height: 100% !important;
+
+  border-right: none !important;
+  border-left: none !important ;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  // border: none;
+  text-align: center !important;
+  font-family: Roboto !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  padding: 0 !important;
+  outline: none !important;
+  margin: 0 !important;
 
   // outline: none;
 }

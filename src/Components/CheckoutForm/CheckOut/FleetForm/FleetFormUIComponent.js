@@ -567,7 +567,7 @@ const FleetForm = ({
                   disabled={carCard ? false : true}
                   className={styles.buttonNextSelf}
                   style={{
-                    opacity: carCard ? "1" : "0.5",
+                    opacity: carCard ? "1" : "0.3",
                     background: backAndNextButtonsColor,
                     color: backAndNextButtonsFontColor,
                     border: `1px solid ${backAndNextButtonsBorderColor}`,
