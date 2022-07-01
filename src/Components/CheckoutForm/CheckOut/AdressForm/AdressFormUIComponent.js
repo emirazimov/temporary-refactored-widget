@@ -391,7 +391,7 @@ const AdressFormwithoutReactMemo = ({
                         }}
                         onChange={handleChange}
                         style={{
-                          color: `${inputsFontColor}   `,
+                          color: `${inputsFontColor}`,
                           border:
                             redBorderOnSubmitForTime ||
                             redBorderOnSubmitForTime2 ||
@@ -399,12 +399,12 @@ const AdressFormwithoutReactMemo = ({
                             redBorderOnSubmitForTime4 ||
                             redBorderOnSubmitForTime5 ||
                             redBorderOnSubmitForTime6
-                              ? `1px solid red   `
-                              : `1px solid ${borderColorForInnerElements}   `,
-                          background: `${inputsBackground}   `,
-                          textAlign: "right   ",
-                          paddingRight: "78px   ",
-                          borderRadius: `${borderRadiusesForInnerElements}   `,
+                              ? `1px solid red`
+                              : `1px solid ${borderColorForInnerElements}`,
+                          background: `${inputsBackground}`,
+                          textAlign: "right",
+                          paddingRight: "78px",
+                          borderRadius: `${borderRadiusesForInnerElements}`,
                         }}
                         inputsFontColor={inputsFontColor}
                         value={
@@ -421,14 +421,14 @@ const AdressFormwithoutReactMemo = ({
                           style={{
                             color:
                               AMPM == "AM"
-                                ? `${AMPMHoverFontColor}   `
-                                : `${inputsFontColor}   `,
+                                ? AMPMHoverFontColor
+                                : inputsFontColor,
                             background:
                               AMPM == "AM"
-                                ? `${AMPMHoverBackgroundColor}   `
-                                : "transparent   ",
-                            opacity: AMPM == "AM" ? "1   " : "0.5   ",
-                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)   `,
+                                ? AMPMHoverBackgroundColor
+                                : "transparent",
+                            opacity: AMPM == "AM" ? "1" : "0.5",
+                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)`,
                           }}
                         >
                           AM
@@ -441,15 +441,15 @@ const AdressFormwithoutReactMemo = ({
                           }}
                           style={{
                             color:
-                              AMPM == "PM "
-                                ? `${AMPMHoverFontColor}   `
-                                : `${inputsFontColor}   `,
+                              AMPM == "PM"
+                                ? AMPMHoverFontColor
+                                : inputsFontColor,
                             background:
                               AMPM == "PM"
-                                ? `${AMPMHoverBackgroundColor}   `
-                                : "transparent   ",
-                            opacity: AMPM == "PM" ? "1   " : "0.5   ",
-                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)   `,
+                                ? AMPMHoverBackgroundColor
+                                : "transparent",
+                            opacity: AMPM == "PM" ? "1" : "0.5",
+                            borderRadius: `calc(${borderRadiusesForInnerElements} - 2px)`,
                           }}
                         >
                           PM
