@@ -1,16 +1,16 @@
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/MainInputsStyles.module" as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/IconsForWholeAddressFormPage" as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/MainInputsStyles.module' as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/IconsForWholeAddressFormPage' as *;
 // @use "../../../../../../../../global" as *!important ;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/AppBackgroundColor.module" as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/SidePaddings.module" as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/AppBackgroundColor.module' as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/SidePaddings.module' as *;
 
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss" as *;
-@use "../../FleetForm/FleetForm.module.scss" as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/_ButtonsGroupBackAndNext.module.scss"
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/_FontColor.module.scss' as *;
+@use '../../FleetForm/FleetForm.module.scss' as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/_ButtonsGroupBackAndNext.module.scss'
   as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/_MainCountersStyles.module.scss" as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss" as *;
-@use "../../../../MAINCSSFORWHOLECOMPONENTS/_BorderRadiuses.module.scss" as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/_MainCountersStyles.module.scss' as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/_ColorsForCustomize.module.scss' as *;
+@use '../../../../MAINCSSFORWHOLECOMPONENTS/_BorderRadiuses.module.scss' as *;
 
 $background-position-x-for-date-time-picker: 3% !important ;
 
@@ -45,6 +45,7 @@ $background-position-x-for-date-time-picker: 3% !important ;
   @include main-inputs-size-and-background-styles-etc;
   @include addressform-inputs-with-icons;
   box-sizing: border-box !important ;
+  // padding: 0 !important;
   padding-right: 8px !important ;
   // text-indent: 38px!important ;
   // padding: 0!important ;
@@ -117,6 +118,7 @@ $background-position-x-for-date-time-picker: 3% !important ;
   // @include clock_icon!important ;
   @include main-inputs-size-and-background-styles-etc;
   @include addressform-inputs-with-icons;
+  padding-right: 78px !important;
   box-sizing: border-box !important ;
   background-position-x: $background-position-x-for-date-time-picker !important ;
 }
