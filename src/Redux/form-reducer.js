@@ -77,13 +77,6 @@ let initialState = {
     cityId: 0,
     stateId: 0,
   },
-  greetClientInfo: {
-    id: 0,
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-  },
   isAirportPickupIncluded: false,
   flightNumber: "",
   airlines: {
@@ -177,7 +170,6 @@ const formReducer = (state = initialState, action) => {
     case SET_PAYMENT_FORM:
       return {
         ...state,
-        greetClientInfo: { ...action.form.greetClientInfo },
         paymentInfo: {
           ...action.form.paymentInfo,
           cardNumber: action.cardNumber,
